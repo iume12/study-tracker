@@ -581,6 +581,25 @@ a.btn{text-decoration:none}
 .basmala{font-family:"Amiri","Noto Naskh Arabic","Geeza Pro",serif;font-size:19px;font-weight:700;color:#9db8f2;margin:6px 0 0;text-align:left;line-height:1.5}
 .head{align-items:flex-start}
 .head .starchip,.head .iconbtn{margin-top:14px}
+
+/* v9: subject colours, clearer step button, my plan */
+.spill{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.02em;padding:2px 8px;border-radius:99px}
+.lrow2{display:flex;align-items:flex-start;gap:10px;padding:12px 10px 12px 12px}
+.lrow2.later{opacity:.55}
+.lrow2 .lemo{margin-top:2px}
+.lbody{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.lhead{display:flex;flex-direction:column;gap:5px;text-align:left;width:100%}
+.lhead .tt{font-weight:600;line-height:1.3}
+.lmeta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.lmeta .tm{font-size:12px;color:var(--muted)}
+.lacts{display:flex;align-items:center;gap:8px}
+.nextbtn{height:36px;padding:0 14px;border-radius:99px;background:var(--accent-soft);color:#dbe6ff;font-weight:700;font-size:13px;border:1px solid #2a3d66;transition:transform .12s,background .15s}
+.nextbtn:active{transform:scale(.95);background:#22386a}
+.alldone{font-size:13px;font-weight:700;color:#b6cdff}
+.lacts .lfile{margin-left:auto}
+.lring{flex:none;width:46px;height:46px;display:grid;place-items:center}
+.unplan{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:var(--muted)}
+.unplan svg{width:14px;height:14px}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px)}
@@ -794,8 +813,10 @@ const STAGE_NAME={s1:"First study",s2:"Summary & quiz",s3:"Second study",s4:"Rev
 const STAGE_SHORT={s1:"1st",s2:"Sum",s3:"2nd",s4:"Rev"};
 const TYPES=[["L","Lectures"],["PI","PI"],["TBL","TBL"],["Lab","Labs"],["Other","Other"]];
 const TYPE_F={L:1,PI:1,TBL:.75,Lab:.5,Other:1};
-const SUBJ_EMOJI={Physiology:"🫀",Anatomy:"🦴",Histology:"🔬",Biochemistry:"🧪",Pathology:"🧫",Microbiology:"🦠",Pharmacology:"💊",Radiology:"🩻",Immunology:"🛡️",Genetics:"🧬",Embryology:"👶",Neuroscience:"🧠",Medicine:"🩺",Surgery:"🩺","Community Medicine":"👥","Family Medicine":"🩺"};
-function subjMeta(s){s=s||"Other";return {color:"#1f6feb",icon:SUBJ_EMOJI[s]||"📘"}}
+const SUBJ_EMOJI={Physiology:"🫀",Anatomy:"🦴",Histology:"🔬",Biochemistry:"🧪",Pathology:"🩺",Microbiology:"🦠",Pharmacology:"💊",Radiology:"🩻",Immunology:"🛡️",Genetics:"🧬",Embryology:"👶",Neuroscience:"🧠",Medicine:"🩺",Surgery:"🩺","Community Medicine":"👥","Family Medicine":"🩺"};
+const SUBJ_COLOR={Physiology:"#ff7a8a",Anatomy:"#e9c27d",Histology:"#b794ff",Pathology:"#4fd1c5",Microbiology:"#7ed98f",Radiology:"#8ec9ff",Biochemistry:"#ffb46b",Pharmacology:"#ff9ad5",Immunology:"#f6a96b",Genetics:"#9be37a",Embryology:"#ffd36b",Neuroscience:"#c3a6ff"};
+function subjMeta(s){s=s||"Other";return {color:SUBJ_COLOR[s]||"#9aa4b8",icon:SUBJ_EMOJI[s]||"📘"}}
+const spill=s=>{const c=subjMeta(s).color;return `<span class="spill" style="color:${c};background:${c}24">${esc(s)}</span>`};
 const subjColor=s=>subjMeta(s).color;
 
 /* ---------- state ---------- */
@@ -1141,15 +1162,16 @@ function totalStars(blk){
   const lec=blk?studyItems(blk).filter(i=>doneCount(blk,i.id)===4).length:0;
   return lec+S.banks.reduce((a,b)=>a+quizStars(b.best),0);
 }
-function taskRow(blk,tk){
+function taskRow(blk,tk,removable){
   const it=blk.items.find(i=>i.id===tk.id);if(!it)return"";
   const done=!!prog(blk,it.id)[tk.s];
   return `<div class="row ${done?"done":""}">
     <button class="tick" data-act="stage" data-id="${it.id}" data-s="${tk.s}" aria-label="${done?"Mark not done":"Mark done"}: ${STAGE_NAME[tk.s]} ${esc(it.code)}">${I.check}</button>
     <button class="rowtext" data-act="item" data-id="${it.id}">
       <span class="tt">${esc(it.title)}</span>
-      <span class="tm">${emo(it.subject)} ${esc(it.code)} · ${STAGE_NAME[tk.s]}</span>
+      <span class="tm">${emo(it.subject)} <span style="color:${subjMeta(it.subject).color};font-weight:700">${esc(it.subject)}</span> · ${esc(it.code)} · ${STAGE_NAME[tk.s]}</span>
     </button>
+    ${removable?`<button class="unplan" data-act="unplan" data-id="${it.id}" data-s="${tk.s}" aria-label="Remove from today's plan">${I.x}</button>`:""}
   </div>`;
 }
 function classesOn(blk,d){
@@ -1177,6 +1199,9 @@ function todayView(blk){
   const total=tasks.length+doneToday.length;
   const cls=classesOn(blk,t);
   const soon=blk.items.filter(i=>isQuiz(i)&&i.date>=t&&diffDays(t,i.date)<=2);
+  const mine=S.settings.planMode==="mine";
+  const myTasks=((S.myPlan||{})[t]||[]).filter(x=>blk.items.some(i=>i.id===x.id));
+  const myDone=myTasks.filter(x=>prog(blk,x.id)[x.s]).length;
   return `
   <header class="head"><div><div class="eyebrow">${WD[d0.getDay()]}</div><h1>${d0.getDate()} ${MONTHS[d0.getMonth()]}</h1><p class="basmala" dir="rtl" lang="ar">بسم الله، توكلت على الله</p></div>
     <button class="starchip" data-act="stars" aria-label="Your stars">${starSvg(true,16)}<span class="tnum">${totalStars(blk)}</span></button>
@@ -1184,11 +1209,17 @@ function todayView(blk){
   ${counters(blk)}
   ${soon.map(q=>`<div class="quizsoon">${I.quiz}<span><strong>Quiz ${diffDays(t,q.date)===0?"today":diffDays(t,q.date)===1?"tomorrow":"on "+WDS[parse(q.date).getDay()]}</strong> · ${esc(q.code)} ${esc(q.title)}${q.time?" · "+fmtShort(q.time):""}</span></div>`).join("")}
   <section>
-    <div class="label">Study today <span class="tnum">${total?`${doneToday.length}/${total} done`:""}</span></div>
+    <div class="label">Study today ${mine?`<span class="tnum">${myTasks.length?`${myDone}/${myTasks.length} done`:""}</span>`:`<span class="tnum">${total?`${doneToday.length}/${total} done`:""}</span>`}</div>
+    <div class="seg" style="margin-bottom:12px"><button class="${mine?"":"on"}" data-act="planmode" data-v="suggested">Suggested plan</button><button class="${mine?"on":""}" data-act="planmode" data-v="mine">My plan</button></div>
+    ${mine?`
+      ${myTasks.length?`<div class="daybar"><b style="width:${(myDone/myTasks.length*100).toFixed(1)}%"></b></div><div class="list">${myTasks.map(tk=>taskRow(blk,tk,true)).join("")}</div>`:`<p class="empty">Pick the lectures you want to get through today.</p>`}
+      ${myTasks.length&&myDone===myTasks.length?`<div class="cheer">${starSvg(true,22)} You did everything you planned. Great work!</div>`:""}
+      <button class="btn soft" style="width:100%;margin-top:10px" data-act="planpick">${I.plus} Add lectures to today</button>`
+    :`
     ${total?`<div class="daybar"><b style="width:${(doneToday.length/total*100).toFixed(1)}%"></b></div>`:""}
     ${total?`<div class="list">${tasks.map(tk=>taskRow(blk,tk)).join("")}${doneToday.map(tk=>taskRow(blk,tk)).join("")}</div>`:`<p class="empty">${plan.exams.length?"Nothing to study today.":"No upcoming exams."}</p>`}
     ${!tasks.length&&doneToday.length?`<div class="cheer">${starSvg(true,22)} Today's study is done. Great work!</div>`:""}
-    ${plan.exams.length?`<button class="link" data-act="go" data-v="plan">See the whole plan ${I.chev}</button>`:""}
+    ${plan.exams.length?`<button class="link" data-act="go" data-v="plan">See the whole plan ${I.chev}</button>`:""}`}
   </section>
   ${cls.length?`<section><div class="label">Classes today</div><div class="list">${cls.map(classRow).join("")}</div></section>`:""}
   ${credit}`;
@@ -1248,7 +1279,8 @@ function calView(blk){
     ${exs.map(e=>`<div class="examrow">${esc(e.name)} exam${e.time?" · "+fmtShort(e.time):""}</div>`).join("")}
     ${cls.length?`<div class="list">${cls.map(classRow).join("")}</div>`:exs.length?"":`<p class="empty">No classes this day.</p>`}
   </section>
-  ${pday&&pday.tasks.length?`<section><div class="label">Study plan <span>${pday.tasks.length} steps</span></div><div class="list">${pday.tasks.map(tk=>taskRow(blk,tk)).join("")}</div></section>`:""}`;
+  ${S.settings.planMode==="mine"?(((S.myPlan||{})[sel]||[]).length?`<section><div class="label">My plan <span>${S.myPlan[sel].length} steps</span></div><div class="list">${S.myPlan[sel].map(tk=>taskRow(blk,tk)).join("")}</div></section>`:"")
+   :(pday&&pday.tasks.length?`<section><div class="label">Suggested plan <span>${pday.tasks.length} steps</span></div><div class="list">${pday.tasks.map(tk=>taskRow(blk,tk)).join("")}</div></section>`:"")}`;
 }
 
 /* lectures */
@@ -1265,14 +1297,17 @@ function stepRing(n){
 function lecRow(blk,it){
   const t=today();const p=prog(blk,it.id);const n=doneCount(blk,it.id);
   const nxt=STAGES.find(s=>!p[s]);const link=(blk.links||{})[it.id];
-  const sub=it.date>t?`Class on ${shortDate(it.date)}`:n===4?"All 4 steps done":`Next: ${STAGE_NAME[nxt]}`;
-  return `<div class="lrow ${it.date>t?"later":""}">
-    <button class="lmain" data-act="item" data-id="${it.id}">
-      <span class="lemo" aria-hidden="true">${subjMeta(it.subject).icon}</span>
-      <span class="ltext"><span class="tt"><span class="lcode">${esc(it.code)}</span> ${esc(it.title)}</span><span class="tm">${sub}</span></span>
-    </button>
-    <button class="lsteps" data-act="next" data-id="${it.id}" aria-label="${n===4?"All steps done":"Mark "+STAGE_NAME[nxt]+" done"}">${stepRing(n)}</button>
-    ${link?`<a class="lfile on" href="${esc(link)}" target="_blank" rel="noopener" aria-label="Open lecture file">📄</a>`:`<button class="lfile" data-act="item" data-id="${it.id}" aria-label="No file linked yet">📄</button>`}
+  return `<div class="lrow2 ${it.date>t?"later":""}">
+    <span class="lemo" aria-hidden="true">${subjMeta(it.subject).icon}</span>
+    <div class="lbody">
+      <button class="lhead" data-act="item" data-id="${it.id}"><span class="tt"><span class="lcode">${esc(it.code)}</span> ${esc(it.title)}</span>
+        <span class="lmeta">${spill(it.subject)}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}</span></button>
+      <div class="lacts">
+        ${n<4?`<button class="nextbtn" data-act="next" data-id="${it.id}">✅ ${STAGE_NAME[nxt]}</button>`:`<span class="alldone">⭐ All 4 steps done</span>`}
+        ${link?`<a class="lfile on" href="${esc(link)}" target="_blank" rel="noopener" aria-label="Open lecture file">📄</a>`:`<button class="lfile" data-act="item" data-id="${it.id}" aria-label="No file linked yet">📄</button>`}
+      </div>
+    </div>
+    <button class="lring" data-act="item" data-id="${it.id}" aria-label="${n} of 4 steps done">${stepRing(n)}</button>
   </div>`;
 }
 function filteredItems(blk){
@@ -1296,7 +1331,7 @@ function lecView(blk){
       <div class="seg" style="grid-auto-flow:row;grid-template-columns:1fr 1fr">${STAGES.map(s=>`<button class="${bulk===s?"on":""}" data-act="bulkstage" data-v="${s}">${STAGE_NAME[s]}</button>`).join("")}</div>
       <p class="note">Marks ${STAGE_NAME[bulk].toLowerCase()} done for the ${eligible.length} lecture${eligible.length===1?"":"s"} below that were already given.</p>
       <div class="btns"><button class="btn soft" data-act="bulkcancel">Cancel</button><button class="btn primary" data-act="bulkapply">Mark done</button></div></div>`:""}
-  ${UI.lecHint?`<div class="hint"><span>Tap the circle to tick the next step. Finish all 4 and the lecture earns a star.</span><button class="x" data-act="hidehint" aria-label="Hide tip">${I.x}</button></div>`:""}
+  ${UI.lecHint?`<div class="hint"><span>Tap the ✅ button to finish the next step. The circle shows your progress, and all 4 steps earn a star.</span><button class="x" data-act="hidehint" aria-label="Hide tip">${I.x}</button></div>`:""}
   ${its.length?`<div class="list">${its.map(i=>lecRow(blk,i)).join("")}</div>`:`<p class="empty">No lectures here.</p>`}
   ${bulk?"":`<button class="link" data-act="bulkopen">Already studied some? Mark many at once ${I.chev}</button>`}`;
 }
@@ -1472,6 +1507,10 @@ function settingsView(blk){
     ${blk?(UI.confirm&&UI.confirm.t==="delblock"?`<div class="confirm" style="margin-top:8px">Delete ${esc(blk.name)} and all its ticks? This can't be undone.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn danger" data-act="delblockyes">Delete</button></div></div>`:`<button class="link" style="color:var(--muted)" data-act="delblock">Delete ${esc(blk.name)}</button>`):""}
   </section>
   ${UI.confirm&&UI.confirm.t==="importblock"?`<div class="confirm">${esc(UI.confirm.text)}<div class="btns"><button class="btn soft" data-act="cancelconfirm">Cancel</button><button class="btn primary" data-act="importblockyes">${UI.confirm.update?"Update":"Add block"}</button></div></div>`:""}
+  ${blk?`<section><div class="label">Start over</div><div class="panel">
+    <p class="note">Clears every tick and star in ${esc(blk.name)} and your quiz scores, so you can start fresh. Lectures, exams, links and test banks stay.</p>
+    ${UI.confirm&&UI.confirm.t==="resetprog"?`<div class="confirm">Clear all your progress in ${esc(blk.name)}? This can't be undone.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn danger" data-act="resetprogyes">Clear progress</button></div></div>`:`<button class="btn soft" data-act="resetprog">Clear my progress</button>`}
+  </div></section>`:""}
   <section><div class="label">Backup</div>
     <div class="panel">
       <p class="note">${BUILD!=="artifact"?"Everything is saved on this iPhone. Save a backup now and then, and use it to move to a new phone.":mode==="synced"?"Synced to your Claude account. A backup file moves your data to the iPhone app.":"Saved in this browser. A backup file keeps a copy."}</p>
@@ -1562,6 +1601,7 @@ function renderSheet(){
   else if(sh.type==="paste")h=pasteSheet(sh);
   else if(sh.type==="wizard")h=wizardSheet(sh);
   else if(sh.type==="links")h=linksSheet(blk,sh);
+  else if(sh.type==="planpick")h=planPickSheet(blk);
   else if(sh.type==="loading")h=`<div class="sheet-h"><h2>Reading ${esc(sh.name||"file")}…</h2></div><div class="gen"><span class="spin"></span><span>This takes a few seconds.</span></div>`;
   const keep=sheetEl.querySelector(".sheet-panel");const st=keep?keep.scrollTop:0;
   sheetEl.innerHTML=`<div class="sheet" data-act="closebg"><div class="sheet-panel" role="dialog" aria-modal="true" style="${sh._shown?"animation:none":""}"><div class="grab"></div>${h}</div></div>`;
@@ -1649,6 +1689,15 @@ function wizardSheet(sh){
     <div class="btns"><button class="btn soft" data-act="wizback">Back</button><button class="btn primary" data-act="wizdone">Create block</button></div>`;
 }
 const studyCount=p=>p.items.filter(i=>i.type!=="PI"&&i.type!=="TBL").length;
+function planPickSheet(blk){
+  const t=today();const cur=(S.myPlan||{})[t]||[];
+  const its=studyItems(blk).filter(i=>doneCount(blk,i.id)<4||cur.some(x=>x.id===i.id));
+  return `<div class="sheet-h"><h2>Today's plan</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
+  <p class="note">Tick the lectures you want to work on today. Each one is added with its next step.</p>
+  <div class="picklist">${its.map(i=>{const on=cur.find(x=>x.id===i.id);const p=prog(blk,i.id);const nxt=on?on.s:STAGES.find(s=>!p[s]);
+    return `<label><input type="checkbox" data-pp="${i.id}" id="pp-${i.id}" ${on?"checked":""}><span class="pc">${subjMeta(i.subject).icon} ${esc(i.code)}</span><span style="flex:1;min-width:0">${esc(i.title)}<small class="sub" style="display:block;font-size:12px">${nxt?STAGE_NAME[nxt]:"Done"}</small></span></label>`}).join("")}</div>
+  <button class="btn primary" data-act="close">Done</button>`;
+}
 function linksSheet(blk,sh){
   const r=sh.result;const n=Object.keys(blk.links||{}).length;
   return `<div class="sheet-h"><h2>Lecture file links</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
@@ -2138,6 +2187,11 @@ function onClick(e){
       txt.split(/\r?\n/).forEach(line=>{const u=(line.match(/https?:\/\/\S+/)||[])[0];if(!u)return;const c=(line.match(/\b(L|LAB)\s*\d{1,3}\b/i)||[])[0]||"";const title=line.replace(u,"").replace(/^\s*(L|LAB)\s*\d{1,3}\s*[–\-:.)]*\s*/i,"").trim();const it=linkTarget(blk,title,/^lab/i.test(c)?"Lab":"",c);if(it){blk.links[it.id]=u;ok++}else miss.push(c||title.slice(0,20))});
       sh.result={ok,miss};changed();renderSheet();break}
     case"shareblock":shareBlock();break;
+    case"planmode":S.settings.planMode=b.dataset.v;changed();render();break;
+    case"planpick":UI.sheet={type:"planpick"};renderSheet();break;
+    case"unplan":{const t=today();S.myPlan=S.myPlan||{};S.myPlan[t]=(S.myPlan[t]||[]).filter(x=>!(x.id===b.dataset.id&&x.s===b.dataset.s));changed();render();break}
+    case"resetprog":UI.confirm={t:"resetprog"};render();break;
+    case"resetprogyes":{blk.progress={};const ids=[];S.banks.filter(x=>!x.blockId||x.blockId===blk.id).forEach(x=>{x.best=null;x.wrong=[];x.tries=0;x.last=null;ids.push("bank_"+x.id)});UI.confirm=null;planMemo={k:"",v:null};changed(["state",...ids]);UI.msg="Your progress is cleared. Fresh start!";render();window.scrollTo({top:0});break}
     case"importblockyes":{const nb=applyBlockFile(UI.confirm.data);UI.confirm=null;UI.msg=`${nb.name} is ready.`;render();break}
   }
 }
@@ -2186,6 +2240,9 @@ document.addEventListener("change",async e=>{
   if(el.dataset.b==="name"&&UI.sheet&&UI.sheet.type==="bank"){const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){bk.name=el.value.trim()||bk.name;changed(["bank_"+bk.id]);render()}}
   if(el.id==="pdf-file"&&el.files&&el.files[0]){readPdf(el.files[0]);el.value=""}
   if(el.id==="links-pdf"&&el.files&&el.files[0]){readLinksPdf(el.files[0]);el.value=""}
+  if(el.dataset.pp&&blk){const t=today();S.myPlan=S.myPlan||{};let L=S.myPlan[t]||[];const id=el.dataset.pp;
+    if(el.checked){const p=prog(blk,id);const s=STAGES.find(x=>!p[x]);if(s&&!L.some(x=>x.id===id))L.push({id,s})}else L=L.filter(x=>x.id!==id);
+    S.myPlan[t]=L;for(const k in S.myPlan)if(k<addDays(t,-60))delete S.myPlan[k];changed();render()}
   if((el.id==="bank-file"||el.id==="bank-file2")&&el.files&&el.files[0]){readBankFile(el.files[0]);el.value=""}
   if((el.id==="wiz-pdf"||el.id==="wiz-pdf2")&&el.files&&el.files[0]){
     const sh=UI.sheet;const f=el.files[0];el.value="";
