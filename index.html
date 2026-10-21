@@ -633,6 +633,148 @@ a.btn{text-decoration:none}
 .lqadd{flex:none;height:32px;padding:0 12px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:#c9b3ff;background:#241a3a;border:1px solid #3a2b5c;cursor:pointer}
 .lqrow.later{opacity:.55}
 .lqgo{flex:none;height:32px;padding:0 14px;border-radius:99px;font-size:12px;font-weight:800;color:#fff;background:linear-gradient(135deg,#7c4dff,#b26bff)}
+
+/* v11: lecture rows, steps, absence, quiz upgrades */
+.lrow3{display:flex;gap:12px;padding:14px 14px 14px 12px;align-items:flex-start}
+.lrow3.later{opacity:.6}
+.lcodebox{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:15px;border:1px solid;font-variant-numeric:tabular-nums;letter-spacing:-.01em;line-height:1;text-align:center;padding:0 2px}
+.lcodebox.sm{font-size:12px}
+.lrow3 .lbody{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px}
+.lrow3 .lhead{display:block;text-align:left;width:100%}
+.lrow3 .lhead .tt{font-weight:650;font-size:15.5px;line-height:1.3}
+.lmeta2{display:flex;align-items:center;gap:6px 8px;flex-wrap:wrap}
+.lmeta2 .tm{font-size:12px;color:var(--muted)}
+.llinks{margin-left:auto;display:flex;gap:6px}
+.lk{height:28px;padding:0 10px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;text-decoration:none;background:var(--surface-2);color:#6f778a;border:1px solid var(--line);white-space:nowrap}
+.lk.on{color:#dbe6ff;background:var(--accent-soft);border-color:#2a3d66}
+.lk.qz.on{color:#e6d9ff;background:#2a1d47;border-color:#43307a}
+.stepbar{display:flex;align-items:center;gap:8px}
+.sbs{flex:1;display:grid;gap:5px}
+.sb{height:32px;border-radius:9px;background-color:#1f2430;border:1px solid #2b3242;color:#7d869a;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:3px;background-repeat:no-repeat;transition:transform .12s,color .25s,border-color .25s;min-width:0;overflow:hidden;white-space:nowrap}
+.sb:active{transform:scale(.94)}
+.sb svg{width:12px;height:12px;flex:none}
+.sb.on{background-color:#2f63d6;background-image:linear-gradient(90deg,#2f63d6,#5b8cff);border-color:transparent;color:#fff}
+.sb.pop{animation:sbfill .5s ease-out both}
+@keyframes sbfill{from{background-size:0% 100%;background-color:#1f2430}to{background-size:100% 100%}}
+.stepbar.full .sb.on{background-color:#d39b1c;background-image:linear-gradient(90deg,#d39b1c,#ffd166);color:#3a2a00}
+.sbn{flex:none;min-width:30px;text-align:right;font-size:12px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.stepbar.full .sbn{color:#ffd166;font-size:16px}
+.slidesbtn{flex:none;height:44px;padding:0 14px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--line);margin-top:14px}
+.chips.subjchips .chip{height:34px;font-size:13px;padding:0 12px}
+.cdsec .label{margin-bottom:10px}
+.bell{flex:none;font-size:20px;line-height:1}
+.clsw{display:flex;align-items:center;gap:6px}
+.clsw .cls{flex:1;min-width:0;border-top:0}
+.list>.clsw+.clsw{border-top:1px solid var(--line)}
+.absbtn{flex:none;margin-right:12px;height:30px;padding:0 10px;border-radius:99px;font-size:12px;font-weight:700;color:var(--muted);background:var(--surface-2);border:1px solid var(--line)}
+.absbtn.on{color:#ffb3ba;background:#3a1820;border-color:#6a2a35}
+.clsw.abs .ctt{text-decoration:line-through;text-decoration-color:#ff6b7a}
+.abscard{width:100%;text-align:left;display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.abst{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.abst span{font-weight:700}
+.abst b{font-size:18px;font-variant-numeric:tabular-nums}
+.abst small{font-size:12px;color:var(--muted);font-weight:600}
+.absbar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.absbar b{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#2f63d6,#5b8cff)}
+.abscard.warn .absbar b{background:linear-gradient(90deg,#d9822b,#ffb35c)}
+.abscard.over .absbar b{background:linear-gradient(90deg,#d92d3a,#ff5a66)}
+.abscard .tm{font-size:12px;color:var(--muted)}
+.abslist .absrow{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.absrow .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.absrow .tt{font-weight:600;font-size:14px}
+.absrow .tm{font-size:12px;color:var(--muted)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grid4 .field input{text-align:center}
+.steped{display:flex;flex-direction:column;gap:8px}
+.stepedrow{display:flex;align-items:center;gap:8px}
+.stepn{flex:none;width:20px;color:var(--muted);font-weight:800;font-size:13px;text-align:center}
+.stepedrow .inp{height:44px;flex:1;min-width:0;padding:0 12px}
+.stepedrow .sshort{flex:none;width:84px;text-align:center;font-weight:800}
+.qhead{display:flex;align-items:center;gap:8px}
+.qhead .eyebrow{flex:1;min-width:0}
+.flagbtn{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:18px;background:var(--surface-2);filter:grayscale(1) opacity(.45);transition:filter .2s,transform .15s,background .2s}
+.flagbtn.on{filter:none;background:#3a1820}
+.flagbtn:active{transform:scale(.88)}
+.qtags{display:flex;flex-wrap:wrap;gap:6px}
+.qt{font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;background:var(--surface-2);color:#b9c3d6;letter-spacing:.02em}
+.qt.k-final{background:#3a1820;color:#ff9aa5}
+.qt.k-mid{background:#3a2c12;color:#ffc970}
+.qt.k-saq{background:#123332;color:#7fe0d6}
+.qt.qs{background:#3a3212;color:#ffd166}
+.qt.rp{background:var(--accent-soft);color:#b6cdff}
+mark.kw{background:none;color:#ffd166;font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.qimg{display:block;width:100%;border-radius:12px;overflow:hidden;background:#fff;padding:0;border:0}
+.qimg img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain}
+.qimg.loading{height:150px;background:var(--surface-2)}
+.skipq{align-self:center}
+.opt.good{border-color:#34c27a!important;background:#0f3323!important}
+.opt.good .ol{background:#34c27a!important;color:#04140b!important}
+.opt.good .oi{color:#34c27a!important}
+.opt.bad{border-color:#7a2f3a!important;background:#2a1418!important}
+.opt.bad .ol{background:#7a2f3a!important;color:#ffd9de!important}
+.opt.bad .oi{color:#ff8a96!important}
+.feedback.good{background:#0f3323!important;color:#c9f5dc!important}
+.feedback.bad{background:#2a1418!important;color:#ffd0d6!important}
+.review .ra.good{color:#6fe0a2!important}
+.ostars{flex:none;display:inline-flex;gap:1px;font-size:17px;line-height:1}
+.ostars i{font-style:normal;display:inline-block;animation:starpop .55s cubic-bezier(.3,1.7,.5,1) both}
+.ostars i+i{animation-delay:.14s}
+@keyframes starpop{from{transform:scale(0) rotate(-40deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.choice.mistakes{border-color:#43307a;background:linear-gradient(135deg,#1d1633,var(--surface))}
+.imgsheet img{width:100%;height:auto;border-radius:12px;background:#fff}
+
+/* v12: accent colours (personal), settings tabs, bigger countdown */
+:root,:root[data-accent="blue"]{--accent:#3d6fe8;--accent-2:#1d43a8;--accent-hi:#5b8cff;--accent-soft:#16233b;--accent-line:#2a3d66;--accent-text:#dbe6ff;--accent-tint:#9db8f2;--on-accent:#ffffff;--done-a:#d39b1c;--done-b:#ffd166;--done-fg:#3a2a00}
+:root[data-accent="purple"]{--accent:#8b5cf6;--accent-2:#5b2fc9;--accent-hi:#a98bff;--accent-soft:#231a3d;--accent-line:#43307a;--accent-text:#ece4ff;--accent-tint:#c4b0ff}
+:root[data-accent="pink"]{--accent:#e2508f;--accent-2:#a32e64;--accent-hi:#f585b6;--accent-soft:#3a1a2c;--accent-line:#6b2a4c;--accent-text:#ffe1ef;--accent-tint:#f5a9ca}
+:root[data-accent="teal"]{--accent:#109e90;--accent-2:#0a675f;--accent-hi:#38cfbd;--accent-soft:#0f2d2b;--accent-line:#1d5752;--accent-text:#d3faf4;--accent-tint:#8fe3d8}
+:root[data-accent="gold"]{--accent:#d99a1e;--accent-2:#8f5f08;--accent-hi:#f2c14e;--accent-soft:#33270e;--accent-line:#6a5220;--accent-text:#fff0c8;--accent-tint:#f2cf7e;--on-accent:#1a1200;--done-a:#1f9d55;--done-b:#45d08a;--done-fg:#04140b}
+.sb.on{background-color:var(--accent);background-image:linear-gradient(90deg,var(--accent),var(--accent-hi));color:var(--on-accent)}
+.stepbar.full .sb.on{background-color:var(--done-a);background-image:linear-gradient(90deg,var(--done-a),var(--done-b));color:var(--done-fg)}
+.stepbar.full .sbn{color:var(--done-b)}
+.daybar b,.sbar b,.qprog b,.track b{background:linear-gradient(90deg,var(--accent),var(--accent-hi))!important}
+.absbar b{background:linear-gradient(90deg,var(--accent),var(--accent-hi))}
+.counter.first{background:linear-gradient(135deg,var(--accent-2),var(--accent))!important;color:var(--on-accent)}
+.counter.first .cl{color:color-mix(in srgb,var(--on-accent) 85%,transparent)!important}
+.lk.on{color:var(--accent-text);background:var(--accent-soft);border-color:var(--accent-line)}
+.quizsoon,.cheer,.msg,.gen{color:var(--accent-text)!important;background:var(--accent-soft)!important}
+.basmala{color:var(--accent-tint)}
+.srow.ok .when{color:var(--accent-tint)}
+.star.on{fill:var(--accent-tint)}
+.stepseg button.on{background:var(--accent-soft);border-color:var(--accent)}
+.stepseg button.on span{color:var(--accent-tint)}
+.cc.sel{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 45%,transparent)!important}
+.qt.rp{background:var(--accent-soft);color:var(--accent-tint)}
+.cdsec .label{font-size:16px;letter-spacing:.06em;color:var(--fg);margin-bottom:12px;justify-content:flex-start;gap:6px}
+.cdsec .label .hg{font-size:18px;margin-left:2px}
+.settabs{margin-top:-6px}
+.swatches{display:flex;gap:12px;flex-wrap:wrap}
+.swatch{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted);min-width:52px}
+.swatch i{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:3px solid transparent;box-shadow:inset 0 0 0 2px rgba(255,255,255,.08);transition:transform .15s}
+.swatch i svg{width:20px;height:20px;color:#fff}
+.swatch.on{color:var(--fg)}
+.swatch.on i{border-color:var(--fg)}
+.swatch:active i{transform:scale(.92)}
+
+/* v13: red + brown, richer "finished" shade, bilingual day, own plan only */
+:root,:root[data-accent="blue"]{--done-a:#0b2160;--done-b:#1d43a8;--done-fg:#e3ecff;--done-ring:#5b8cff}
+:root[data-accent="purple"]{--done-a:#2a0f63;--done-b:#5b2fc9;--done-fg:#efe7ff;--done-ring:#a98bff}
+:root[data-accent="pink"]{--done-a:#4d0f2c;--done-b:#a32e64;--done-fg:#ffe4f0;--done-ring:#f585b6}
+:root[data-accent="teal"]{--done-a:#05302c;--done-b:#0a675f;--done-fg:#d6fbf5;--done-ring:#38cfbd}
+:root[data-accent="gold"]{--done-a:#4a2f02;--done-b:#8f5f08;--done-fg:#fff1c9;--done-ring:#f2c14e}
+:root[data-accent="red"]{--accent:#d6404e;--accent-2:#8f1d2a;--accent-hi:#f0707b;--accent-soft:#3a1519;--accent-line:#6b2630;--accent-text:#ffe0e3;--accent-tint:#f5a3ab;--on-accent:#ffffff;--done-a:#4a0a12;--done-b:#8f1d2a;--done-fg:#ffe3e6;--done-ring:#f0707b}
+:root[data-accent="brown"]{--accent:#a8714a;--accent-2:#6b4226;--accent-hi:#c9956b;--accent-soft:#2e2018;--accent-line:#5a3d2a;--accent-text:#f5e6d8;--accent-tint:#d9b89a;--on-accent:#ffffff;--done-a:#2e1a0c;--done-b:#6b4226;--done-fg:#f8eadc;--done-ring:#c9956b}
+.stepbar.full .sb.on{background-color:var(--done-b);background-image:linear-gradient(135deg,var(--done-a) 0%,var(--done-b) 55%,var(--done-a) 100%);color:var(--done-fg);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 1px color-mix(in srgb,var(--done-ring) 55%,transparent)}
+.stepbar.full .sbn{color:var(--done-ring)}
+.lrow3.done .lcodebox{box-shadow:0 0 0 2px color-mix(in srgb,var(--done-ring) 60%,transparent)}
+.dayline{display:flex;align-items:baseline;gap:8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-tint)}
+.dayline .ar{font-family:"Amiri","Noto Naskh Arabic","Geeza Pro",serif;font-size:17px;letter-spacing:0;text-transform:none;font-weight:700}
+.dayline .dot{opacity:.5}
+.datebig{background:linear-gradient(90deg,var(--accent-hi),var(--accent-tint));-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.todaysec .label{font-size:15px;color:var(--fg);letter-spacing:.06em}
+.addbig{width:100%;height:56px;border-radius:16px;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px}
+.addbig svg{width:20px;height:20px}
+.slidesbtn.off{opacity:.55}
 </style>
 
 <style>
@@ -842,9 +984,15 @@ const I={
 I.gear='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
 I.back='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>';
 I.quiz='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h5"/><path d="m8.5 16 1.5 1.5 3-3"/></svg>';
-const STAGES=["s1","s2","s3","s4"];
-const STAGE_NAME={s1:"First study",s2:"Summary & quiz",s3:"Second study",s4:"Review"};
-const STAGE_SHORT={s1:"1st",s2:"Sum",s3:"2nd",s4:"Rev"};
+const STAGES=[];const STAGE_NAME={};const STAGE_SHORT={};
+const DEF_STEPS=[{id:"s1",name:"Study",short:"Study"},{id:"s2",name:"Quiz",short:"Quiz"},{id:"s4",name:"Review",short:"Review"}];
+const OLD_DEF="s1|s2|s3|s4";
+const NS=()=>STAGES.length;
+function applySteps(){
+  const st=(typeof S!=="undefined"&&S&&S.settings&&Array.isArray(S.settings.steps)&&S.settings.steps.length>=2)?S.settings.steps:DEF_STEPS;
+  STAGES.length=0;for(const k in STAGE_NAME)delete STAGE_NAME[k];for(const k in STAGE_SHORT)delete STAGE_SHORT[k];
+  st.forEach(x=>{STAGES.push(x.id);STAGE_NAME[x.id]=x.name||x.short||"Step";STAGE_SHORT[x.id]=x.short||(x.name||"Step").slice(0,3)});
+}
 const TYPES=[["L","Lectures"],["PI","PI"],["TBL","TBL"],["Lab","Labs"],["Other","Other"]];
 const TYPE_F={L:1,PI:1,TBL:.75,Lab:.5,Other:1};
 const SUBJ_EMOJI={Physiology:"🫀",Anatomy:"🦴",Histology:"🔬",Biochemistry:"🧪",Pathology:"🩺",Microbiology:"🦠",Pharmacology:"💊",Radiology:"🩻",Immunology:"🛡️",Genetics:"🧬",Embryology:"👶",Neuroscience:"🧠",Medicine:"🩺",Surgery:"🩺","Community Medicine":"👥","Family Medicine":"🩺"};
@@ -855,7 +1003,7 @@ const subjColor=s=>subjMeta(s).color;
 
 /* ---------- state ---------- */
 const LS="study.v1";
-function defaultSettings(){return {classMin:180,freeMin:360,rest:[],min:{s1:60,s2:40,s3:30,s4:20}}}
+function defaultSettings(){return {classMin:180,freeMin:360,rest:[],min:{s1:60,s2:40,s3:30,s4:20},steps:DEF_STEPS.map(x=>({...x})),stepSeq:5,accent:"blue",abs:{h:{L:1,Lab:2,PI:2,TBL:4},pct:20}}}
 function emptyBlock(name){return {id:uid("b"),name:name||"New block",created:today(),items:[],events:[],free:[],exams:[],progress:{}}}
 let S=null;
 try{const raw=localStorage.getItem(LS);if(raw){const v=JSON.parse(raw);if(v&&Array.isArray(v.blocks))S=v}}catch(e){}
@@ -865,9 +1013,11 @@ S.settings=Object.assign(defaultSettings(),S.settings||{});
 S.settings.min=Object.assign(defaultSettings().min,S.settings.min||{});
 S.banks=Array.isArray(S.banks)?S.banks:[];
 S.banks.forEach(b=>{if(!Array.isArray(b.itemIds))b.itemIds=b.itemId?[b.itemId]:[];delete b.itemId;b.kind=b.kind||"bank"});
+const stepsMigrated=false;
+applySteps();
 
 let hintOn=true;try{hintOn=localStorage.getItem("study.hint")!=="0"}catch(e){}
-const UI={qMode:"bank",lqSubj:"all",lecMode:"list",stepSel:"s1",qSubj:"all",qBatch:"all",calMonth:null,calDay:null,play:null,qCopyFallback:false,lecHint:hintOn,toast:null,openDays:new Set(),closedDays:new Set(),view:"today",sheet:null,lecExam:"all",lecGroup:"subject",bulk:null,progExam:null,msg:"",confirm:null,anim:"anim"};
+const UI={lecSubj:"all",kindSel:"all",justTicked:null,pdfBusy:false,qMode:"bank",lqSubj:"all",lecMode:"list",stepSel:"s1",qSubj:"all",qBatch:"all",calMonth:null,calDay:null,play:null,qCopyFallback:false,lecHint:hintOn,toast:null,openDays:new Set(),closedDays:new Set(),view:"today",sheet:null,lecExam:"all",lecGroup:"subject",bulk:null,progExam:null,msg:"",confirm:null,anim:"anim"};
 const B=()=>S.blocks.find(b=>b.id===S.activeId)||null;
 
 /* ---------- import / merge ---------- */
@@ -961,20 +1111,26 @@ function linkTarget(blk,title,typ,code){
   if(!c.length&&code){const k=code.replace(/\s+/g,"").toUpperCase();c=its.filter(i=>i.code.replace(/\s+/g,"").toUpperCase()===k)}
   return c.length===1?c[0]:null;
 }
-let linksMigrated=false;
-for(const b of S.blocks){
-  if(b.seedLinks||!/renal/i.test(b.name)||!b.items[0]||b.items[0].date!=="2026-10-11")continue;
-  b.links=b.links||{};
-  for(const l of SEED_LINKS){const it=linkTarget(b,l.t,l.y);if(it&&!b.links[it.id])b.links[it.id]=l.u}
-  if(!b.driveUrl)b.driveUrl="https://drive.google.com/drive/folders/10I872tr7lSJFBHGQIm2wzeSWQGeKXH5u";
-  b.seedLinks=1;linksMigrated=true;
+function migrateAll(){
+  let ch=false;
+  for(const b of S.blocks||[]){
+    if(b.seedLinks||!/renal/i.test(b.name)||!b.items||!b.items[0]||b.items[0].date!=="2026-10-11")continue;
+    b.links=b.links||{};
+    for(const l of SEED_LINKS){const it=linkTarget(b,l.t,l.y);if(it&&!b.links[it.id])b.links[it.id]=l.u}
+    if(!b.driveUrl)b.driveUrl="https://drive.google.com/drive/folders/10I872tr7lSJFBHGQIm2wzeSWQGeKXH5u";
+    if(!b.shareId)b.shareId="s_renal_1448";
+    b.seedLinks=1;ch=true;
+  }
+  if(S.settings&&S.settings.stepsV!==2){S.settings.steps=DEF_STEPS.map(x=>({...x}));S.settings.stepsV=2;applySteps();ch=true}
+  return ch;
 }
+let linksMigrated=migrateAll();
 
 /* ---------- storage / sync ---------- */
 let col=null,ready=false,mode="connecting",flushTimer=null,pendingRender=false;
 const dirty=new Set(),inflight={};
 function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
-function normalizeS(){S.settings=Object.assign(defaultSettings(),S.settings||{});S.settings.min=Object.assign(defaultSettings().min,S.settings.min||{});S.banks=Array.isArray(S.banks)?S.banks:[];S.blocks=Array.isArray(S.blocks)?S.blocks:[];S.banks.forEach(b=>{if(!Array.isArray(b.itemIds))b.itemIds=b.itemId?[b.itemId]:[];delete b.itemId;b.kind=b.kind||"bank"})}
+function normalizeS(){S.settings=Object.assign(defaultSettings(),S.settings||{});S.settings.min=Object.assign(defaultSettings().min,S.settings.min||{});S.banks=Array.isArray(S.banks)?S.banks:[];S.blocks=Array.isArray(S.blocks)?S.blocks:[];S.banks.forEach(b=>{if(!Array.isArray(b.itemIds))b.itemIds=b.itemId?[b.itemId]:[];delete b.itemId;b.kind=b.kind||"bank"});applySteps()}
 function stateDoc(){const c=Object.assign({},S);delete c.banks;return JSON.parse(JSON.stringify(c))}
 function changed(ids){saveLocal();(ids||["state"]).forEach(i=>dirty.add(i));if(col&&ready){clearTimeout(flushTimer);flushTimer=setTimeout(flush,500)}}
 async function flush(){
@@ -1010,7 +1166,7 @@ async function connect(){
       const changes=first?snap.docs.map(d=>({type:"added",doc:d})):snap.docChanges();
       for(const ch of changes){
         const d=ch.doc;if(dirty.has(d.id)||inflight[d.id])continue;
-        if(d.id==="state"){if(ch.type==="removed")continue;const v=d.data();if(v&&Array.isArray(v.blocks)){const banks=S.banks;S=JSON.parse(JSON.stringify(v));S.banks=banks;normalizeS();any=true}}
+        if(d.id==="state"){if(ch.type==="removed")continue;const v=d.data();if(v&&Array.isArray(v.blocks)){const banks=S.banks;S=JSON.parse(JSON.stringify(v));S.banks=banks;normalizeS();if(migrateAll())setTimeout(()=>changed(),0);any=true}}
         else if(d.id.startsWith("bank_")){
           const bid=d.id.slice(5);const i=S.banks.findIndex(b=>b.id===bid);
           if(ch.type==="removed"){if(i>=0){S.banks.splice(i,1);any=true}}
@@ -1056,10 +1212,10 @@ function weightOf(blk,ex,it,mem){
 }
 function examStats(blk,ex){
   const mem=members(blk)[ex.id];const its=blk.items.filter(i=>mem.has(i.id));const t=today();
-  let w=0,wd=0,steps=0;const st={s1:0,s2:0,s3:0,s4:0};let behind=0,full=0;const weighted=Object.keys(ex.subj||{}).length>0||Object.keys(ex.q||{}).length>0;
+  let w=0,wd=0,steps=0;const st={};STAGES.forEach(x=>st[x]=0);let behind=0,full=0;const weighted=Object.keys(ex.subj||{}).length>0||Object.keys(ex.q||{}).length>0;
   for(const it of its){const p=prog(blk,it.id);const c=doneCount(blk,it.id);steps+=c;STAGES.forEach(s=>{if(p[s])st[s]++});
-    const ww=weightOf(blk,ex,it,mem);w+=ww;wd+=ww*c/4;if(it.date<=t&&!p.s1)behind++;if(c===4)full++}
-  return {n:its.length,items:its,steps,total:its.length*4,pct:its.length?wd/w:0,st,behind,full,weighted};
+    const ww=weightOf(blk,ex,it,mem);w+=ww;wd+=ww*c/NS();if(it.date<=t&&!p[STAGES[0]])behind++;if(c===NS())full++}
+  return {n:its.length,items:its,steps,total:its.length*NS(),pct:its.length?wd/w:0,st,behind,full,weighted};
 }
 function durOf(){return 1}
 function isFreeDay(blk,d){
@@ -1095,26 +1251,26 @@ function buildPlan(blk){
   }
   /* spacing: 1 day to summary, 4 more to second study, review in the last 3 days; squeezed when time is short */
   function earliestFor(s,prevDay,t){
-    const NG=[0,1,4,1];
+    const N=NS();const NG=({2:[0,4],3:[0,1,4],4:[0,1,4,1],5:[0,1,3,3,1]})[N]||[0,1,4,1];
     let e;
     if(s.next===0)e=s.it.date>t?s.it.date:t;
     else{
       const from=prevDay&&prevDay>t?prevDay:(prevDay||t);
-      let rem=0;for(let k=s.next;k<4;k++)rem+=NG[k];
+      let rem=0;for(let k=s.next;k<N;k++)rem+=NG[k];
       const span=Math.max(0,diffDays(from<t?t:from,s.lastDay));
       const f=Math.min(1,span/rem);
       e=addDays(from,Math.round(NG[s.next]*f));
       /* finish summary and second study before the review window so reviews don't pile up at the end */
-      if(s.next<3){const cap=addDays(s.ex.date,-(6-s.next));const c=cap>from?cap:from;if(e>c)e=c}
+      if(s.next<N-1){const cap=addDays(s.ex.date,-(3+N-1-s.next));const c=cap>from?cap:from;if(e>c)e=c}
       if(e<t)e=t;if(s.it.date>e)e=s.it.date;
     }
-    if(s.next===3){const w=addDays(s.ex.date,-3);if(e<w)e=w;if(e<t)e=t}
+    if(s.next===N-1){const w=addDays(s.ex.date,-3);if(e<w)e=w;if(e<t)e=t}
     return e;
   }
   const endDay=addDays(exams[exams.length-1].date,-1);
   /* steps per day: enough to finish each exam's steps before it, spread evenly */
   let cum=0,perDay=0;
-  exams.forEach(e=>{cum+=st.filter(s=>s.ex.id===e.id).reduce((a,s)=>a+(4-s.next),0);const days=Math.max(1,diffDays(t,e.date));perDay=Math.max(perDay,Math.ceil(cum/days))});
+  exams.forEach(e=>{cum+=st.filter(s=>s.ex.id===e.id).reduce((a,s)=>a+(NS()-s.next),0);const days=Math.max(1,diffDays(t,e.date));perDay=Math.max(perDay,Math.ceil(cum/days))});
   if(cum)perDay=Math.max(2,perDay);
   res.perDay=perDay;
   const doneToday=blk.items.reduce((sum,it)=>{const p=prog(blk,it.id);return sum+STAGES.filter(s=>p[s]===t).reduce((a,s)=>a+durOf(it,s),0)},0);
@@ -1123,7 +1279,7 @@ function buildPlan(blk){
     const day={date:d,cap:perDay,used:d===t?doneToday:0,tasks:[],free:isFreeDay(blk,d),exams:blk.exams.filter(e=>e.date===d)};
     let left=cap;
     for(let guard=0;guard<400;guard++){
-      const ready=st.filter(s=>s.next<4&&s.earliest<=d&&d<=s.lastDay);
+      const ready=st.filter(s=>s.next<NS()&&s.earliest<=d&&d<=s.lastDay);
       if(!ready.length)break;
       ready.sort((a,b)=>a.ex.date.localeCompare(b.ex.date)||a.next-b.next||b.w-a.w||(a.it.date+a.it.time).localeCompare(b.it.date+b.it.time));
       const pick=left>=1?ready[0]:null;
@@ -1132,14 +1288,14 @@ function buildPlan(blk){
       day.tasks.push({id:pick.it.id,s:sk,min:m,ex:pick.ex.id});
       left-=m;day.used+=m;
       pick.next++;pick.placed=d;
-      if(pick.next<4)pick.earliest=earliestFor(pick,d,t);
+      if(pick.next<NS())pick.earliest=earliestFor(pick,d,t);
     }
     day.left=left;
     res.days.push(day);
   }
   /* second pass: squeeze leftovers into any open time before their exam, ignoring ideal spacing */
-  st.filter(s=>s.next<4).sort((a,b)=>a.ex.date.localeCompare(b.ex.date)||a.next-b.next).forEach(s=>{
-    while(s.next<4){
+  st.filter(s=>s.next<NS()).sort((a,b)=>a.ex.date.localeCompare(b.ex.date)||a.next-b.next).forEach(s=>{
+    while(s.next<NS()){
       const sk=STAGES[s.next],m=durOf(s.it,sk);
       const from=[s.placed||t,s.it.date,t].sort().pop();
       const cands=res.days.filter(d=>d.date>=from&&d.date<=s.lastDay);
@@ -1150,7 +1306,7 @@ function buildPlan(blk){
   });
   res.days.forEach(d=>d.tasks.sort((a,b)=>{const ea=res.exams.findIndex(e=>e.id===a.ex),eb=res.exams.findIndex(e=>e.id===b.ex);return ea-eb||a.s.localeCompare(b.s)}));
   for(const s of st){
-    for(let k=s.next;k<4;k++){
+    for(let k=s.next;k<NS();k++){
       (res.overflow[s.ex.id]=res.overflow[s.ex.id]||[]).push({id:s.it.id,s:STAGES[k],min:durOf(s.it,STAGES[k])});
     }
   }
@@ -1166,7 +1322,11 @@ function softRender(){
   render();
 }
 document.addEventListener("focusout",()=>{if(pendingRender){setTimeout(()=>{const a=document.activeElement;if(!(a&&(a.tagName==="INPUT"||a.tagName==="TEXTAREA"||a.tagName==="SELECT"))){pendingRender=false;render()}},60)}});
+const ACCENTS=[["blue","Blue","#3d6fe8"],["purple","Purple","#8b5cf6"],["pink","Pink","#e2508f"],["red","Red","#d6404e"],["brown","Brown","#a8714a"],["teal","Teal","#109e90"],["gold","Gold","#d99a1e"]];
+const WD_AR=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+function applyAccent(){const a=(S.settings&&S.settings.accent)||"blue";if(document.documentElement.dataset.accent!==a)document.documentElement.dataset.accent=a}
 function render(){
+  applyAccent();
   const blk=B();const v=UI.view;
   const needsBlock=!["settings","quiz","play"].includes(v);
   main.innerHTML=!blk&&needsBlock?noBlockView():v==="today"?todayView(blk):v==="plan"?planView(blk):v==="cal"?calView(blk):v==="lec"?lecView(blk):v==="quiz"?quizView(blk):v==="play"?playView():settingsView(blk);
@@ -1174,7 +1334,7 @@ function render(){
   const tabOf={today:"today",plan:"today",cal:"cal",lec:"lec",quiz:"quiz",play:"quiz",settings:""};
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.tab===tabOf[v]));
   document.body.classList.toggle("playing",v==="play");
-  renderSheet();renderToast();
+  renderSheet();renderToast();UI.justTicked=null;
 }
 const credit=`<p class="credit">Study Tracker · Designed by Amira</p>`;
 function noBlockView(){
@@ -1193,7 +1353,7 @@ function starSvg(on,size){size=size||18;return `<svg class="star ${on?"on":""}" 
 const quizStars=p=>p==null?0:p>=.9?3:p>=.75?2:p>=.5?1:0;
 function starsRow(n,size){return `<span class="stars">${[0,1,2].map(i=>starSvg(i<n,size)).join("")}</span>`}
 function totalStars(blk){
-  const lec=blk?studyItems(blk).filter(i=>doneCount(blk,i.id)===4).length:0;
+  const lec=blk?studyItems(blk).filter(i=>doneCount(blk,i.id)===NS()).length:0;
   return lec+S.banks.reduce((a,b)=>a+quizStars(b.best),0);
 }
 function taskRow(blk,tk,removable){
@@ -1212,10 +1372,38 @@ function classesOn(blk,d){
   return [...blk.items.filter(i=>i.date===d).map(i=>({t:i.time,it:i,ev:false})),
     ...blk.events.filter(e=>e.date===d).map(e=>({t:e.time,label:e.label,ev:true}))].sort((a,b)=>(a.t||"99").localeCompare(b.t||"99"));
 }
-function classRow(c){
+const absH=it=>((S.settings.abs||{}).h||{})[it.type]||0;
+function absStats(blk){
+  const its=blk.items.filter(i=>absH(i)>0);const total=its.reduce((a,i)=>a+absH(i),0);
+  const ab=blk.absent||{};const list=its.filter(i=>ab[i.id]).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  const used=list.reduce((a,i)=>a+absH(i),0);const allowed=Math.round(total*((S.settings.abs||{}).pct||20))/100;
+  return {total,used,allowed,left:Math.round((allowed-used)*10)/10,list};
+}
+const hrs=n=>`${Math.round(n*10)/10}h`;
+function absCard(blk){
+  const a=absStats(blk);if(!a.total)return"";const r=a.allowed?a.used/a.allowed:0;
+  return `<button class="abscard ${r>1?"over":r>=.75?"warn":""}" data-act="abssheet"><div class="abst"><span>Absence</span><b>${hrs(a.used)} <small>of ${hrs(a.allowed)} allowed</small></b></div>
+    <div class="absbar"><b style="width:${Math.min(100,r*100).toFixed(1)}%"></b></div>
+    <span class="tm">${a.left>0?`You can still miss ${hrs(a.left)}`:a.left===0?"You've reached the limit":`Over the limit by ${hrs(-a.left)}`} · tap a class below to mark it</span></button>`;
+}
+function absenceSheet(blk){
+  const a=absStats(blk);const h=(S.settings.abs||{}).h||{};
+  return `<div class="sheet-h"><h2>Absence</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
+  <p class="sub" style="margin:-6px 0 0">${hrs(a.used)} missed of ${hrs(a.allowed)} allowed (${(S.settings.abs||{}).pct||20}% of ${hrs(a.total)} in ${esc(blk.name)}).</p>
+  ${a.list.length?`<div class="list abslist">${a.list.map(i=>`<div class="absrow"><span class="lemo" aria-hidden="true">${subjMeta(i.subject).icon}</span><span class="tx"><span class="tt">${esc(i.code)} · ${esc(i.title)}</span><span class="tm">${shortDate(i.date)} · ${hrs(absH(i))}</span></span><button class="x" data-act="absent" data-id="${i.id}" aria-label="Remove">${I.x}</button></div>`).join("")}</div>`:`<p class="empty">No absences yet. In Calendar, pick a day and tap Absent next to a class you missed.</p>`}
+  <details class="fold"><summary>Hours per class</summary><div class="panel" style="margin-top:8px">
+    <div class="grid4">${[["L","Lecture"],["Lab","Lab"],["PI","PI"],["TBL","TBL"]].map(([k,n])=>`<label class="field">${n}<input type="number" inputmode="decimal" min="0" step="0.5" data-abs="${k}" value="${h[k]!=null?h[k]:0}"></label>`).join("")}</div>
+    <label class="field">Allowed absence (% of block hours)<input type="number" inputmode="decimal" min="0" max="100" data-abs="pct" value="${(S.settings.abs||{}).pct||20}"></label>
+    <p class="note">Seminars and clinical sessions aren't counted.</p>
+  </div></details>`;
+}
+function classRow(c,blk,withAbs){
   if(c.ev)return `<div class="cls ev"><span class="ct">${c.t?fmtShort(c.t):""}</span><span class="cb">${esc(c.label)}</span></div>`;
   const it=c.it;
-  return `<button class="cls" data-act="item" data-id="${it.id}"><span class="ct">${c.t?fmtShort(c.t):""}</span>${badge(it.subject,30)}<span class="cb"><span class="ctt">${esc(it.title)}</span><span class="tm">${esc(it.code)}${it.online?" · Online":""}${isQuiz(it)?' · <span class="qtag">Quiz</span>':""}</span></span></button>`;
+  const row=`<button class="cls" data-act="item" data-id="${it.id}"><span class="ct">${c.t?fmtShort(c.t):""}</span>${badge(it.subject,30)}<span class="cb"><span class="ctt">${esc(it.title)}</span><span class="tm">${esc(it.code)}${it.online?" · Online":""}${isQuiz(it)?' · <span class="qtag">Quiz</span>':""}</span></span></button>`;
+  if(!withAbs||!blk||!absH(it)||it.date>today())return row;
+  const on=!!(blk.absent||{})[it.id];
+  return `<div class="clsw ${on?"abs":""}">${row}<button class="absbtn ${on?"on":""}" data-act="absent" data-id="${it.id}" aria-pressed="${on}">${on?`Absent · ${hrs(absH(it))}`:"Absent"}</button></div>`;
 }
 function counters(blk){
   const t=today();const ups=blk.exams.filter(e=>e.date>=t).sort((a,b)=>a.date.localeCompare(b.date));
@@ -1226,36 +1414,24 @@ function counters(blk){
       <span class="cbar"><b style="width:${(s.pct*100).toFixed(1)}%"></b></span></button>`}).join("")}</div>`;
 }
 function todayView(blk){
-  const t=today(),d0=parse(t),plan=buildPlan(blk);
-  const day=plan.days.find(d=>d.date===t);
-  const tasks=day?day.tasks:[];
-  const doneToday=[];for(const it of studyItems(blk)){const p=prog(blk,it.id);STAGES.forEach(s=>{if(p[s]===t)doneToday.push({id:it.id,s})})}
-  const total=tasks.length+doneToday.length;
+  const t=today(),d0=parse(t);
   const cls=classesOn(blk,t);
   const soon=blk.items.filter(i=>isQuiz(i)&&i.date>=t&&diffDays(t,i.date)<=2);
-  const mine=S.settings.planMode==="mine";
-  const myTasks=((S.myPlan||{})[t]||[]).filter(x=>blk.items.some(i=>i.id===x.id));
+  const myTasks=((S.myPlan||{})[t]||[]).filter(x=>STAGES.includes(x.s)&&blk.items.some(i=>i.id===x.id));
   const myDone=myTasks.filter(x=>prog(blk,x.id)[x.s]).length;
   return `
-  <header class="head"><div><div class="eyebrow">${WD[d0.getDay()]}</div><h1>${d0.getDate()} ${MONTHS[d0.getMonth()]}</h1><p class="basmala" dir="rtl" lang="ar">بسم الله، توكلت على الله</p></div>
+  <header class="head"><div><div class="dayline"><span>${WD[d0.getDay()]}</span><span class="dot">·</span><span class="ar" dir="rtl" lang="ar">${WD_AR[d0.getDay()]}</span></div><h1 class="datebig">${d0.getDate()} ${MONTHS[d0.getMonth()]}</h1><p class="basmala" dir="rtl" lang="ar">بسم الله، توكلت على الله</p></div>
     <button class="starchip" data-act="stars" aria-label="Your stars">${starSvg(true,16)}<span class="tnum">${totalStars(blk)}</span></button>
     <button class="iconbtn" data-act="go" data-v="settings" aria-label="Settings">${I.gear}</button></header>
-  ${counters(blk)}
-  ${soon.map(q=>`<div class="quizsoon">${I.quiz}<span><strong>Quiz ${diffDays(t,q.date)===0?"today":diffDays(t,q.date)===1?"tomorrow":"on "+WDS[parse(q.date).getDay()]}</strong> · ${esc(q.code)} ${esc(q.title)}${q.time?" · "+fmtShort(q.time):""}</span></div>`).join("")}
-  <section>
-    <div class="label">Study today ${mine?`<span class="tnum">${myTasks.length?`${myDone}/${myTasks.length} done`:""}</span>`:`<span class="tnum">${total?`${doneToday.length}/${total} done`:""}</span>`}</div>
-    <div class="seg" style="margin-bottom:12px"><button class="${mine?"":"on"}" data-act="planmode" data-v="suggested">Suggested plan</button><button class="${mine?"on":""}" data-act="planmode" data-v="mine">My plan</button></div>
-    ${mine?`
-      ${myTasks.length?`<div class="daybar"><b style="width:${(myDone/myTasks.length*100).toFixed(1)}%"></b></div><div class="list">${myTasks.map(tk=>taskRow(blk,tk,true)).join("")}</div>`:`<p class="empty">Pick the lectures you want to get through today.</p>`}
-      ${myTasks.length&&myDone===myTasks.length?`<div class="cheer">${starSvg(true,22)} You did everything you planned. Great work!</div>`:""}
-      <button class="btn soft" style="width:100%;margin-top:10px" data-act="planpick">${I.plus} Add lectures to today</button>`
-    :`
-    ${total?`<div class="daybar"><b style="width:${(doneToday.length/total*100).toFixed(1)}%"></b></div>`:""}
-    ${total?`<div class="list">${tasks.map(tk=>taskRow(blk,tk)).join("")}${doneToday.map(tk=>taskRow(blk,tk)).join("")}</div>`:`<p class="empty">${plan.exams.length?"Nothing to study today.":"No upcoming exams."}</p>`}
-    ${!tasks.length&&doneToday.length?`<div class="cheer">${starSvg(true,22)} Today's study is done. Great work!</div>`:""}
-    ${plan.exams.length?`<button class="link" data-act="go" data-v="plan">See the whole plan ${I.chev}</button>`:""}`}
+  ${(()=>{const c=counters(blk);return c?`<section class="cdsec"><div class="label">Countdown <span class="hg" aria-hidden="true">⏳</span></div>${c}</section>`:""})()}
+  ${soon.map(q=>`<div class="quizsoon"><span class="bell" aria-hidden="true">🔔</span><span><strong>Quiz ${diffDays(t,q.date)===0?"today":diffDays(t,q.date)===1?"tomorrow":"on "+WDS[parse(q.date).getDay()]}</strong> · ${esc(q.code)} ${esc(q.title)}${q.time?" · "+fmtShort(q.time):""}</span></div>`).join("")}
+  <section class="todaysec">
+    <div class="label">To study today 📚 <span class="tnum">${myTasks.length?`${myDone}/${myTasks.length} done`:""}</span></div>
+    ${myTasks.length?`<div class="daybar"><b style="width:${(myDone/myTasks.length*100).toFixed(1)}%"></b></div><div class="list">${myTasks.map(tk=>taskRow(blk,tk,true)).join("")}</div>`:`<p class="empty">Pick the lectures you want to get through today.</p>`}
+    ${myTasks.length&&myDone===myTasks.length?`<div class="cheer">${starSvg(true,22)} You did everything you planned. Great work!</div>`:""}
+    <button class="btn primary addbig" data-act="planpick">${I.plus} Add lectures to today</button>
   </section>
-  ${cls.length?`<section><div class="label">Classes today</div><div class="list">${cls.map(classRow).join("")}</div></section>`:""}
+  ${cls.length?`<section><div class="label">Classes today</div><div class="list">${cls.map(c=>classRow(c)).join("")}</div></section>`:""}
   ${credit}`;
 }
 function planView(blk){
@@ -1308,12 +1484,13 @@ function calView(blk){
   <div class="calnav"><button class="iconbtn" data-act="calmonth" data-d="-1" aria-label="Previous month">${I.back}</button><strong>${MONTHS[m-1]} ${y}</strong><button class="iconbtn" data-act="calmonth" data-d="1" aria-label="Next month">${I.chev}</button></div>
   <div class="calgrid">${["S","M","T","W","T","F","S"].map(w=>`<span class="cw">${w}</span>`).join("")}${cells}</div>
   <div class="legend"><span><i class="ld"></i>Lecture</span><span><i class="qd"></i>Quiz</span><span><i class="exsw"></i>Exam</span><span><i class="frsw"></i>Free day</span></div>
+  ${absCard(blk)}
   <section>
     <div class="label">${sel===t?"Today":WD[sd.getDay()]+" "+sd.getDate()+" "+MON[sd.getMonth()]}${blk.free.includes(sel)?' <span>Free day</span>':""}</div>
     ${exs.map(e=>`<div class="examrow">${esc(e.name)} exam${e.time?" · "+fmtShort(e.time):""}</div>`).join("")}
-    ${cls.length?`<div class="list">${cls.map(classRow).join("")}</div>`:exs.length?"":`<p class="empty">No classes this day.</p>`}
+    ${cls.length?`<div class="list">${cls.map(c=>classRow(c,blk,true)).join("")}</div>`:exs.length?"":`<p class="empty">No classes this day.</p>`}
   </section>
-  ${S.settings.planMode==="mine"?(((S.myPlan||{})[sel]||[]).length?`<section><div class="label">My plan <span>${S.myPlan[sel].length} steps</span></div><div class="list">${S.myPlan[sel].map(tk=>taskRow(blk,tk)).join("")}</div></section>`:"")
+  ${true?(((S.myPlan||{})[sel]||[]).length?`<section><div class="label">To study 📚 <span>${S.myPlan[sel].length} steps</span></div><div class="list">${S.myPlan[sel].map(tk=>taskRow(blk,tk)).join("")}</div></section>`:"")
    :(pday&&pday.tasks.length?`<section><div class="label">Suggested plan <span>${pday.tasks.length} steps</span></div><div class="list">${pday.tasks.map(tk=>taskRow(blk,tk)).join("")}</div></section>`:"")}`;
 }
 
@@ -1329,28 +1506,27 @@ function stepRing(n){
   return `<svg viewBox="0 0 40 40" width="42" height="42" aria-hidden="true">${arcs}<text x="20" y="24.5" text-anchor="middle" style="fill:var(--muted);font:700 11px var(--body)">${n}/4</text></svg>`;
 }
 function lecBanks(id){return S.banks.filter(b=>b.lec===id)}
-function progLine(n){return `<div class="lline ${n===4?"full":""}"><span class="bars4">${[0,1,2,3].map(k=>`<i class="${k<n?"on":""}"></i>`).join("")}</span><span class="ln">${n}/4</span></div>`}
+const spillE=s=>{const m=subjMeta(s);return `<span class="spill" style="color:${m.color};background:${m.color}24">${esc(s)} ${m.icon}</span>`};
+function stepBar(blk,it){
+  const p=prog(blk,it.id);const n=doneCount(blk,it.id);const full=n===NS();
+  return `<div class="stepbar ${full?"full":""}"><div class="sbs" style="grid-template-columns:repeat(${NS()},1fr)">${STAGES.map(s=>{const on=!!p[s];const pop=on&&UI.justTicked===it.id+"|"+s;
+    return `<button class="sb ${on?"on":""} ${pop?"pop":""}" data-act="stage" data-id="${it.id}" data-s="${s}" aria-pressed="${on}" aria-label="${esc(STAGE_NAME[s])}${on?" done":""}">${on?I.check:""}${esc(STAGE_SHORT[s])}</button>`}).join("")}</div>
+    <span class="sbn">${full?"⭐":`${n}/${NS()}`}</span></div>`;
+}
 function lecRow(blk,it){
-  const t=today();const p=prog(blk,it.id);const n=doneCount(blk,it.id);
-  const nxt=STAGES.find(s=>!p[s]);const link=(blk.links||{})[it.id];const qb=lecBanks(it.id);
-  return `<div class="lrow2 ${it.date>t?"later":""}">
-    <span class="lemo" aria-hidden="true">${subjMeta(it.subject).icon}</span>
+  const t=today();const link=(blk.links||{})[it.id];const qb=lecBanks(it.id);const c=subjMeta(it.subject).color;
+  return `<div class="lrow3 ${it.date>t?"later":""} ${doneCount(blk,it.id)===NS()?"done":""}">
+    <button class="lcodebox ${String(it.code).length>3?"sm":""}" data-act="item" data-id="${it.id}" style="color:${c};background:${c}1c;border-color:${c}40" aria-label="Open ${esc(it.code)}">${esc(it.code)}</button>
     <div class="lbody">
-      <button class="lhead" data-act="item" data-id="${it.id}"><span class="tt"><span class="lcode">${esc(it.code)}</span> ${esc(it.title)}</span>
-        <span class="lmeta">${spill(it.subject)}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}</span></button>
-      ${progLine(n)}
-      <div class="lacts">
-        ${n<4?`<button class="nextbtn" data-act="next" data-id="${it.id}">✅ ${STAGE_NAME[nxt]}</button>`:`<span class="alldone">⭐ All 4 steps done</span>`}
-        <span class="licons">
-        ${qb.length?`<button class="lfile qz" data-act="bank" data-id="${qb[0].id}" aria-label="Lecture quiz">📝</button>`:""}
-        ${link?`<a class="lfile on" href="${esc(link)}" target="_blank" rel="noopener" aria-label="Open lecture file">📄</a>`:`<button class="lfile" data-act="item" data-id="${it.id}" aria-label="No file linked yet">📄</button>`}
-        </span>
-      </div>
+      <button class="lhead" data-act="item" data-id="${it.id}"><span class="tt">${esc(it.title)}</span></button>
+      <div class="lmeta2">${spillE(it.subject)}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}
+        <span class="llinks">${link?`<a class="lk on" href="${esc(link)}" target="_blank" rel="noopener">📄 Slide</a>`:`<button class="lk" data-act="item" data-id="${it.id}">📄 Slide</button>`}${qb.length?`<button class="lk qz on" data-act="bank" data-id="${qb[0].id}">📝 Quiz</button>`:`<button class="lk qz" data-act="item" data-id="${it.id}">📝 Quiz</button>`}</span></div>
+      ${stepBar(blk,it)}
     </div>
   </div>`;
 }
 function stepsPanel(blk,its){
-  const t=today();const s=UI.stepSel||"s1";
+  const t=today();const s=STAGES.includes(UI.stepSel)?UI.stepSel:STAGES[0];
   const cnt=x=>its.filter(i=>prog(blk,i.id)[x]).length;
   const done=its.filter(i=>prog(blk,i.id)[s]);const not=its.filter(i=>!prog(blk,i.id)[s]);
   const given=not.filter(i=>i.date<=t),later=not.filter(i=>i.date>t);
@@ -1362,7 +1538,8 @@ function stepsPanel(blk,its){
   ${later.length?`<section><div class="label">Classes still to come <span>${later.length}</span></div><div class="list">${later.map(i=>row(i,false)).join("")}</div></section>`:""}`;
 }
 function filteredItems(blk){
-  const all=studyItems(blk);
+  let all=studyItems(blk);
+  if(UI.lecSubj&&UI.lecSubj!=="all"){if(all.some(i=>i.subject===UI.lecSubj))all=all.filter(i=>i.subject===UI.lecSubj);else UI.lecSubj="all"}
   if(UI.lecExam==="all")return all;
   const ex=blk.exams.find(e=>e.id===UI.lecExam);if(!ex){UI.lecExam="all";return all}
   const m=members(blk)[ex.id];return all.filter(i=>m.has(i.id));
@@ -1372,19 +1549,20 @@ function lecView(blk){
   const bulk=UI.bulk;const eligible=its.filter(i=>i.date<=today());
   const done=its.reduce((a,i)=>a+doneCount(blk,i.id),0);
   return `
-  <header class="head"><div><h1>Lectures</h1></div>${blk.driveUrl?`<a class="iconbtn" href="${esc(blk.driveUrl)}" target="_blank" rel="noopener" aria-label="Open the block folder in Drive">📂</a>`:""}<button class="iconbtn" data-act="additem" aria-label="Add a lecture">${I.plus}</button></header>
+  <header class="head"><div><h1>Lectures</h1></div>${blk.driveUrl?`<a class="slidesbtn" href="${esc(blk.driveUrl)}" target="_blank" rel="noopener">📂 Slides</a>`:`<button class="slidesbtn off" data-act="slidesset" aria-label="Add the Drive folder for slides">📂 Slides</button>`}<button class="iconbtn" data-act="additem" aria-label="Add a lecture">${I.plus}</button></header>
   <div class="chips" role="tablist">
     <button class="chip ${UI.lecExam==="all"?"on":""}" data-act="lecexam" data-v="all">All</button>
     ${blk.exams.map(e=>`<button class="chip ${UI.lecExam===e.id?"on":""}" data-act="lecexam" data-v="${e.id}">${esc(e.name)}</button>`).join("")}
   </div>
+  ${(()=>{const subs=[...new Set(studyItems(blk).map(i=>i.subject))].sort();const sel=UI.lecSubj||"all";return subs.length>1?`<div class="chips subjchips">${["all",...subs].map(x=>`<button class="chip ${sel===x?"on":""}" data-act="lecsubj" data-v="${esc(x)}">${x==="all"?"All subjects":esc(x)+" "+subjMeta(x).icon}</button>`).join("")}</div>`:""})()}
   <div class="seg modeseg"><button class="${UI.lecMode!=="steps"?"on":""}" data-act="lecmode" data-v="list">Lectures</button><button class="${UI.lecMode==="steps"?"on":""}" data-act="lecmode" data-v="steps">What I finished</button></div>
   ${UI.lecMode==="steps"?stepsPanel(blk,its):`
-  ${its.length?`<div class="lsum"><span>${its.length} lectures · ${starSvg(true,14)} ${its.filter(i=>doneCount(blk,i.id)===4).length}</span><span class="tnum">${Math.round(done/(its.length*4)*100)}%</span></div><div class="sbar"><b style="width:${(done/(its.length*4)*100).toFixed(1)}%"></b></div>`:""}
+  ${its.length?`<div class="lsum"><span>${its.length} lectures · ${starSvg(true,14)} ${its.filter(i=>doneCount(blk,i.id)===NS()).length}</span><span class="tnum">${Math.round(done/(its.length*NS())*100)}%</span></div><div class="sbar"><b style="width:${(done/(its.length*NS())*100).toFixed(1)}%"></b></div>`:""}
   ${bulk?`<div class="bulk"><strong>Which step did you already finish?</strong>
       <div class="seg" style="grid-auto-flow:row;grid-template-columns:1fr 1fr">${STAGES.map(s=>`<button class="${bulk===s?"on":""}" data-act="bulkstage" data-v="${s}">${STAGE_NAME[s]}</button>`).join("")}</div>
       <p class="note">Marks ${STAGE_NAME[bulk].toLowerCase()} done for the ${eligible.length} lecture${eligible.length===1?"":"s"} below that were already given.</p>
       <div class="btns"><button class="btn soft" data-act="bulkcancel">Cancel</button><button class="btn primary" data-act="bulkapply">Mark done</button></div></div>`:""}
-  ${UI.lecHint?`<div class="hint"><span>Tap the ✅ button to finish the next step. The line under it shows your progress, and all 4 steps earn a star.</span><button class="x" data-act="hidehint" aria-label="Hide tip">${I.x}</button></div>`:""}
+  ${UI.lecHint?`<div class="hint"><span>Tap a step to tick it. Finish them all and the lecture earns a star.</span><button class="x" data-act="hidehint" aria-label="Hide tip">${I.x}</button></div>`:""}
   ${its.length?`<div class="list">${its.map(i=>lecRow(blk,i)).join("")}</div>`:`<p class="empty">No lectures here.</p>`}
   ${bulk?"":`<button class="link" data-act="bulkopen">Already studied some? Mark many at once ${I.chev}</button>`}`}`;
 }
@@ -1405,7 +1583,7 @@ function examDetailSheet(blk,sh){
     <div class="stat"><b>${starSvg(true,20)} ${s.full}/${s.n}</b><span>Lectures finished</span></div>
   </div>
   <section><div class="label">Steps</div><div class="bars">${STAGES.map(x=>`<div class="bar-row"><span class="n">${STAGE_NAME[x]}</span><span class="v">${s.st[x]}/${s.n}</span><div class="track"><b style="width:${s.n?(s.st[x]/s.n*100).toFixed(1):0}%"></b></div></div>`).join("")}</div></section>
-  <section><div class="label">Subjects</div><div class="bars">${Object.keys(subs).sort((a,b)=>subs[b].n-subs[a].n).map(k=>{const x=subs[k];return `<div class="bar-row"><span class="n">${emo(k)} ${esc(k)}</span><span class="v">${Math.round(x.d/(x.n*4)*100)}%</span><div class="track"><b style="width:${(x.d/(x.n*4)*100).toFixed(1)}%"></b></div></div>`}).join("")||'<p class="empty">No lectures in this exam yet.</p>'}</div></section>
+  <section><div class="label">Subjects</div><div class="bars">${Object.keys(subs).sort((a,b)=>subs[b].n-subs[a].n).map(k=>{const x=subs[k];return `<div class="bar-row"><span class="n">${emo(k)} ${esc(k)}</span><span class="v">${Math.round(x.d/(x.n*NS())*100)}%</span><div class="track"><b style="width:${(x.d/(x.n*NS())*100).toFixed(1)}%"></b></div></div>`}).join("")||'<p class="empty">No lectures in this exam yet.</p>'}</div></section>
   <div class="btns"><button class="btn soft" data-act="examlecs" data-id="${ex.id}">See its lectures</button><button class="btn soft" data-act="exam" data-id="${ex.id}">Edit exam</button></div>`;
 }
 
@@ -1436,6 +1614,7 @@ function quizView(blk){
   return `
   <header class="head"><div><h1>Quizzes</h1></div><label class="iconbtn" style="cursor:pointer" aria-label="Add a test bank">${I.plus}<input type="file" id="bank-file" accept=".pdf,.docx,.txt,application/pdf,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden></label></header>
   ${UI.msg?`<div class="msg">${esc(UI.msg)}</div>`:""}
+  ${mistakeCards(blk)}
   <div class="seg modeseg"><button class="${UI.qMode!=="lec"?"on":""}" data-act="qmode" data-v="bank">Test banks</button><button class="${UI.qMode==="lec"?"on":""}" data-act="qmode" data-v="lec">Lecture quizzes</button></div>
   ${UI.qMode==="lec"?lecQuizList(blk):`
   ${TB.length?`
@@ -1464,6 +1643,25 @@ function lecQuizList(blk){
       ${qb.length?`<button class="lqgo" data-act="startquiz" data-id="${qb[0].id}" data-m="all">Start</button>`:`<label class="lqadd">+ Add quiz<input type="file" class="lecq" data-id="${i.id}" '''+QACC+''' hidden></label>`}</div>`}).join("")}</div>`;
 }
 function qScored(q){return !!q.card||q.a!=null}
+const KW=/\b(not|except|least|most|best|first|initial|incorrect|false|true|correct|unsuitable|contraindicated|never|always|wrong)\b/gi;
+const hl=t=>esc(t).replace(KW,'<mark class="kw">$1</mark>');
+function qTags(q){let h="";if(q.tag){if(q.tag.k)h+=`<span class="qt k-${esc(q.tag.k.toLowerCase())}">${esc(q.tag.k)}</span>`;if(q.tag.b&&q.tag.b.length)h+=`<span class="qt">Batch ${q.tag.b.map(esc).join(", ")}</span>`}if(q.stars)h+=`<span class="qt qs">${"⭐".repeat(q.stars)}</span>`;if(q.rep>1)h+=`<span class="qt rp">Repeated ×${q.rep}</span>`;return h?`<div class="qtags">${h}</div>`:""}
+function qImg(q){if(!q.img)return"";const src=imgSrc(q.img);return src?`<button class="qimg" data-act="zoomimg" aria-label="Open the picture bigger"><img src="${src}" alt="Picture for this question"></button>`:src===""?`<div class="qimg loading"></div>`:""}
+const isFlag=r=>{const b=S.banks.find(x=>x.id===r.b);return !!(b&&(b.flags||[]).includes(r.i))};
+function kindCounts(b){const m={};b.questions.forEach(q=>{const k=q.tag&&q.tag.k;if(k)m[k]=(m[k]||0)+1});return Object.entries(m)}
+function examMistakeQs(blk,ex){
+  const mem=members(blk)[ex.id];const subs=new Set(blk.items.filter(i=>mem.has(i.id)).map(i=>i.subject));
+  const banks=S.banks.filter(b=>(!b.blockId||b.blockId===blk.id)&&(b.lec?mem.has(b.lec):subs.has(b.subject)));
+  const seen=new Set(),out=[];
+  banks.forEach(b=>{[...new Set([...(b.wrong||[]),...(b.flags||[])])].filter(i=>i<b.questions.length).sort((x,y)=>x-y).forEach(i=>{const k=qKey(b.questions[i]);if(seen.has(k))return;seen.add(k);out.push({b:b.id,i})})});
+  return out;
+}
+function mistakeCards(blk){
+  if(!blk)return"";const t=today();
+  const e=blk.exams.filter(e=>e.date>=t).sort((a,b)=>a.date.localeCompare(b.date)).find(e=>examMistakeQs(blk,e).length);
+  return [e].filter(Boolean).map(e=>{const qs=examMistakeQs(blk,e);
+    return `<button class="choice mistakes" data-act="mistakes" data-id="${e.id}"><span class="ce">🎯</span><span class="rowtext"><span class="tt">My mistakes before ${esc(e.name)}</span><span class="tm">${qs.length} question${qs.length===1?"":"s"} you got wrong or flagged 🚩 · ${countdownText(e)}</span></span><span class="chev">${I.chev}</span></button>`}).join("");
+}
 function qRight(q,ans){return q.card?ans===1:ans===q.a}
 function playQ(P,i){const r=P.qs[i];const b=S.banks.find(x=>x.id===r.b);return b?b.questions[r.i]:null}
 function playView(){
@@ -1481,23 +1679,26 @@ function playView(){
       <p class="cheerline">${pct>=.9?"Excellent!":pct>=.75?"Great job!":pct>=.5?"Good, keep going.":"Keep practising, you'll get there."}</p>
     </div>
     <div class="btns">${wrong.length?`<button class="btn primary" data-act="retrywrong">Retry ${wrong.length} wrong</button>`:""}<button class="btn soft" data-act="retryall">Start again</button></div>
+    <button class="btn soft" style="width:100%" data-act="quizpdf" ${UI.pdfBusy?"disabled":""}>${UI.pdfBusy?"Making the PDF…":"📄 Share as PDF"}</button>
+    ${UI.msg?`<div class="msg">${esc(UI.msg)}</div>`:""}
     ${wrong.length?`<details class="fold"><summary>Review your ${wrong.length} mistake${wrong.length===1?"":"s"}</summary><div class="list" style="margin-top:8px">${wrong.map(i=>{const q=playQ(P,i);return `<div class="review"><div class="rq">${esc(q.q)}</div>${q.card?`<div class="ra good">${I.check} ${esc(q.card)}</div>`:`<div class="ra bad">${I.x} ${esc(q.o[P.answers[i]]||"–")}</div><div class="ra good">${I.check} ${esc(q.o[q.a])}</div>`}${q.e?`<div class="tm">${esc(q.e)}</div>`:""}</div>`}).join("")}</div></details>`:""}`;
   }
   const q=playQ(P,P.i);if(!q){UI.play=null;return""}
   const picked=P.answers[P.i];const answered=picked!=null;
   const top=`<div class="qtop"><button class="x" data-act="quitquiz" aria-label="Stop quiz">${I.x}</button><div class="qprog"><b style="width:${(P.i/P.qs.length*100).toFixed(1)}%"></b></div><span class="tnum qcount">${P.i+1}/${P.qs.length}</span></div>
-  <div class="qcard"><div class="eyebrow">${esc(P.title)}${q.card?" · Recall":""}${q.rep>1?` · <span class="reptag">Repeated ×${q.rep}</span>`:""}</div><div class="qtext">${esc(q.q)}</div></div>`;
+  <div class="qcard"><div class="qhead"><div class="eyebrow">${esc(P.title)}${q.card?" · Recall":""}</div><button class="flagbtn ${isFlag(P.qs[P.i])?"on":""}" data-act="flag" aria-pressed="${isFlag(P.qs[P.i])}" aria-label="Flag this question to come back to">🚩</button></div>${qTags(q)}<div class="qtext">${hl(q.q)}</div>${qImg(q)}</div>`;
+  const skipB=!answered&&P.i<P.qs.length-1?`<button class="link skipq" data-act="skipq">Skip for now ${I.chev}</button>`:"";
   const next=`<button class="btn primary nextq" data-act="nextq">${P.i+1<P.qs.length?"Next question":"See my score"}</button>`;
   if(q.card){
     const shown=P.revealed===P.i||answered;
     return top+(shown?`<div class="feedback ${answered?(picked===1?"good":"bad"):""}"><div class="eyebrow" style="margin-bottom:4px">Answer</div>${esc(q.card)}${q.e?`<div class="exp">${esc(q.e)}</div>`:""}</div>
       ${answered?next:`<div class="btns"><button class="btn soft" data-act="cardgrade" data-v="0">${I.x} I didn't know</button><button class="btn primary" data-act="cardgrade" data-v="1">${I.check} I knew it</button></div>`}`
-      :`<p class="note">Think of your answer, then check it.</p><button class="btn primary" data-act="reveal">Show answer</button>`);
+      :`<p class="note">Think of your answer, then check it.</p><button class="btn primary" data-act="reveal">Show answer</button>${skipB}`);
   }
   return top+`
   <div class="opts">${q.o.map((o,k)=>{let c="";if(answered){if(q.a==null)c=k===picked?"pickedn":"";else if(k===q.a)c="good";else if(k===picked)c="bad"}
-    return `<button class="opt ${c}" data-act="pick" data-k="${k}" ${answered?"disabled":""}><span class="ol">${"ABCDEFGH"[k]}</span><span class="ot">${esc(o)}</span>${c==="good"?`<span class="oi">${I.check}</span>`:c==="bad"?`<span class="oi">${I.x}</span>`:""}</button>`}).join("")}</div>
-  ${answered?`<div class="feedback ${q.a==null?"":picked===q.a?"good":"bad"}">${q.a==null?"No answer key for this question.":picked===q.a?"Correct!":`The answer is ${"ABCDEFGH"[q.a]}.`}${q.e?`<div class="exp">${esc(q.e)}</div>`:""}</div>${next}`:""}`;
+    return `<button class="opt ${c}" data-act="pick" data-k="${k}" ${answered?"disabled":""}><span class="ol">${"ABCDEFGH"[k]}</span><span class="ot">${esc(o)}</span>${c==="good"?`${picked===k?'<span class="ostars" aria-hidden="true"><i>⭐</i><i>⭐</i></span>':""}<span class="oi">${I.check}</span>`:c==="bad"?`<span class="oi">${I.x}</span>`:""}</button>`}).join("")}</div>
+  ${answered?`<div class="feedback ${q.a==null?"":picked===q.a?"good":"bad"}">${q.a==null?"No answer key for this question.":picked===q.a?"Correct!":`The answer is ${"ABCDEFGH"[q.a]}.`}${q.e?`<div class="exp">${esc(q.e)}</div>`:""}</div>${next}`:skipB}`;
 }
 function subjChoices(sel,attr){
   const blk=B();
@@ -1513,8 +1714,10 @@ function bankSheet(sh){
   const nWrong=(b.wrong||[]).length;const noKey=b.questions.filter(q=>q.a==null&&!q.card).length;const rep=b.questions.filter(q=>q.rep>1).length;
   return `<div class="sheet-h"><h2>${b.subject?subjMeta(b.subject).icon+" ":""}${esc(b.subject||b.name)}${b.batch?" · "+esc(batchLabel(b.batch)):""}</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
   <p class="sub" style="margin:-6px 0 0">${esc(b.name)} · ${b.questions.length} questions${noKey?` · ${noKey} without an answer key`:""}${b.best!=null?` · best ${Math.round(b.best*100)}%`:""}</p>
+  ${(()=>{const kc=kindCounts(b);if(!kc.length)return"";const sel=UI.kindSel||"all";return `<div class="chips">${[["all",b.questions.length],...kc].map(([k,n])=>`<button class="chip small ${sel===k?"on":""}" data-act="kindsel" data-v="${esc(k)}">${k==="all"?"All":esc(k)} · ${n}</button>`).join("")}</div>`})()}
   <div class="btns col">
     <button class="btn primary" data-act="startquiz" data-id="${b.id}" data-m="all">Start quiz</button>
+    ${(b.flags||[]).length?`<button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="flag">🚩 Only my ${(b.flags||[]).length} flagged</button>`:""}
     ${rep?`<button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="rep">Most repeated first · ${rep} repeated</button>`:""}
     <button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="shuffle">Shuffle questions</button>
     ${nWrong?`<button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="wrong">Only my ${nWrong} mistakes</button>`:""}
@@ -1532,7 +1735,7 @@ function bankImportSheet(sh){
   if(!p.questions.length)return `<div class="sheet-h"><h2>No questions found</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
     <p class="note">Study Tracker looks for numbered questions (1. 2. 3.) with choices (A. B. C.). If your file is set out differently, tap “File won't read?” in Quizzes and ask Claude to tidy it up, then paste it here.</p><button class="btn primary" data-act="close">OK</button>`;
   return `<div class="sheet-h"><h2>${p.questions.length} questions found</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
-  <p class="note">${cards?`${p.questions.length-cards} multiple choice and ${cards} recall questions. `:""}${withKey===p.questions.length?"All have an answer.":withKey?`${withKey} have an answer. The rest show without marking.`:"No answer key found, so answers won't be marked."}${rep?` ${rep} questions are marked as repeated.`:""}</p>
+  <p class="note">${cards?`${p.questions.length-cards} multiple choice and ${cards} recall questions. `:""}${withKey===p.questions.length?"All have an answer.":withKey?`${withKey} have an answer. The rest show without marking.`:"No answer key found, so answers won't be marked."}${rep?` ${rep} questions are marked as repeated.`:""}${p.questions.filter(q=>q.img).length?` ${p.questions.filter(q=>q.img).length} have a picture.`:""}${p.questions.filter(q=>q.tag).length?` ${p.questions.filter(q=>q.tag).length} have exam tags.`:""}</p>
   ${(()=>{const blk=B();if(!blk)return"";const its=studyItems(blk);return `<label class="field">Lecture<select id="bi-lec" data-bi="lec"><option value="">None · a subject test bank</option>${its.map(i=>`<option value="${i.id}" ${sh.lec===i.id?"selected":""}>${esc(i.code)} · ${esc(i.title)}</option>`).join("")}</select></label>`})()}
   ${sh.lec?"":`<div class="field">Subject${subjChoices(sh.subject,"bisubj")}</div>
   <div class="field">Batch${batchChoices(sh.batch,"bibatch")}</div>`}
@@ -1552,48 +1755,63 @@ function pasteQSheet(sh){
 function settingsView(blk){
   const t=today();
   const nLinks=blk?Object.keys(blk.links||{}).length:0;
-  return `
-  ${blk?`<header class="head"><button class="back" data-act="go" data-v="today">${I.back}Today</button></header>`:""}
-  <header><h1>Settings</h1></header>
-  ${UI.msg?`<div class="msg">${esc(UI.msg)}</div>`:""}
-  ${blk?`<section><div class="label">This block</div><div class="panel">
+  const tab=UI.setTab||"me";
+  const tabs=`<div class="seg settabs" role="tablist">${[["me","Me"],["block","Block"],["data","Blocks & backup"]].map(([k,n])=>`<button role="tab" aria-selected="${tab===k}" class="${tab===k?"on":""}" data-act="settab" data-v="${k}">${n}</button>`).join("")}</div>`;
+  let body="";
+  if(tab==="me"){
+    body=`  <section><div class="label">My study steps</div><div class="panel">
+    <p class="note">How you study each lecture. Only on your phone: each friend sets her own. The short name shows on the lecture's step bar.</p>
+    <div class="steped">${S.settings.steps.map((x,k)=>`<div class="stepedrow"><span class="stepn">${k+1}</span><input class="inp sshort" data-step="${x.id}" data-sf="short" value="${esc(x.short)}" maxlength="7" aria-label="Short name of step ${k+1}"><input class="inp" data-step="${x.id}" data-sf="name" value="${esc(x.name)}" aria-label="Step ${k+1}">${S.settings.steps.length>2?`<button class="x" data-act="delstep" data-id="${x.id}" aria-label="Remove ${esc(x.name)}">${I.x}</button>`:""}</div>`).join("")}</div>
+    <div class="btns">${S.settings.steps.length<5?`<button class="btn soft" data-act="addstep">${I.plus}Add a step</button>`:""}<button class="btn soft" data-act="resetsteps">Default steps</button></div>
+  </div></section>
+  <section><div class="label">App colour</div><div class="panel">
+    <p class="note">Only on your phone. Subjects keep their own colours.</p>
+    <div class="swatches">${ACCENTS.map(([k,n,c])=>{const on=(S.settings.accent||"blue")===k;return `<button class="swatch ${on?"on":""}" data-act="accent" data-v="${k}" aria-pressed="${on}"><i style="background:linear-gradient(135deg,${c},color-mix(in srgb,${c} 55%,#fff))">${on?I.check:""}</i>${n}</button>`}).join("")}</div>
+  </div></section>`;
+  }else if(tab==="block"){
+    if(!blk)body=`<p class="note">No block yet.</p><div class="btns col"><button class="btn primary" data-act="wizard">Start a new block</button><label class="btn soft" style="cursor:pointer">Open a block from a friend<input type="file" id="block-file" accept=".json,application/json" hidden></label></div>`;
+    else{const a=absStats(blk);body=`  <section><div class="label">This block</div><div class="panel">
     <label class="field">Name<input id="s-bname" data-s="name" value="${esc(blk.name)}"></label>
     <div class="field">Drive folder
       <div class="pasterow"><input class="inp" id="s-drive" data-s="driveUrl" value="${esc(blk.driveUrl||"")}" placeholder="https://drive.google.com/drive/folders/…" inputmode="url" autocomplete="off"><button class="btn soft" data-act="pastedrive">Paste</button></div>
       ${blk.driveUrl?`<a class="link" href="${esc(blk.driveUrl)}" target="_blank" rel="noopener">📂 Open the folder</a>`:""}</div>
     <button class="rowb" data-act="linkslist" style="padding:0"><span class="rb"><strong>Lecture file links</strong><small>${nLinks} of ${studyItems(blk).length} lectures linked · paste a list</small></span><span class="chev">${I.chev}</span></button>
-  </div></section>
-  <section><div class="label">Exams</div>
+  </div></section>  <section><div class="label">Exams</div>
     <div class="rows">${blk.exams.map(e=>{const n=members(blk)[e.id].size;const dd=diffDays(t,e.date);
       return `<button class="rowb" data-act="exam" data-id="${e.id}"><span class="rb"><strong>${esc(e.name)}</strong><small>${shortDate(e.date)}${e.time?" · "+fmtShort(e.time):""} · ${dd<0?"done":dd===0?"today":dd+" days left"} · ${n} lectures · ${includesText(blk,e)}</small></span><span class="chev">${I.chev}</span></button>`}).join("")}
       <button class="rowb" data-act="addexam"><span class="rb" style="color:var(--accent);font-weight:700">Add exam</span><span class="chev">${I.plus}</span></button></div></section>
+  ${a.total?`<section><div class="label">Absence</div><div class="rows"><button class="rowb" data-act="abssheet"><span class="rb"><strong>${hrs(a.used)} missed of ${hrs(a.allowed)} allowed</strong><small>Your absences and the hours per class</small></span><span class="chev">${I.chev}</span></button></div></section>`:""}
   <section><div class="label">Timetable changes</div><div class="panel">
     <p class="note">Got a changed timetable? Add it and only the days it covers are replaced. Your ticks stay.</p>
     <label class="btn soft" style="cursor:pointer">${I.file}Add changed timetable<input type="file" id="pdf-file" accept="application/pdf,.pdf" hidden></label>
     <button class="btn soft" data-act="additem">${I.plus}Add a lecture by hand</button>
-  </div></section>
-  <section><div class="label">Share with friends</div><div class="panel">
+  </div></section>  <section><div class="label">Share with friends</div><div class="panel">
     <p class="note">Sends the timetable, exams, Drive links and test banks of ${esc(blk.name)}. Your ticks, stars and scores stay on your phone.</p>
     <button class="btn primary" data-act="shareblock">Share ${esc(blk.name)}</button>
-  </div></section>`:""}
-  <section><div class="label">Blocks</div>
+  </div></section>  <section><div class="label">Start over</div><div class="panel">
+    <p class="note">Clears every tick and star in ${esc(blk.name)} and your quiz scores, so you can start fresh. Lectures, exams, links and test banks stay.</p>
+    ${UI.confirm&&UI.confirm.t==="resetprog"?`<div class="confirm">Clear all your progress in ${esc(blk.name)}? This can't be undone.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn danger" data-act="resetprogyes">Clear progress</button></div></div>`:`<button class="btn soft" data-act="resetprog">Clear my progress</button>`}
+  </div></section>`;}
+  }else{
+    body=`  <section><div class="label">Blocks</div>
     <div class="rows">${S.blocks.map(b=>`<button class="rowb" data-act="switch" data-id="${b.id}"><span class="rb"><strong>${esc(b.name)}</strong><small>${studyItems(b).length} lectures${b.items.length?" · from "+dm(b.items[0].date):""}</small></span>${b.id===S.activeId?'<span class="pill free">Open</span>':`<span class="chev">${I.chev}</span>`}</button>`).join("")}
       <button class="rowb" data-act="wizard"><span class="rb" style="color:var(--accent);font-weight:700">Start a new block</span><span class="chev">${I.plus}</span></button>
       <label class="rowb" style="cursor:pointer"><span class="rb" style="color:var(--accent);font-weight:700">Open a block from a friend</span><span class="chev">${I.file}</span><input type="file" id="block-file" accept=".json,application/json" hidden></label></div>
     ${blk?(UI.confirm&&UI.confirm.t==="delblock"?`<div class="confirm" style="margin-top:8px">Delete ${esc(blk.name)} and all its ticks? This can't be undone.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn danger" data-act="delblockyes">Delete</button></div></div>`:`<button class="link" style="color:var(--muted)" data-act="delblock">Delete ${esc(blk.name)}</button>`):""}
-  </section>
-  ${UI.confirm&&UI.confirm.t==="importblock"?`<div class="confirm">${esc(UI.confirm.text)}<div class="btns"><button class="btn soft" data-act="cancelconfirm">Cancel</button><button class="btn primary" data-act="importblockyes">${UI.confirm.update?"Update":"Add block"}</button></div></div>`:""}
-  ${blk?`<section><div class="label">Start over</div><div class="panel">
-    <p class="note">Clears every tick and star in ${esc(blk.name)} and your quiz scores, so you can start fresh. Lectures, exams, links and test banks stay.</p>
-    ${UI.confirm&&UI.confirm.t==="resetprog"?`<div class="confirm">Clear all your progress in ${esc(blk.name)}? This can't be undone.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn danger" data-act="resetprogyes">Clear progress</button></div></div>`:`<button class="btn soft" data-act="resetprog">Clear my progress</button>`}
-  </div></section>`:""}
-  <section><div class="label">Backup</div>
+  </section>  ${UI.confirm&&UI.confirm.t==="importblock"?`<div class="confirm">${esc(UI.confirm.text)}<div class="btns"><button class="btn soft" data-act="cancelconfirm">Cancel</button><button class="btn primary" data-act="importblockyes">${UI.confirm.update?"Update":"Add block"}</button></div></div>`:""}  <section><div class="label">Backup</div>
     <div class="panel">
       <p class="note">${BUILD!=="artifact"?"Everything is saved on this iPhone. Save a backup now and then, and use it to move to a new phone.":mode==="synced"?"Synced to your Claude account. A backup file moves your data to the iPhone app.":"Saved in this browser. A backup file keeps a copy."}</p>
       ${UI.confirm&&UI.confirm.t==="import"?`<div class="confirm">Replace everything here with the backup from ${esc(UI.confirm.label)}?<div class="btns"><button class="btn soft" data-act="cancelconfirm">Cancel</button><button class="btn primary" data-act="importyes">Replace</button></div></div>`
       :`<div class="btns"><button class="btn soft" data-act="export">Save backup</button><label class="btn soft" style="cursor:pointer">Restore backup<input type="file" id="backup-file" accept=".json,application/json" hidden></label></div>`}
     </div>
-  </section>
+  </section>`;
+  }
+  return `
+  ${blk?`<header class="head"><button class="back" data-act="go" data-v="today">${I.back}Today</button></header>`:""}
+  <header><h1>Settings</h1></header>
+  ${tabs}
+  ${UI.msg?`<div class="msg">${esc(UI.msg)}</div>`:""}
+  ${body}
   ${credit}`;
 }
 
@@ -1678,6 +1896,8 @@ function renderSheet(){
   else if(sh.type==="wizard")h=wizardSheet(sh);
   else if(sh.type==="links")h=linksSheet(blk,sh);
   else if(sh.type==="planpick")h=planPickSheet(blk);
+  else if(sh.type==="absence")h=absenceSheet(blk);
+  else if(sh.type==="img")h=`<div class="sheet-h"><h2>Picture</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div><div class="imgsheet"><img src="${sh.src}" alt="Question picture"></div>`;
   else if(sh.type==="loading")h=`<div class="sheet-h"><h2>Reading ${esc(sh.name||"file")}…</h2></div><div class="gen"><span class="spin"></span><span>This takes a few seconds.</span></div>`;
   const keep=sheetEl.querySelector(".sheet-panel");const st=keep?keep.scrollTop:0;
   sheetEl.innerHTML=`<div class="sheet" data-act="closebg"><div class="sheet-panel" role="dialog" aria-modal="true" style="${sh._shown?"animation:none":""}"><div class="grab"></div>${h}</div></div>`;
@@ -1769,7 +1989,7 @@ function wizardSheet(sh){
 const studyCount=p=>p.items.filter(i=>i.type!=="PI"&&i.type!=="TBL").length;
 function planPickSheet(blk){
   const t=today();const cur=(S.myPlan||{})[t]||[];
-  const its=studyItems(blk).filter(i=>doneCount(blk,i.id)<4||cur.some(x=>x.id===i.id));
+  const its=studyItems(blk).filter(i=>doneCount(blk,i.id)<NS()||cur.some(x=>x.id===i.id));
   return `<div class="sheet-h"><h2>Today's plan</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
   <p class="note">Tick the lectures you want to work on today. Each one is added with its next step.</p>
   <div class="picklist">${its.map(i=>{const on=cur.find(x=>x.id===i.id);const p=prog(blk,i.id);const nxt=on?on.s:STAGES.find(s=>!p[s]);
@@ -1824,7 +2044,10 @@ function pdfLinesFromPages(pages){
     const its=pg.items.filter(i=>i.str&&i.str.trim()).sort((a,b)=>a.y-b.y||a.x-b.x);
     const lines=[];
     for(const it of its){const l=lines[lines.length-1];if(l&&Math.abs(it.y-l.y)<=2.5)l.items.push(it);else lines.push({y:it.y,items:[it]})}
+    for(const im of pg.imgs||[])lines.push({y:im.y,img:im.src});
+    lines.sort((a,b)=>a.y-b.y);
     for(const l of lines){
+      if(l.img){out.push({t:"",img:l.img});continue}
       l.items.sort((a,b)=>a.x-b.x);let s="",end=null;
       for(const it of l.items){const gap=end==null?0:it.x-end;s+=(end!=null&&gap>1.2&&!s.endsWith(" ")&&!it.str.startsWith(" ")?" ":"")+it.str;end=it.x+it.w}
       out.push({t:s,m:false});
@@ -1832,19 +2055,36 @@ function pdfLinesFromPages(pages){
   }
   return out;
 }
+/* split "A. x B. y" into options, only at letters that come in order, so "A. E. coli" stays one option */
+function splitOpts(t,start){
+  const LET="ABCDEFGH";const re=/(^|\s)[\(\[]?([A-Ha-h])\s*[\.\)\]]\s+/g;const cuts=[];let m,exp=start;
+  while((m=re.exec(t))){const L=m[2].toUpperCase();const at=m.index+m[1].length;
+    if(LET.indexOf(L)===exp&&(cuts.length||at===0)){cuts.push({at,body:m.index+m[0].length,L});exp++}}
+  return cuts.map((c,i)=>({L:c.L,txt:t.slice(c.body,i+1<cuts.length?cuts[i+1].at:t.length).trim()}));
+}
+const TAG_KIND=[["final","Final"],["mid","Mid"],["saq","SAQ"],["ospe","OSPE"],["osce","OSCE"],["quiz","Quiz"],["mcq","MCQ"],["practical","Practical"]];
+function takeTag(q){
+  const m=q.match(/^\s*[\[\(]([^\]\)]{1,48})[\]\)]\s*/);if(!m)return {q,tag:null};
+  const body=m[1].toLowerCase();const kind=TAG_KIND.find(k=>body.includes(k[0]));
+  if(!kind&&!/batch|دفع/.test(body))return {q,tag:null};
+  const b=/batch|دفع/.test(body)?(body.split(/batch|دفع[ةه]?/).slice(1).join(" ").match(/\d{1,2}/g)||[]):[];
+  return {q:q.slice(m[0].length),tag:{k:kind?kind[1]:"",b}};
+}
 function parseQuestions(lines){
   const LET="ABCDEFGH";
-  const clean=s=>String(s||"").replace(/[☀-➿️•●▪]/g," ").replace(/ /g," ").replace(/\s+/g," ").trim();
+  const clean=s=>String(s||"").replace(/[☀-➿️•●▪\u2B50]/g," ").replace(/ /g," ").replace(/\s+/g," ").trim();
   const qRe=/^(?:Q(?:uestion)?\s*)?(\d{1,4})\s*[\.\)]\s*(.*)$/i;
   const oRe=/^[\(\[]?([A-Ha-h])\s*[\.\)\]]\s*(.+)$/;
   const ansRe=/^(?:correct\s+)?(?:answer|ans)\s*(?:is)?\s*[:\-–=]\s*[\(\[]?([A-Ha-h])\b[\.\)\]]?\s*(.*)$/i;
   const blankAns=/^(?:answer|ans)\s*[:\-–]?\s*_{3,}/i;
   const expRe=/^(?:explanation|rationale|reason|exp)\s*[:\-–]\s*(.*)$/i;
   const keyHead=/^(?:answer\s*key|answers?|key|model\s+answers?)\s*:?$/i;
-  const qs=[];const key={};let cur=null,mode="q",keyMode=false,keyCur=null;
+  const qs=[];const key={};let cur=null,mode="q",keyMode=false,keyCur=null;const pendImg=[];
   const markRe=/\s*(\*|✓|✔|\(correct\))\s*$/i;
   for(const L of lines){
+    if(L&&L.img){if(cur)cur.imgs.push(L.img);else pendImg.push(L.img);continue}
     const raw=typeof L==="string"?L:L.t;const marked=typeof L==="object"&&L.m;
+    const stars=(String(raw).match(/[\u2605\u2B50\u272A\u272D\u272E\u272F\u2730]/g)||[]).length;
     const rh=(String(raw).match(/\u2765/g)||[]).length,rf=(String(raw).match(/\u2766/g)||[]).length;
     const t=clean(raw);if(!t){if(cur&&mode==="q"&&!cur.o.length){cur.rh+=rh;cur.rf+=rf}continue}
     if(keyHead.test(t)){keyMode=true;keyCur=null;continue}
@@ -1853,8 +2093,8 @@ function parseQuestions(lines){
       if(pairs.length>1&&t.length<pairs.length*14){pairs.forEach(p=>key[+p[1]]={l:p[2].toUpperCase(),txt:""});keyCur=null;continue}
       const m=t.match(/^(\d{1,4})\s*[\.\)\-:]\s*(.*)$/);
       if(m){const rest=m[2];const lm=rest.match(/^([A-Ha-h])\s*[\.\)]\s*(.*)$/)||rest.match(/^([A-Ha-h])$/);
-        keyCur=key[+m[1]]={l:lm?lm[1].toUpperCase():null,txt:lm?(lm[2]||""):rest};continue}
-      if(keyCur){keyCur.txt+=" "+t;continue}
+        keyCur=key[+m[1]]={l:lm?lm[1].toUpperCase():null,txt:lm?(lm[2]||""):rest,raw:rest};continue}
+      if(keyCur){keyCur.txt+=" "+t;keyCur.raw+=" "+t;continue}
       continue;
     }
     if(blankAns.test(t)){if(cur)cur.written=true;continue}
@@ -1863,21 +2103,21 @@ function parseQuestions(lines){
     if(cur&&(m=t.match(expRe))){cur.e=(cur.e?cur.e+" ":"")+m[1];mode="e";continue}
     m=t.match(qRe);
     if(m&&(!cur||cur.o.length>=1||mode==="e"||cur.written||!cur.q||(cur.num!=null&&+m[1]===cur.num+1))){
-      cur={num:+m[1],q:m[2]||"",o:[],marks:[],e:"",written:false,rh,rf};qs.push(cur);mode="q";
+      cur={num:+m[1],q:m[2]||"",o:[],marks:[],e:"",written:false,rh,rf,stars,imgs:pendImg.splice(0)};qs.push(cur);mode="q";
       /* options on the same line as the question */
-      const inl=cur.q.split(/\s+(?=[A-Ha-h][\.\)]\s)/);
-      if(inl.length>2&&/^[Aa][\.\)]\s/.test(inl[1])){cur.q=inl[0];inl.slice(1).forEach(s=>{const om=s.match(oRe);if(om)cur.o.push(om[2].trim())})}
+      const ai=cur.q.search(/\s[\(\[]?[Aa]\s*[\.\)\]]\s/);
+      if(ai>0){const os=splitOpts(cur.q.slice(ai+1),0);if(os.length>=2){cur.q=cur.q.slice(0,ai);os.forEach(o=>cur.o.push(o.txt))}}
       continue;
     }
     if(cur&&mode!=="e"&&(m=t.match(oRe))&&LET.indexOf(m[1].toUpperCase())===cur.o.length){
-      let parts=t.split(/\s+(?=[A-Ha-h][\.\)]\s)/).map(s=>s.match(oRe)).filter(Boolean);
-      for(const pm of parts){if(LET.indexOf(pm[1].toUpperCase())!==cur.o.length)break;let txt=pm[2].trim();let mk=marked;if(markRe.test(txt)){mk=true;txt=txt.replace(markRe,"")}cur.o.push(txt);if(mk)cur.marks.push(cur.o.length-1)}
+      const parts=splitOpts(t,cur.o.length);
+      for(const pm of parts){let txt=pm.txt;let mk=marked;if(markRe.test(txt)){mk=true;txt=txt.replace(markRe,"")}cur.o.push(txt);if(mk)cur.marks.push(cur.o.length-1)}
       mode="o";continue;
     }
     if(!cur)continue;
     if(mode==="e")cur.e+=" "+t;
     else if(cur.o.length)cur.o[cur.o.length-1]+=" "+t;
-    else{cur.q=(cur.q?cur.q+" ":"")+t;cur.rh+=rh;cur.rf+=rf}
+    else{cur.q=(cur.q?cur.q+" ":"")+t;cur.rh+=rh;cur.rf+=rf;cur.stars+=stars}
   }
   const norm=s=>String(s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
   const out=[];let skipped=0;
@@ -1889,23 +2129,26 @@ function parseQuestions(lines){
     else if(c.marks.length===1)a=c.marks[0];
     if(k){ansText=k.txt.trim();}
     if(c.ansTxt&&!ansText)ansText=c.ansTxt;
-    const q=c.q.trim();if(!q){skipped++;continue}
+    const tg=takeTag(c.q.trim());const q=tg.q.trim();if(!q){skipped++;continue}
+    const extra={};if(tg.tag)extra.tag=tg.tag;if(c.stars)extra.stars=Math.min(5,c.stars);if(c.imgs.length)extra.img=c.imgs[0];if(Math.max(c.rh,c.rf)>1)extra.rep=Math.max(c.rh,c.rf);
     if(c.o.length>=2){
       if(a!=null&&a>=c.o.length)a=null;
       if(!e&&ansText&&a!=null){const extra=ansText.replace(c.o[a],"").replace(/^[\s\-–:,.]+/,"").trim();if(extra.length>3&&norm(ansText)!==norm(c.o[a]))e=ansText}
       if(a==null&&ansText&&!e)e="Answer key: "+ansText;
-      out.push(Object.assign({q,o:c.o.map(s=>s.trim()),a,e},Math.max(c.rh,c.rf)>1?{rep:Math.max(c.rh,c.rf)}:{}));
+      out.push(Object.assign({q,o:c.o.map(s=>s.trim()),a,e},extra));
     }else{
       /* recall / written question: show as a flashcard */
-      let ans=ansText||(c.o.length===1?c.o[0]:"");
+      let ans=(k&&k.raw&&!c.o.length?k.raw.trim():ansText)||(c.o.length===1?c.o[0]:"");
       if(k&&k.l&&c.o.length===1&&!ansText)ans=c.o[0];
       if(k&&k.l&&ansText&&c.o.length===1&&norm(ansText).indexOf(norm(c.o[0]))<0)ans=ansText;
       if(!ans){skipped++;continue}
-      out.push(Object.assign({q,o:[],a:null,e,card:ans.trim()},Math.max(c.rh,c.rf)>1?{rep:Math.max(c.rh,c.rf)}:{}));
+      out.push(Object.assign({q,o:[],a:null,e,card:ans.trim()},extra));
     }
   }
   return {questions:out,skipped};
 }
+
+
 
 
 let jszipP=null;
@@ -1920,6 +2163,8 @@ async function docxLines(buf){
   const doc=new DOMParser().parseFromString(xml,"application/xml");
   const W="http://schemas.openxmlformats.org/wordprocessingml/2006/main";
   const out=[];let qn=0,on=0;
+  const rels={};try{const rx=await zip.file("word/_rels/document.xml.rels").async("string");const rd=new DOMParser().parseFromString(rx,"application/xml");for(const r of rd.getElementsByTagName("Relationship"))rels[r.getAttribute("Id")]=r.getAttribute("Target")}catch(e){}
+  const RNS="http://schemas.openxmlformats.org/officeDocument/2006/relationships";
   for(const p of doc.getElementsByTagNameNS(W,"p")){
     let text="",marked=false;
     for(const r of p.getElementsByTagNameNS(W,"r")){
@@ -1941,6 +2186,12 @@ async function docxLines(buf){
       if(lvl===0){qn++;on=0;parts[0]=`${qn}. ${parts[0]}`}else{parts[0]=`${"ABCDEFGH"[on++]||"H"}. ${parts[0]}`}
     }
     parts.forEach(t=>out.push({t,m:marked}));
+    for(const bl of p.getElementsByTagNameNS("*","blip")){
+      const rid=bl.getAttributeNS(RNS,"embed")||bl.getAttribute("r:embed");const tg=rels[rid];if(!tg)continue;
+      const path=tg.startsWith("/")?tg.slice(1):"word/"+tg.replace(/^\.\//,"");const f=zip.file(path);if(!f)continue;
+      const ext=(path.split(".").pop()||"").toLowerCase();if(!["png","jpg","jpeg","gif","bmp","webp"].includes(ext))continue;
+      try{const blob=new Blob([await f.async("arraybuffer")],{type:"image/"+(ext==="jpg"?"jpeg":ext)});const im=await blobImg(blob);if(im.naturalWidth>=24&&im.naturalHeight>=24)out.push({t:"",img:toJpeg(im,0,0,im.naturalWidth,im.naturalHeight)})}catch(e){}
+    }
   }
   return out;
 }
@@ -1951,7 +2202,8 @@ function confetti(x,y,big){
   let cv=document.getElementById("fx");if(!cv)return;
   const dpr=window.devicePixelRatio||1;cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;
   const ctx=cv.getContext("2d");ctx.setTransform(dpr,0,0,dpr,0,0);
-  const cols=["#4c8dff","#8fb8ff","#dbe6ff","#2f6fe0","#ffffff","#b26bff"];
+  const rs=getComputedStyle(document.documentElement);const tv=k=>rs.getPropertyValue(k).trim();
+  const cols=[tv("--accent")||"#4c8dff",tv("--accent-hi")||"#8fb8ff",tv("--accent-text")||"#dbe6ff",tv("--accent-2")||"#2f6fe0","#ffffff","#ffd166"];
   const n=big?140:36;const ps=[];
   for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,sp=(big?5:3.2)*(0.5+Math.random());
     ps.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-(big?5:3),r:big?4+Math.random()*4:3+Math.random()*2.5,c:cols[i%cols.length],rot:Math.random()*6,vr:(Math.random()-.5)*.3,star:i%5===0})}
@@ -1982,6 +2234,51 @@ Keep every question, in order, numbered 1, 2, 3…`;
 const SUBJ_GUESS=[["physio","Physiology"],["anat","Anatomy"],["histo","Histology"],["bioch","Biochemistry"],["patho","Pathology"],["micro","Microbiology"],["pharm","Pharmacology"],["radio","Radiology"],["immun","Immunology"],["genet","Genetics"],["embry","Embryology"]];
 function guessSubject(name){const n=String(name||"").toLowerCase();const m=SUBJ_GUESS.find(x=>n.includes(x[0]));return m?m[1]:""}
 function guessBatch(name){const m=String(name||"").match(/(?:batch|دفعه|دفعة|b)\s*[-_ ]?\s*(\d{1,2})\b/i);return m?String(+m[1]):""}
+/* question pictures live in IndexedDB so they don't fill up the main save */
+const IMGDB={p:null,cache:{},wait:{}};
+function imgDb(){if(IMGDB.p)return IMGDB.p;IMGDB.p=new Promise((res,rej)=>{try{const r=indexedDB.open("study-img",1);r.onupgradeneeded=()=>r.result.createObjectStore("img");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});IMGDB.p.catch(()=>{IMGDB.p=null});return IMGDB.p}
+async function imgPut(id,url){const db=await imgDb();await new Promise((res,rej)=>{const tx=db.transaction("img","readwrite");tx.objectStore("img").put(url,id);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)});IMGDB.cache[id]=url}
+async function imgGet(id){if(IMGDB.cache[id])return IMGDB.cache[id];const db=await imgDb();const v=await new Promise((res,rej)=>{const r=db.transaction("img").objectStore("img").get(id);r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error)});if(v)IMGDB.cache[id]=v;return v}
+async function imgUrl(ref){if(!ref)return null;if(!ref.startsWith("idb:"))return ref;try{return await imgGet(ref.slice(4))}catch(e){return null}}
+async function internImgs(banks){for(const b of banks||[])for(const q of (b&&b.questions)||[])if(q.img&&q.img.startsWith("data:")){const id=uid("im");try{await imgPut(id,q.img);q.img="idb:"+id}catch(e){}}}
+async function inlineImgs(banks){return Promise.all((banks||[]).map(async b=>{if(!b.questions.some(q=>q.img&&q.img.startsWith("idb:")))return b;const qs=await Promise.all(b.questions.map(async q=>{if(!(q.img&&q.img.startsWith("idb:")))return q;const u=await imgUrl(q.img);const c=Object.assign({},q);if(u)c.img=u;else delete c.img;return c}));return Object.assign({},b,{questions:qs})}))}
+function imgSrc(ref){if(!ref)return null;if(!ref.startsWith("idb:"))return ref;const id=ref.slice(4);if(IMGDB.cache[id])return IMGDB.cache[id];if(!IMGDB.wait[id]){IMGDB.wait[id]=1;imgGet(id).then(u=>{if(u)render()}).catch(()=>{})}return ""}
+function toJpeg(src,sx,sy,sw,sh){const max=1000;const sc=Math.min(1,max/sw);const c=document.createElement("canvas");c.width=Math.max(1,Math.round(sw*sc));c.height=Math.max(1,Math.round(sh*sc));const g=c.getContext("2d");g.fillStyle="#fff";g.fillRect(0,0,c.width,c.height);g.drawImage(src,sx,sy,sw,sh,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.8)}
+function blobImg(blob){return new Promise((res,rej)=>{const u=URL.createObjectURL(blob);const im=new Image();im.onload=()=>{res(im);setTimeout(()=>URL.revokeObjectURL(u),1000)};im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error("img"))};im.src=u})}
+/* test bank PDF: text items plus the pictures on each page, cut out where they sit */
+async function pdfPagesQ(file){
+  const lib=await loadPdfJs();const doc=await lib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;const pages=[];const OPS=lib.OPS;
+  const mul=(m,n)=>[m[0]*n[0]+m[2]*n[1],m[1]*n[0]+m[3]*n[1],m[0]*n[2]+m[2]*n[3],m[1]*n[2]+m[3]*n[3],m[0]*n[4]+m[2]*n[5]+m[4],m[1]*n[4]+m[3]*n[5]+m[5]];
+  for(let n=1;n<=doc.numPages;n++){
+    const pg=await doc.getPage(n);const vp=pg.getViewport({scale:1});const tc=await pg.getTextContent();
+    const page={height:vp.height,items:tc.items.filter(i=>"str" in i).map(i=>({str:i.str,x:i.transform[4],y:vp.height-i.transform[5],w:i.width,h:i.height})),imgs:[]};
+    try{
+      const ol=await pg.getOperatorList();let ctm=[1,0,0,1,0,0];const stack=[];const boxes=[];
+      const paints=[OPS.paintImageXObject,OPS.paintInlineImageXObject,OPS.paintJpegXObject,OPS.paintImageXObjectRepeat].filter(x=>x!=null);
+      for(let k=0;k<ol.fnArray.length;k++){const fn=ol.fnArray[k],args=ol.argsArray[k];
+        if(fn===OPS.save)stack.push(ctm.slice());
+        else if(fn===OPS.restore)ctm=stack.pop()||[1,0,0,1,0,0];
+        else if(fn===OPS.transform)ctm=mul(ctm,args);
+        else if(fn===OPS.paintFormXObjectBegin){stack.push(ctm.slice());if(Array.isArray(args[0])&&args[0].length===6)ctm=mul(ctm,args[0])}
+        else if(fn===OPS.paintFormXObjectEnd)ctm=stack.pop()||[1,0,0,1,0,0];
+        else if(paints.includes(fn)){
+          const pts=[[0,0],[1,0],[0,1],[1,1]].map(([x,y])=>vp.convertToViewportPoint(ctm[0]*x+ctm[2]*y+ctm[4],ctm[1]*x+ctm[3]*y+ctm[5]));
+          const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const b={x0:Math.max(0,Math.min(...xs)),y0:Math.max(0,Math.min(...ys)),x1:Math.min(vp.width,Math.max(...xs)),y1:Math.min(vp.height,Math.max(...ys))};
+          const w=b.x1-b.x0,h=b.y1-b.y0;
+          if(w>=40&&h>=30&&w*h<vp.width*vp.height*.85&&!boxes.some(o=>Math.abs(o.x0-b.x0)<2&&Math.abs(o.y0-b.y0)<2))boxes.push(b);
+        }
+      }
+      if(boxes.length){
+        const sc=2;const v2=pg.getViewport({scale:sc});const c=document.createElement("canvas");c.width=Math.ceil(v2.width);c.height=Math.ceil(v2.height);
+        await pg.render({canvasContext:c.getContext("2d"),viewport:v2}).promise;
+        for(const b of boxes)page.imgs.push({y:b.y0,src:toJpeg(c,b.x0*sc,b.y0*sc,(b.x1-b.x0)*sc,(b.y1-b.y0)*sc)});
+        c.width=c.height=0;
+      }
+    }catch(e){}
+    pages.push(page);
+  }
+  return pages;
+}
 async function pdfPages(file){
   const lib=await loadPdfJs();const doc=await lib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;const pages=[];
   for(let n=1;n<=doc.numPages;n++){const pg=await doc.getPage(n);const vp=pg.getViewport({scale:1});const tc=await pg.getTextContent();pages.push({height:vp.height,items:tc.items.filter(i=>"str" in i).map(i=>({str:i.str,x:i.transform[4],y:vp.height-i.transform[5],w:i.width,h:i.height}))})}
@@ -2001,7 +2298,7 @@ async function readBankFile(file,lecId,fromSheet){
   UI.sheet={type:"loading",name:file.name};renderSheet();
   try{
     let lines;const name=file.name.toLowerCase();
-    if(name.endsWith(".pdf")||file.type==="application/pdf")lines=pdfLinesFromPages(await pdfPages(file));
+    if(name.endsWith(".pdf")||file.type==="application/pdf")lines=pdfLinesFromPages(await pdfPagesQ(file));
     else if(name.endsWith(".docx"))lines=await docxLines(await file.arrayBuffer());
     else lines=(await file.text()).split(/\r?\n/).map(t=>({t,m:false}));
     const parsed=parseQuestions(lines);
@@ -2011,8 +2308,8 @@ async function readBankFile(file,lecId,fromSheet){
   }catch(e){UI.sheet=null;UI.msg="Couldn't read that file. Check your internet, or tap “File won't read?” and ask Claude to tidy it.";}
   render();
 }
-function saveBank(sh){
-  const blk=B();
+async function saveBank(sh){
+  const blk=B();await internImgs([sh.parsed]);
   const b={id:uid("q"),shareId:uid("bs"),name:(sh.name||"Test bank").trim()||"Test bank",subject:sh.subject||"",batch:sh.lec?"":(sh.batch||""),lec:sh.lec||"",created:today(),blockId:blk?blk.id:null,questions:sh.parsed.questions,best:null,last:null,tries:0,wrong:[]};
   S.banks.push(b);changed(["bank_"+b.id]);return b;
 }
@@ -2025,7 +2322,7 @@ function mixQuestions(banks){
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function startPlay(qs,title,meta){
   if(!qs.length)return;
-  UI.play={qs,i:0,answers:{},done:false,revealed:null,title,meta};UI.sheet=null;UI.view="play";UI.anim="anim";render();window.scrollTo({top:0});
+  UI.msg="";UI.play={qs,i:0,answers:{},done:false,revealed:null,title,meta};UI.sheet=null;UI.view="play";UI.anim="anim";render();window.scrollTo({top:0});
 }
 function startQuiz(id,m){
   const b=S.banks.find(x=>x.id===id);if(!b)return;
@@ -2033,7 +2330,101 @@ function startQuiz(id,m){
   if(m==="wrong"&&b.wrong&&b.wrong.length)order=shuffle(b.wrong.filter(i=>i<b.questions.length));
   else if(m==="shuffle")shuffle(order);
   else if(m==="rep")order.sort((x,y)=>(b.questions[y].rep||1)-(b.questions[x].rep||1)||x-y);
-  startPlay(order.map(i=>({b:b.id,i})),`${b.lec?b.name:(b.subject||b.name)}${b.batch?" · "+batchLabel(b.batch):""}`,{bank:b.id,full:m!=="wrong"});
+  else if(m==="flag")order=(b.flags||[]).filter(i=>i<b.questions.length);
+  const ks=UI.kindSel&&UI.kindSel!=="all"?UI.kindSel:null;
+  if(ks)order=order.filter(i=>(b.questions[i].tag||{}).k===ks);
+  if(!order.length){showToast("No questions for this choice",null,null);renderToast();return}
+  startPlay(order.map(i=>({b:b.id,i})),`${b.lec?b.name:(b.subject||b.name)}${b.batch?" · "+batchLabel(b.batch):""}${ks?" · "+ks:""}${m==="flag"?" · 🚩":""}`,{bank:b.id,full:m!=="wrong"&&m!=="flag"&&!ks});
+}
+function jpegPdf(pages){
+  const enc=new TextEncoder();const parts=[];let len=0;const offs=[];
+  const push=x=>{const u=typeof x==="string"?enc.encode(x):x;parts.push(u);len+=u.length};
+  push("%PDF-1.4\n");
+  const n=pages.length;const N=3+3*n;
+  offs[1]=len;push("1 0 obj\n<</Type/Catalog/Pages 2 0 R>>\nendobj\n");
+  offs[2]=len;push(`2 0 obj\n<</Type/Pages/Kids[${pages.map((_,i)=>`${3+3*i} 0 R`).join(" ")}]/Count ${n}>>\nendobj\n`);
+  pages.forEach((p,i)=>{const po=3+3*i,co=4+3*i,io=5+3*i;const cs="q 595.28 0 0 841.89 0 0 cm /Im0 Do Q";
+    offs[po]=len;push(`${po} 0 obj\n<</Type/Page/Parent 2 0 R/MediaBox[0 0 595.28 841.89]/Resources<</XObject<</Im0 ${io} 0 R>>>>/Contents ${co} 0 R>>\nendobj\n`);
+    offs[co]=len;push(`${co} 0 obj\n<</Length ${cs.length}>>\nstream\n${cs}\nendstream\nendobj\n`);
+    offs[io]=len;push(`${io} 0 obj\n<</Type/XObject/Subtype/Image/Width ${p.w}/Height ${p.h}/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length ${p.bytes.length}>>\nstream\n`);push(p.bytes);push("\nendstream\nendobj\n");
+  });
+  const xo=len;let x=`xref\n0 ${N}\n0000000000 65535 f \n`;for(let k=1;k<N;k++)x+=String(offs[k]).padStart(10,"0")+" 00000 n \n";
+  push(x+`trailer\n<</Size ${N}/Root 1 0 R>>\nstartxref\n${xo}\n%%EOF\n`);
+  return new Blob(parts,{type:"application/pdf"});
+}
+async function quizPdf(P){
+  const SC=1.5,W=1240,H=1754,M=72,CW=W-2*M;const pages=[];let c,g,y;
+  const F='"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';
+  const rs=getComputedStyle(document.documentElement);const ACC=rs.getPropertyValue("--accent").trim()||"#3d6fe8";
+  const GREEN="#15803d",RED="#c4202f",INK="#111827",SOFT="#4b5563",FAINT="#9aa3b5";
+  const footer=()=>{g.font=`600 13px ${F}`;g.fillStyle=FAINT;g.textAlign="left";g.fillText("Study Tracker · Designed by Amira",M,H-44);g.textAlign="right";g.fillText(String(pages.length),W-M,H-44);g.textAlign="left"};
+  const newPage=()=>{if(c)footer();c=document.createElement("canvas");c.width=W*SC;c.height=H*SC;g=c.getContext("2d");g.scale(SC,SC);g.fillStyle="#fff";g.fillRect(0,0,W,H);g.textBaseline="top";y=M;pages.push(c)};
+  const wrap=(txt,font,w)=>{g.font=font;const out=[];for(const para of String(txt).split("\n")){const words=para.split(/\s+/).filter(Boolean);let line="";for(const wd of words){const t=line?line+" "+wd:wd;if(g.measureText(t).width>w&&line){out.push(line);line=wd}else line=t}out.push(line)}return out};
+  const fit=h=>{if(y+h>H-M-20&&y>M+1)newPage()};
+  newPage();
+  const idx=P.qs.map((_,i)=>i).filter(i=>{const q=playQ(P,i);return q&&qScored(q)});
+  const right=idx.filter(i=>qRight(playQ(P,i),P.answers[i])).length;const pct=idx.length?Math.round(right/idx.length*100):0;
+  const nFlag=P.qs.filter(r=>isFlag(r)).length;const d0=new Date();
+  /* header: one line title + score, one line of details */
+  g.font=`800 13px ${F}`;g.fillStyle=ACC;g.fillText("STUDY TRACKER · QUIZ",M,y);y+=22;
+  g.font=`800 28px ${F}`;g.fillStyle=INK;const tl=wrap(P.title,`800 28px ${F}`,CW-200);tl.forEach((l,k)=>{g.fillText(l,M,y+k*34)});
+  g.textAlign="right";g.font=`800 28px ${F}`;g.fillStyle=pct>=75?GREEN:pct>=50?"#b45309":RED;g.fillText(`${pct}%`,W-M,y);g.font=`600 14px ${F}`;g.fillStyle=SOFT;g.fillText(`${right} of ${idx.length} right`,W-M,y+34);g.textAlign="left";
+  y+=Math.max(tl.length*34,52)+4;
+  g.font=`500 14px ${F}`;g.fillStyle=SOFT;const info=`${d0.getDate()} ${MONTHS[d0.getMonth()]} ${d0.getFullYear()} · ${P.qs.length} questions${nFlag?` · 🚩 ${nFlag} flagged`:""}`;g.fillText(info,M,y);
+  let lx=W-M;g.textAlign="right";[["🚩 flagged",RED],["✗ your wrong answer",RED],["✓ correct answer",GREEN]].forEach(([t,col])=>{g.fillStyle=col;g.font=`700 13px ${F}`;g.fillText(t,lx,y);lx-=g.measureText(t).width+18});g.textAlign="left";
+  y+=26;g.fillStyle="#d7dce5";g.fillRect(M,y,CW,1.5);y+=16;
+  const STEM=`600 18px ${F}`,OPT=`400 16px ${F}`,OPTB=`700 16px ${F}`;
+  for(let n=0;n<P.qs.length;n++){
+    const r=P.qs[n];const q=playQ(P,n);if(!q)continue;const fl=isFlag(r);const ans=P.answers[n];
+    const ok=qScored(q)&&ans!=null?qRight(q,ans):null;
+    let im=null;if(q.img){const u=await imgUrl(q.img);if(u){try{im=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=u})}catch(e){}}}
+    /* lay out the block first, then draw it where it fits */
+    const ops=[];let h=0;const add=(hh,fn)=>{const at=h;ops.push(yy=>fn(yy+at));h+=hh};
+    const tagTxt=[q.tag&&q.tag.k,q.tag&&q.tag.b&&q.tag.b.length?"Batch "+q.tag.b.join(", "):"",q.stars?"⭐".repeat(q.stars):""].filter(Boolean);
+    const stemL=wrap(q.q,STEM,CW-74);
+    add(Math.max(stemL.length*24,24),yy=>{
+      g.font=`800 16px ${F}`;g.fillStyle=ACC;g.fillText(`${n+1}.`,M,yy+1);
+      stemL.forEach((l,k)=>{g.font=STEM;g.fillStyle=INK;g.fillText(l,M+34,yy+k*24)});
+      g.textAlign="right";g.font=`800 17px ${F}`;g.fillStyle=ok===true?GREEN:ok===false?RED:FAINT;g.fillText(ok===true?"✓":ok===false?"✗":"–",W-M,yy);g.textAlign="left";
+    });
+    if(tagTxt.length||fl)add(20,yy=>{let x=M+34;if(fl){g.font=`800 12px ${F}`;g.fillStyle=RED;g.fillText("🚩 FLAGGED",x,yy+3);x+=g.measureText("🚩 FLAGGED").width+12}
+      tagTxt.forEach((t,k)=>{const col=k===0&&q.tag&&q.tag.k?(q.tag.k==="Final"?RED:q.tag.k==="Mid"?"#b45309":"#0f766e"):SOFT;g.font=`800 12px ${F}`;g.fillStyle=col;g.fillText(t.toUpperCase(),x,yy+3);x+=g.measureText(t.toUpperCase()).width+12})});
+    if(im){const sc=Math.min(1,320/im.naturalWidth,190/im.naturalHeight);const iw=im.naturalWidth*sc,ih=im.naturalHeight*sc;add(ih+10,yy=>{g.drawImage(im,M+34,yy+4,iw,ih);g.strokeStyle="#e3e7ef";g.lineWidth=1;g.strokeRect(M+34,yy+4,iw,ih)})}
+    add(6,()=>{});
+    if(q.card){
+      const al=wrap("Answer: "+q.card,`600 16px ${F}`,CW-44);
+      add(al.length*22,yy=>al.forEach((l,k)=>{g.font=`600 16px ${F}`;g.fillStyle=GREEN;g.fillText(l,M+34,yy+k*22)}));
+      add(20,yy=>{g.font=`600 13px ${F}`;g.fillStyle=ans===1?GREEN:ans===0?RED:FAINT;g.fillText(ans===1?"You knew it ✓":ans===0?"You didn't know it ✗":"Not answered",M+34,yy+2)});
+    }else{
+      const lab=k=>`${"ABCDEFGH"[k]}. ${q.o[k]}`;const mark=k=>k===q.a?" ✓":k===ans?" ✗":"";
+      g.font=OPTB;const widths=q.o.map((_,k)=>g.measureText(lab(k)+mark(k)).width);const mx=Math.max(...widths);
+      const avail=CW-34;const cols=mx<=avail/4-18&&q.o.length>=4?4:mx<=avail/2-18?2:1;const cw=avail/cols;
+      const rows=[];for(let k=0;k<q.o.length;k+=cols)rows.push(q.o.slice(k,k+cols).map((_,j)=>k+j));
+      rows.forEach(row=>{
+        const lines=row.map(k=>wrap(lab(k)+mark(k),k===q.a||k===ans?OPTB:OPT,cw-14));const rh=Math.max(...lines.map(l=>l.length))*22+2;
+        add(rh,yy=>row.forEach((k,j)=>{const good=k===q.a,bad=k===ans&&!good;lines[j].forEach((l,li)=>{g.font=good||bad?OPTB:OPT;g.fillStyle=good?GREEN:bad?RED:SOFT;g.fillText(l,M+34+j*cw,yy+li*22)})}));
+      });
+      if(ans==null)add(20,yy=>{g.font=`600 13px ${F}`;g.fillStyle=FAINT;g.fillText("Not answered",M+34,yy+2)});
+      else if(q.a==null)add(20,yy=>{g.font=`600 13px ${F}`;g.fillStyle=FAINT;g.fillText(`You picked ${"ABCDEFGH"[ans]} · no answer key`,M+34,yy+2)});
+    }
+    if(q.e){const el=wrap(q.e,`italic 500 14px ${F}`,CW-44);add(el.length*19+4,yy=>el.forEach((l,k)=>{g.font=`italic 500 14px ${F}`;g.fillStyle="#6b7280";g.fillText(l,M+34,yy+4+k*19)}))}
+    const blockH=h;
+    if(blockH<=H-2*M-40)fit(blockH);else fit(80);
+    const top=y;ops.forEach(o=>o(top));
+    if(fl){g.fillStyle=RED;g.fillRect(M-12,top,3.5,blockH)}
+    y=top+blockH+11;if(y<H-M-20){g.fillStyle="#eceff4";g.fillRect(M+34,y,CW-34,1);}y+=12;
+  }
+  footer();
+  const out=[];
+  for(const cv of pages){const bl=await new Promise(res=>cv.toBlob(res,"image/jpeg",.84));out.push({bytes:new Uint8Array(await bl.arrayBuffer()),w:cv.width,h:cv.height});cv.width=cv.height=0}
+  return jpegPdf(out);
+}
+async function shareQuizPdf(){
+  const P=UI.play;if(!P||UI.pdfBusy)return;UI.pdfBusy=true;UI.msg="";render();
+  try{const blob=await quizPdf(P);const name=`${String(P.title).replace(/[^\w\- ·]+/g,"").replace(/·/g,"-").replace(/\s+/g," ").trim()||"Quiz"} quiz.pdf`;
+    const r=await saveFile(name,blob,P.title,"application/pdf");UI.msg=r==="shared"?"":"PDF saved."}
+  catch(e){UI.msg=e&&(e.code==="declined"||e.name==="AbortError")?"":e&&e.code==="unavailable"?"Saving files isn't available here.":"Couldn't make the PDF. Try again."}
+  UI.pdfBusy=false;render();
 }
 function finishQuiz(){
   const P=UI.play;P.done=true;
@@ -2056,19 +2447,19 @@ function finishQuiz(){
 }
 
 /* ---------- files out ---------- */
-async function saveFile(name,txt,title){
+async function saveFile(name,txt,title,mime){
   if(BUILD==="artifact"){
     const dl=window.claude&&window.claude.use?await window.claude.use("downloads"):null;
     if(!dl)throw {code:"unavailable"};
     await dl.save({filename:name,data:txt});return "saved";
   }
-  const file=new File([txt],name,{type:"application/json"});
+  const file=new File([txt],name,{type:mime||"application/json"});
   if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title});return "shared"}
   const u=URL.createObjectURL(file);const a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);return "saved";
 }
 async function exportData(){
   UI.msg="";
-  try{const r=await saveFile(`study-tracker-backup-${today()}.json`,JSON.stringify({app:"study",v:1,exported:new Date().toISOString(),data:S}),"Study Tracker backup");UI.msg=r==="shared"?"Backup ready. Pick Save to Files to keep it.":"Backup saved."}
+  try{const r=await saveFile(`study-tracker-backup-${today()}.json`,JSON.stringify({app:"study",v:1,exported:new Date().toISOString(),data:Object.assign({},S,{banks:await inlineImgs(S.banks)})}),"Study Tracker backup");UI.msg=r==="shared"?"Backup ready. Pick Save to Files to keep it.":"Backup saved."}
   catch(e){UI.msg=e&&(e.code==="declined"||e.name==="AbortError")?"":e&&e.code==="unavailable"?"Saving files isn't available here.":"Couldn't save the backup. Try again."}
   render();
 }
@@ -2076,7 +2467,7 @@ async function shareBlock(){
   const blk=B();if(!blk)return;
   if(!blk.shareId){blk.shareId=uid("s");changed()}
   const banks=S.banks.filter(b=>!b.blockId||b.blockId===blk.id).map(b=>{if(!b.shareId){b.shareId=uid("bs");changed(["bank_"+b.id])}return {shareId:b.shareId,name:b.name,subject:b.subject,batch:b.batch,lec:b.lec||"",questions:b.questions}});
-  const data={app:"study-block",v:1,shared:new Date().toISOString(),block:{shareId:blk.shareId,name:blk.name,items:blk.items,events:blk.events,free:blk.free,exams:blk.exams,driveUrl:blk.driveUrl||"",links:blk.links||{}},banks};
+  const data={app:"study-block",v:1,shared:new Date().toISOString(),block:{shareId:blk.shareId,name:blk.name,items:blk.items,events:blk.events,free:blk.free,exams:blk.exams,driveUrl:blk.driveUrl||"",links:blk.links||{}},banks:await inlineImgs(banks)};
   UI.msg="";
   try{const r=await saveFile(`${blk.name.replace(/[^\w\- ]+/g,"").trim()||"Block"} block.json`,JSON.stringify(data),`${blk.name} block`);UI.msg=r==="shared"?"Send it to your friends. They open it from Settings → Open a block from a friend.":"Block file saved. Send it to your friends."}
   catch(e){UI.msg=e&&(e.code==="declined"||e.name==="AbortError")?"":e&&e.code==="unavailable"?"Saving files isn't available here.":"Couldn't make the block file. Try again."}
@@ -2188,29 +2579,47 @@ function onClick(e){
     case"close":UI.confirm=null;closeSheet();break;
     case"stage":{const before=todayLeft(blk);const wasDone=!!prog(blk,b.dataset.id)[b.dataset.s];toggleStage(b.dataset.id,b.dataset.s);
       const it=blk.items.find(i=>i.id===b.dataset.id);
-      if(!wasDone&&it&&doneCount(blk,it.id)===4){showToast(`Lecture finished · ${it.code} earned a star`,null,null);const r=b.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2,false)}
+      if(!wasDone)UI.justTicked=b.dataset.id+"|"+b.dataset.s;
+      if(!wasDone&&it&&doneCount(blk,it.id)===NS()){showToast(`Lecture finished · ${it.code} earned a star`,it.id,b.dataset.s);const r=b.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2,false)}
+      else if(!wasDone&&it)showToast(`${STAGE_NAME[b.dataset.s]} done · ${it.code}`,it.id,b.dataset.s);
       render();if(!wasDone&&before>0&&todayLeft(blk)===0&&UI.view==="today")setTimeout(()=>confetti(innerWidth/2,innerHeight*.35,true),120);
       break}
     case"next":{const it=blk.items.find(i=>i.id===b.dataset.id);const p=prog(blk,it.id);const s=STAGES.find(x=>!p[x]);
       if(!s){UI.sheet={type:"item",id:it.id};renderSheet();break}
       toggleStage(it.id,s);
-      if(doneCount(blk,it.id)===4){showToast(`Lecture finished · ${it.code} earned a star`,it.id,s);const r=b.getBoundingClientRect();render();confetti(r.left+r.width/2,r.top+r.height/2,false)}
+      if(doneCount(blk,it.id)===NS()){showToast(`Lecture finished · ${it.code} earned a star`,it.id,s);const r=b.getBoundingClientRect();render();confetti(r.left+r.width/2,r.top+r.height/2,false)}
       else{showToast(`${STAGE_NAME[s]} done · ${it.code}`,it.id,s);render()}
       break}
     case"undo":{const tt=UI.toast;if(tt&&tt.id){const p=blk.progress[tt.id];if(p){delete p[tt.s];if(!Object.keys(p).length)delete blk.progress[tt.id]}changed()}UI.toast=null;render();break}
     case"item":UI.confirm=null;UI.sheet={type:"item",id:b.dataset.id};renderSheet();break;
     case"additem":UI.confirm=null;UI.sheet={type:"item",id:null};renderSheet();break;
-    case"stars":{const l=studyItems(blk).filter(i=>doneCount(blk,i.id)===4).length;const q=S.banks.reduce((x,y)=>x+quizStars(y.best),0);showToast(`⭐ ${l+q} stars: ${l} from finished lectures${q?`, ${q} from quiz scores`:""}`,null,null);renderToast();break}
+    case"stars":{const l=studyItems(blk).filter(i=>doneCount(blk,i.id)===NS()).length;const q=S.banks.reduce((x,y)=>x+quizStars(y.best),0);showToast(`⭐ ${l+q} stars: ${l} from finished lectures${q?`, ${q} from quiz scores`:""}`,null,null);renderToast();break}
     case"examdetail":UI.confirm=null;UI.sheet={type:"examdetail",id:b.dataset.id};renderSheet();break;
     case"examlecs":UI.lecExam=b.dataset.id;UI.sheet=null;go("lec");break;
     case"hidehint":UI.lecHint=false;try{localStorage.setItem("study.hint","0")}catch(err){}render();break;
     case"toggleday":{const d=b.dataset.d;if(b.dataset.open==="true"){UI.openDays.delete(d);UI.closedDays.add(d)}else{UI.openDays.add(d);UI.closedDays.delete(d)}render();break}
     case"lecexam":UI.lecExam=b.dataset.v;render();break;
+    case"lecsubj":UI.lecSubj=b.dataset.v;render();break;
+    case"slidesset":UI.setTab="block";go("settings");showToast("Paste the Drive folder link under This block",null,null);renderToast();break;
+    case"settab":UI.setTab=b.dataset.v;UI.msg="";UI.confirm=null;render();window.scrollTo({top:0});break;
+    case"accent":S.settings.accent=b.dataset.v;changed();render();break;
+    case"absent":{const id=b.dataset.id;blk.absent=blk.absent||{};if(blk.absent[id])delete blk.absent[id];else{blk.absent[id]=today();buzz()}changed();render();
+      const a=absStats(blk);if(blk.absent[id]&&a.allowed&&a.used>a.allowed){showToast(`Over the absence limit by ${hrs(a.used-a.allowed)}`,null,null);renderToast()}break}
+    case"abssheet":UI.sheet={type:"absence"};renderSheet();break;
+    case"delstep":{if(S.settings.steps.length<=2)break;S.settings.steps=S.settings.steps.filter(x=>x.id!==b.dataset.id);applySteps();planMemo={k:"",v:null};changed();render();showToast("Step removed. Default steps brings it back with your ticks.",null,null);renderToast();break}
+    case"addstep":{if(S.settings.steps.length>=5)break;const n=S.settings.steps.length+1;let seq=S.settings.stepSeq||5;const used=new Set(Object.values(S.blocks).flatMap(bb=>Object.values(bb.progress||{}).flatMap(p=>Object.keys(p))));while(used.has("s"+seq)||S.settings.steps.some(x=>x.id==="s"+seq))seq++;S.settings.steps.push({id:"s"+seq,name:"Step "+n,short:"Step "+n});S.settings.stepSeq=seq+1;applySteps();planMemo={k:"",v:null};changed();render();break}
+    case"resetsteps":S.settings.steps=DEF_STEPS.map(x=>({...x}));applySteps();planMemo={k:"",v:null};changed();render();break;
+    case"kindsel":UI.kindSel=b.dataset.v;renderSheet();break;
+    case"flag":{const P=UI.play;if(!P)break;const r=P.qs[P.i];const bk=S.banks.find(x=>x.id===r.b);if(!bk)break;bk.flags=bk.flags||[];const k=bk.flags.indexOf(r.i);if(k>=0)bk.flags.splice(k,1);else{bk.flags.push(r.i);buzz()}changed(["bank_"+bk.id]);render();break}
+    case"skipq":{const P=UI.play;if(!P||P.answers[P.i]!=null||P.i>=P.qs.length-1)break;const r=P.qs.splice(P.i,1)[0];P.qs.push(r);P.revealed=null;render();window.scrollTo({top:0});showToast("Moved to the end of the quiz",null,null);renderToast();break}
+    case"quizpdf":shareQuizPdf();break;
+    case"mistakes":{const ex=blk&&blk.exams.find(e=>e.id===b.dataset.id);if(!ex)break;startPlay(shuffle(examMistakeQs(blk,ex)),`Mistakes · ${ex.name}`,null);break}
+    case"zoomimg":{const im=b.querySelector("img");if(im){UI.sheet={type:"img",src:im.src};renderSheet()}break}
     case"lecmode":UI.lecMode=b.dataset.v;UI.bulk=null;render();break;
     case"stepsel":UI.stepSel=b.dataset.v;render();break;
     case"qmode":UI.qMode=b.dataset.v;UI.msg="";render();break;
     case"lqsubj":UI.lqSubj=b.dataset.v;render();break;
-    case"bulkopen":UI.bulk="s1";render();break;
+    case"bulkopen":UI.bulk=STAGES[0];render();break;
     case"bulkcancel":UI.bulk=null;render();break;
     case"bulkstage":UI.bulk=b.dataset.v;render();break;
     case"bulkapply":{const s=UI.bulk;const t=today();filteredItems(blk).filter(i=>i.date<=t).forEach(i=>{const p=blk.progress[i.id]||(blk.progress[i.id]={});if(!p[s])p[s]=i.date<t?i.date:addDays(t,-1)});UI.bulk=null;changed();render();break}
@@ -2244,22 +2653,22 @@ function onClick(e){
     case"qsubj":UI.qSubj=b.dataset.v;render();break;
     case"qbatch":UI.qBatch=b.dataset.v;render();break;
     case"mix":{const s=b.dataset.v;startPlay(shuffle(mixQuestions(S.banks.filter(x=>(x.subject||"Other")===s))),`${s} · all batches`,null);break}
-    case"bank":UI.confirm=null;UI.sheet={type:"bank",id:b.dataset.id};renderSheet();break;
+    case"bank":UI.confirm=null;UI.kindSel="all";UI.sheet={type:"bank",id:b.dataset.id};renderSheet();break;
     case"startquiz":startQuiz(b.dataset.id,b.dataset.m);break;
     case"pick":{const P=UI.play;if(P.answers[P.i]!=null)break;P.answers[P.i]=+b.dataset.k;const q=playQ(P,P.i);if(q.a!=null&&+b.dataset.k===q.a){buzz();const r=b.getBoundingClientRect();render();confetti(r.right-24,r.top+r.height/2,false)}else{try{navigator.vibrate&&navigator.vibrate([20,40,20])}catch(err){}render()}break}
     case"reveal":UI.play.revealed=UI.play.i;render();break;
     case"cardgrade":{const P=UI.play;P.answers[P.i]=+b.dataset.v;render();break}
     case"nextq":{const P=UI.play;if(P.i+1<P.qs.length){P.i++;P.revealed=null;render();window.scrollTo({top:0})}else finishQuiz();break}
-    case"quitquiz":UI.play=null;go("quiz");break;
+    case"quitquiz":UI.play=null;UI.msg="";go("quiz");break;
     case"retrywrong":{const P=UI.play;const w=P.qs.filter((r,i)=>{const q=playQ(P,i);return q&&qScored(q)&&!qRight(q,P.answers[i])});startPlay(shuffle(w),P.title,null);break}
     case"retryall":{const P=UI.play;startPlay(P.qs.slice(),P.title,P.meta);break}
     case"pasteq":UI.sheet={type:"pasteq",text:""};renderSheet();break;
     case"readpasteq":{const txt=document.getElementById("pasteq-text").value;const parsed=parseQuestions(txt.split(/\r?\n/).map(t=>({t,m:false})));UI.sheet={type:"bankimport",parsed,name:"Pasted questions",subject:"",batch:""};renderSheet();break}
     case"bisubj":UI.sheet.subject=b.dataset.v;renderSheet();break;
     case"bibatch":UI.sheet.batch=UI.sheet.batch===b.dataset.v?"":b.dataset.v;renderSheet();break;
-    case"savebank":{if(!UI.sheet.subject)break;const from=UI.sheet.from;const nb=saveBank(UI.sheet);
-      if(nb.lec){UI.sheet=from?{type:"item",id:from}:null;UI.qMode="lec";UI.msg="";if(!from)UI.view="quiz";render();const L=B()&&B().items.find(i=>i.id===nb.lec);showToast(`Quiz added to ${L?L.code:"the lecture"} · ${nb.questions.length} questions`,null,null);renderToast();break}
-      UI.sheet=null;UI.msg=`${nb.subject}${nb.batch?" · "+batchLabel(nb.batch):""} saved with ${nb.questions.length} questions.`;UI.qSubj="all";UI.qBatch="all";UI.view="quiz";render();break}
+    case"savebank":{if(!UI.sheet.subject||UI.sheet.saving)break;UI.sheet.saving=true;const from=UI.sheet.from;const shv=UI.sheet;saveBank(shv).then(nb=>{
+      if(nb.lec){UI.sheet=from?{type:"item",id:from}:null;UI.qMode="lec";UI.msg="";if(!from)UI.view="quiz";render();const L=B()&&B().items.find(i=>i.id===nb.lec);showToast(`Quiz added to ${L?L.code:"the lecture"} · ${nb.questions.length} questions`,null,null);renderToast();return}
+      UI.sheet=null;UI.msg=`${nb.subject}${nb.batch?" · "+batchLabel(nb.batch):""} saved with ${nb.questions.length} questions.`;UI.qSubj="all";UI.qBatch="all";UI.view="quiz";render()});break}
     case"bsubj":case"bbatch":{const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){if(a==="bsubj")bk.subject=b.dataset.v;else bk.batch=bk.batch===b.dataset.v?"":b.dataset.v;changed(["bank_"+bk.id]);render()}break}
     case"copyqprompt":{const done=()=>{UI.msg="Copied. Open a new chat with Claude, attach your test bank, paste this, then copy Claude's reply into Paste questions.";UI.qCopyFallback=false;render()};
       try{navigator.clipboard.writeText(QUIZ_PROMPT).then(done,()=>{UI.qCopyFallback=true;UI.msg="Copy the request from the box below.";render();const t=document.getElementById("qprompt-text");if(t){t.focus();t.select()}})}catch(err){UI.qCopyFallback=true;render()}
@@ -2286,7 +2695,7 @@ function onClick(e){
     case"planpick":UI.sheet={type:"planpick"};renderSheet();break;
     case"unplan":{const t=today();S.myPlan=S.myPlan||{};S.myPlan[t]=(S.myPlan[t]||[]).filter(x=>!(x.id===b.dataset.id&&x.s===b.dataset.s));changed();render();break}
     case"resetprog":UI.confirm={t:"resetprog"};render();break;
-    case"resetprogyes":{blk.progress={};const ids=[];S.banks.filter(x=>!x.blockId||x.blockId===blk.id).forEach(x=>{x.best=null;x.wrong=[];x.tries=0;x.last=null;ids.push("bank_"+x.id)});UI.confirm=null;planMemo={k:"",v:null};changed(["state",...ids]);UI.msg="Your progress is cleared. Fresh start!";render();window.scrollTo({top:0});break}
+    case"resetprogyes":{blk.progress={};blk.absent={};const ids=[];S.banks.filter(x=>!x.blockId||x.blockId===blk.id).forEach(x=>{x.best=null;x.wrong=[];x.tries=0;x.last=null;ids.push("bank_"+x.id)});UI.confirm=null;planMemo={k:"",v:null};changed(["state",...ids]);UI.msg="Your progress is cleared. Fresh start!";render();window.scrollTo({top:0});break}
     case"importblockyes":{const nb=applyBlockFile(UI.confirm.data);UI.confirm=null;UI.msg=`${nb.name} is ready.`;render();break}
   }
 }
@@ -2335,6 +2744,8 @@ document.addEventListener("change",async e=>{
   if(el.dataset.b==="name"&&UI.sheet&&UI.sheet.type==="bank"){const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){bk.name=el.value.trim()||bk.name;changed(["bank_"+bk.id]);render()}}
   if(el.id==="pdf-file"&&el.files&&el.files[0]){readPdf(el.files[0]);el.value=""}
   if(el.id==="links-pdf"&&el.files&&el.files[0]){readLinksPdf(el.files[0]);el.value=""}
+  if(el.dataset.step){const x=S.settings.steps.find(z=>z.id===el.dataset.step);if(x){const v=el.value.trim();if(el.dataset.sf==="short")x.short=(v||x.name.slice(0,6)).slice(0,7);else x.name=v||x.name;applySteps();planMemo={k:"",v:null};changed();render()}}
+  if(el.dataset.abs){S.settings.abs=S.settings.abs||{h:{},pct:20};const v=Math.max(0,parseFloat(el.value)||0);if(el.dataset.abs==="pct")S.settings.abs.pct=Math.min(100,v);else{S.settings.abs.h=S.settings.abs.h||{};S.settings.abs.h[el.dataset.abs]=v}changed();render()}
   if(el.dataset.pp&&blk){const t=today();S.myPlan=S.myPlan||{};let L=S.myPlan[t]||[];const id=el.dataset.pp;
     if(el.checked){const p=prog(blk,id);const s=STAGES.find(x=>!p[x]);if(s&&!L.some(x=>x.id===id))L.push({id,s})}else L=L.filter(x=>x.id!==id);
     S.myPlan[t]=L;for(const k in S.myPlan)if(k<addDays(t,-60))delete S.myPlan[k];changed();render()}
@@ -2351,16 +2762,16 @@ document.addEventListener("change",async e=>{
   }
   if(el.id==="block-file"&&el.files&&el.files[0]){
     const f=el.files[0];el.value="";
-    try{const j=JSON.parse(await f.text());if(!j||j.app!=="study-block"||!j.block)throw 0;
+    try{const j=JSON.parse(await f.text());if(!j||j.app!=="study-block"||!j.block)throw 0;await internImgs(j.banks);
       const same=findSameBlock(j.block);
       if(!S.blocks.length){const nb=applyBlockFile(j);UI.msg="";UI.view="today";render();showToast(`${nb.name} is ready`,null,null);renderToast();return}
-      UI.confirm={t:"importblock",data:j,update:!!same,text:same?`Update ${same.name} with the shared file? New lectures, links and test banks are added. Your ticks and scores stay.`:`Add ${j.block.name} as a new block, with ${(j.banks||[]).length} test bank${(j.banks||[]).length===1?"":"s"}?`};UI.msg="";UI.view="settings";render();
+      UI.setTab="data";UI.confirm={t:"importblock",data:j,update:!!same,text:same?`Update ${same.name} with the shared file? New lectures, links and test banks are added. Your ticks and scores stay.`:`Add ${j.block.name} as a new block, with ${(j.banks||[]).length} test bank${(j.banks||[]).length===1?"":"s"}?`};UI.msg="";UI.view="settings";render();
     }catch(err){UI.msg="That file isn't a Study Tracker block.";render()}
   }
   if(el.id==="backup-file"&&el.files&&el.files[0]){
-    const f=el.files[0];f.text().then(txt=>{
-      try{const j=JSON.parse(txt);const v=j&&j.app==="study"?j.data:j;if(!v||!Array.isArray(v.blocks))throw 0;
-        UI.confirm={t:"import",data:v,label:j.exported?dm(j.exported.slice(0,10))+" "+j.exported.slice(0,4):f.name};UI.msg=""}
+    const f=el.files[0];f.text().then(async txt=>{
+      try{const j=JSON.parse(txt);const v=j&&j.app==="study"?j.data:j;if(!v||!Array.isArray(v.blocks))throw 0;await internImgs(v.banks);
+        UI.setTab="data";UI.confirm={t:"import",data:v,label:j.exported?dm(j.exported.slice(0,10))+" "+j.exported.slice(0,4):f.name};UI.msg=""}
       catch(err){UI.msg="That file isn't a Study Tracker backup.";UI.confirm=null}
       render();
     });el.value="";
@@ -2372,7 +2783,7 @@ let lastToday=today();
 setInterval(()=>{const t=today();if(t!==lastToday){lastToday=t;softRender()}},60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&today()!==lastToday){lastToday=today();softRender()}});
 
-if(seeded||linksMigrated)changed();
+if(seeded||linksMigrated||stepsMigrated)changed();
 UI.anim="anim";
 render();
 connect();
