@@ -849,6 +849,67 @@ mark.kw{background:none;color:#ffd166;font-weight:800;text-decoration:underline;
 .setrows .swatch{flex:1;font-size:11px;gap:5px}
 .setrows .swatch i{width:36px;height:36px}
 .editpill{flex:none;display:inline-flex;align-items:center;gap:4px;height:32px;padding:0 12px;border-radius:99px;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:800}
+
+/* v17: six link buttons, bigger day, editable smaller du'a, countdown first */
+.linkrow{grid-template-columns:repeat(3,1fr);gap:7px;margin-top:0}
+.linkbtn{height:42px;border-radius:12px;font-size:13px;gap:5px;padding:0 4px}
+.linkbtn .le{font-size:15px}
+.linkbtn.ours{background:#14302b;border-color:#1f5249;color:#c9f5ea}
+.linkbtn.appq{background:#2d2410;border-color:#5a4720;color:#ffe9b8}
+.linkbtn.canva{background:#102a3a;border-color:#1e4d66;color:#cdeeff}
+.linkbtn .ar{font-family:"Amiri","Noto Naskh Arabic","Geeza Pro",serif;font-size:15px;font-weight:700}
+.dayline{font-size:16px;gap:9px}
+.dayline .ar{font-size:21px}
+.basmala{font-size:16px!important;margin-top:4px!important;opacity:.9}
+.addbig{height:44px!important;font-size:14.5px!important;border-radius:13px!important;margin-top:10px!important;width:auto!important;padding:0 18px!important;align-self:flex-start}
+.addbig svg{width:17px!important;height:17px!important}
+.todaysec{display:flex;flex-direction:column}
+.counter .hg{font-size:17px;margin-left:4px;vertical-align:3px}
+.cleanold{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;border-radius:14px;background:#2a1418;border:1px solid #5a2230;color:#ffd0d6}
+.cleanold .ce{font-size:20px}
+.cleanold .rowtext{display:flex;flex-direction:column;gap:2px}
+.cleanold .tt{font-weight:700;font-size:14.5px}
+.cleanold .tm{font-size:12px;opacity:.8}
+
+/* v18: class quiz countdowns + class quiz questions */
+.qcounters{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:7px}
+.qcounter{display:flex;flex-direction:column;gap:1px;padding:8px 10px;border-radius:12px;background:#1e1730;border:1px solid #3a2b5c;text-align:left;color:#e6d9ff}
+.qcounter .cn{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.1}
+.qcounter .cn .hg{font-size:12px;margin-left:3px;vertical-align:2px}
+.qcounter .cl{font-size:11px;font-weight:700;color:#bba6e6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cqrow{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.cqrow.past{opacity:.6}
+.cqrow .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;text-align:left}
+.cqrow .tt{font-weight:600;font-size:14.5px;line-height:1.3}
+.cqrow .tm{font-size:12px;color:var(--muted)}
+
+/* v19: lighter Today, clearer "To study today", bold add buttons */
+.todaysec .label{font-size:17px!important;letter-spacing:.05em;font-weight:800;color:var(--fg)}
+.todaysec .label .grad{background:linear-gradient(90deg,var(--accent-hi),var(--accent-tint));-webkit-background-clip:text;background-clip:text;color:transparent}
+.addbig{height:38px!important;font-size:14px!important;border-radius:99px!important;padding:0 18px!important;background:linear-gradient(135deg,var(--accent-2),var(--accent-hi))!important;color:var(--on-accent)!important;box-shadow:0 6px 18px -6px color-mix(in srgb,var(--accent) 70%,transparent),inset 0 1px 0 rgba(255,255,255,.18)}
+.lqadd{height:28px!important;padding:0 12px!important;font-size:12px!important;font-weight:800!important;color:#fff!important;background:linear-gradient(135deg,#7c4dff,#b26bff)!important;border:0!important;box-shadow:0 4px 12px -4px rgba(178,107,255,.7)}
+.lqgo{height:28px!important;padding:0 14px!important}
+.cqrow .tm .hg{font-size:12px}
+
+/* v20: smaller date, bigger day, quiz tag on lectures, quiz groups */
+.datebig{font-size:26px!important}
+.dayline{font-size:19px!important}
+.dayline .ar{font-size:25px!important}
+.lkq{height:26px;padding:0 10px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:800;white-space:nowrap;cursor:pointer}
+.lkq.on{color:#fff;background:linear-gradient(135deg,#7c4dff,#b26bff);border:0}
+.lkq.add{color:#c9b3ff;background:transparent;border:1px dashed #5b45a0}
+.qtabs{margin-top:-4px}
+.exsec{display:flex;flex-direction:column;gap:10px}
+.exhead{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.exhead .en{font-weight:800;font-size:16px}
+.exhead .ed{font-size:12.5px;color:var(--muted);font-weight:700;white-space:nowrap}
+.exadd{display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border-radius:12px;border:1px dashed #5b45a0;color:#c9b3ff;font-weight:800;font-size:13.5px;cursor:pointer}
+.lqrow2{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.lqrow2 .lcodebox{width:40px;height:40px;font-size:13px;border-radius:12px}
+.lqrow2 .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;text-align:left}
+.lqrow2 .tt{font-weight:600;font-size:14.5px;line-height:1.3}
+.lqrow2 .tm{font-size:12px;color:var(--muted)}
+.lqrow2.later{opacity:.6}
 </style>
 
 <style>
@@ -1196,6 +1257,12 @@ function linkTarget(blk,title,typ,code){
 }
 function migrateAll(){
   let ch=false;
+  for(const q of S.banks||[]){
+    if(q.blockId)continue;
+    let home=q.lec?(S.blocks||[]).find(bl=>bl.items.some(i=>i.id===q.lec)):null;
+    if(!home&&!q.lec&&q.created){const c=String(q.created).slice(0,10);home=(S.blocks||[]).find(bl=>{const ds=bl.items.map(i=>i.date).sort();const ex=(bl.exams||[]).map(e=>e.date).sort();return ds.length&&c>=addDays(ds[0],-3)&&c<=(ex[ex.length-1]||ds[ds.length-1])})}
+    q.blockId=home?home.id:"gone";ch=true;
+  }
   for(const b of S.blocks||[]){
     if(b.seedLinks||!/renal/i.test(b.name)||!b.items||!b.items[0]||b.items[0].date!=="2026-10-11")continue;
     b.links=b.links||{};
@@ -1492,11 +1559,16 @@ function classRow(c,blk,withAbs){
 function counters(blk){
   const t=today();const ups=blk.exams.filter(e=>e.date>=t).sort((a,b)=>a.date.localeCompare(b.date));
   if(!ups.length)return"";
+  const cq=blk.items.filter(i=>isQuiz(i)&&i.date>=t).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).slice(0,3);
+  const small=cq.length?`<div class="qcounters">${cq.map(q=>{const n=diffDays(t,q.date);return `<button class="qcounter" data-act="item" data-id="${q.id}"><span class="cn tnum">${n===0?"Today":n}${n?'<span class="hg" aria-hidden="true">⏳</span>':""}</span><span class="cl">${n===0?"":n===1?"day · ":"days · "}${esc(q.code)}</span></button>`}).join("")}</div>`:"";
   return `<div class="counters">${ups.slice(0,3).map((e,i)=>{const s=examStats(blk,e);const n=diffDays(t,e.date);
     return `<button class="counter ${i===0?"first":""}" data-act="examdetail" data-id="${e.id}">
-      <span class="cn tnum">${n===0?"Today":n}</span><span class="cl">${n===0?"":n===1?"day · ":"days · "}${esc(e.name)}</span>
+      <span class="cn tnum">${n===0?"Today":n}<span class="hg" aria-hidden="true">⏳</span></span><span class="cl">${n===0?"":n===1?"day · ":"days · "}${esc(e.name)}</span>
       <span class="cbar"><b style="width:${(s.pct*100).toFixed(1)}%"></b></span></button>`}).join("")}</div>`;
 }
+const LINK_KEYS=["driveUrl","ytUrl","tbUrl","ourUrl","appqUrl","canvaUrl"];
+const DEF_DUA="بسم الله، توكلت على الله";
+const duaText=()=>S.settings.dua==null?"":S.settings.dua;
 function todayView(blk){
   const t=today(),d0=parse(t);
   const cls=classesOn(blk,t);
@@ -1504,14 +1576,15 @@ function todayView(blk){
   const myTasks=((S.myPlan||{})[t]||[]).filter(x=>STAGES.includes(x.s)&&blk.items.some(i=>i.id===x.id));
   const myDone=myTasks.filter(x=>prog(blk,x.id)[x.s]).length;
   return `
-  <header class="head"><div><div class="dayline"><span>${WD[d0.getDay()]}</span><span class="dot">·</span><span class="ar" dir="rtl" lang="ar">${WD_AR[d0.getDay()]}</span></div><h1 class="datebig">${d0.getDate()} ${MONTHS[d0.getMonth()]}</h1><p class="basmala" dir="rtl" lang="ar">بسم الله، توكلت على الله</p></div>
+  <header class="head"><div><div class="dayline"><span>${WD[d0.getDay()]}</span><span class="dot">·</span><span class="ar" dir="rtl" lang="ar">${WD_AR[d0.getDay()]}</span></div><h1 class="datebig">${d0.getDate()} ${MONTHS[d0.getMonth()]}</h1>${duaText()?`<p class="basmala" dir="rtl" lang="ar">${esc(duaText())}</p>`:""}</div>
     <button class="starchip" data-act="stars" aria-label="Your stars">${starSvg(true,16)}<span class="tnum">${totalStars(blk)}</span></button>
     <button class="iconbtn" data-act="go" data-v="settings" aria-label="Settings">${I.gear}</button></header>
-  <div class="linkrow">${blk.driveUrl?`<a class="linkbtn slides" href="${esc(blk.driveUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">📂</span>Slides</a>`:`<button class="linkbtn slides off" data-act="blinks"><span class="le" aria-hidden="true">📂</span>Slides</button>`}${blk.ytUrl?`<a class="linkbtn yt" href="${esc(blk.ytUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">▶️</span>YouTube</a>`:`<button class="linkbtn yt off" data-act="blinks"><span class="le" aria-hidden="true">▶️</span>YouTube</button>`}${blk.tbUrl?`<a class="linkbtn tb" href="${esc(blk.tbUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">🗂️</span>Test bank</a>`:`<button class="linkbtn tb off" data-act="blinks"><span class="le" aria-hidden="true">🗂️</span>Test bank</button>`}</div>
-  ${(()=>{const c=counters(blk);return c?`<section class="cdsec"><div class="label">Countdown <span class="hg" aria-hidden="true">⏳</span></div>${c}</section>`:""})()}
+
+  ${(()=>{const c=counters(blk);return c?`<section class="cdsec"><div class="label">Countdown <span class="hg" aria-hidden="true">⚠️</span></div>${c}</section>`:""})()}
+  <div class="linkrow">${blk.driveUrl?`<a class="linkbtn slides" href="${esc(blk.driveUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">📂</span>Slides</a>`:`<button class="linkbtn slides off" data-act="blinks"><span class="le" aria-hidden="true">📂</span>Slides</button>`}${blk.ytUrl?`<a class="linkbtn yt" href="${esc(blk.ytUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">▶️</span>YouTube</a>`:`<button class="linkbtn yt off" data-act="blinks"><span class="le" aria-hidden="true">▶️</span>YouTube</button>`}${blk.tbUrl?`<a class="linkbtn tb" href="${esc(blk.tbUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">🗂️</span>Test bank</a>`:`<button class="linkbtn tb off" data-act="blinks"><span class="le" aria-hidden="true">🗂️</span>Test bank</button>`}${blk.ourUrl?`<a class="linkbtn ours" href="${esc(blk.ourUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">📑</span><span class="ar" lang="ar">سلايداتنا</span></a>`:`<button class="linkbtn ours off" data-act="blinks"><span class="le" aria-hidden="true">📑</span><span class="ar" lang="ar">سلايداتنا</span></button>`}${blk.appqUrl?`<a class="linkbtn appq" href="${esc(blk.appqUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">📲</span><span class="ar" lang="ar">اسئلة التطبيق</span></a>`:`<button class="linkbtn appq off" data-act="blinks"><span class="le" aria-hidden="true">📲</span><span class="ar" lang="ar">اسئلة التطبيق</span></button>`}${blk.canvaUrl?`<a class="linkbtn canva" href="${esc(blk.canvaUrl)}" target="_blank" rel="noopener"><span class="le" aria-hidden="true">🎨</span>Canva</a>`:`<button class="linkbtn canva off" data-act="blinks"><span class="le" aria-hidden="true">🎨</span>Canva</button>`}</div>
   ${soon.map(q=>`<div class="quizsoon"><span class="bell" aria-hidden="true">🔔</span><span><strong>Quiz ${diffDays(t,q.date)===0?"today":diffDays(t,q.date)===1?"tomorrow":"on "+WDS[parse(q.date).getDay()]}</strong> · ${esc(q.code)} ${esc(q.title)}${q.time?" · "+fmtShort(q.time):""}</span></div>`).join("")}
   <section class="todaysec">
-    <div class="label">To study today 📚 <span class="tnum">${myTasks.length?`${myDone}/${myTasks.length} done`:""}</span></div>
+    <div class="label"><span><span class="grad">To study today</span> 📚</span> <span class="tnum">${myTasks.length?`${myDone}/${myTasks.length} done`:""}</span></div>
     ${myTasks.length?`<div class="daybar"><b style="width:${(myDone/myTasks.length*100).toFixed(1)}%"></b></div><div class="list">${myTasks.map(tk=>taskRow(blk,tk,true)).join("")}</div>`:`<p class="empty">Pick the lectures you want to get through today.</p>`}
     ${myTasks.length&&myDone===myTasks.length?`<div class="cheer">${starSvg(true,22)} You did everything you planned. Great work!</div>`:""}
     <button class="btn primary addbig" data-act="planpick">${I.plus} Add lectures to today</button>
@@ -1604,8 +1677,7 @@ function lecRow(blk,it){
     <button class="lcodebox ${String(it.code).length>3?"sm":""}" data-act="item" data-id="${it.id}" style="color:${c};background:${c}1c;border-color:${c}40" aria-label="Open ${esc(it.code)}">${esc(it.code)}</button>
     <div class="lbody">
       <button class="lhead" data-act="item" data-id="${it.id}"><span class="tt">${esc(it.title)}</span></button>
-      <div class="lmeta2">${spillE(it.subject)}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}
-        ${qb.length?`<span class="llinks"><button class="lk qz on" data-act="bank" data-id="${qb[0].id}">📝 Quiz</button></span>`:""}</div>
+      <div class="lmeta2">${spillE(it.subject)}${qb.length?`<button class="lkq on" data-act="bank" data-id="${qb[0].id}">📝 Quiz · ${qb.reduce((a,b)=>a+liveQ(b).length,0)}</button>`:`<label class="lkq add">＋ Quiz<input type="file" class="lecq" data-id="${it.id}" accept="${QACC}" hidden></label>`}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}</div>
       ${stepBar(blk,it)}
     </div>
   </div>`;
@@ -1702,24 +1774,60 @@ function sessionCard(){
   const x=liveSess();if(!x)return"";
   return `<button class="contcard" data-act="resume"><span class="ce" aria-hidden="true">▶️</span><span class="rowtext"><span class="tt">Continue where you stopped</span><span class="tm">${esc(x.title)} · question ${Math.min(x.i+1,x.qs.length)} of ${x.qs.length}</span></span><span class="go" aria-hidden="true">›</span></button>`;
 }
+function bankGroup(b,blk){
+  if(b.lec&&blk){const it=blk.items.find(i=>i.id===b.lec);if(it)return isQuiz(it)?"exam":"lec"}
+  if(b.exam&&blk&&blk.exams.some(e=>e.id===b.exam))return "exam";
+  return "custom";
+}
 function quizView(blk){
-  const t=today();
-  const upcoming=blk?blk.items.filter(i=>isQuiz(i)&&i.date>=t).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)):[];
-  const all=S.banks.filter(b=>liveQ(b).length);
-  const subs=[...new Set(all.flatMap(bankSubjects))].sort();
-  if(UI.qSubj!=="all"&&!subs.includes(UI.qSubj))UI.qSubj="all";
-  const list=all.filter(b=>UI.qSubj==="all"||bankSubjects(b).includes(UI.qSubj)).sort((a,b)=>String(b.last||b.created||"").localeCompare(String(a.last||a.created||"")));
+  const t=today();const tab=UI.qTab||"lec";
+  const blockIds=new Set(S.blocks.map(x=>x.id));
+  const old=S.banks.filter(b=>b.blockId&&!blockIds.has(b.blockId));
+  const all=S.banks.filter(b=>liveQ(b).length&&!(b.blockId&&!blockIds.has(b.blockId))&&(!blk||!b.blockId||b.blockId===blk.id));
+  const g={lec:[],exam:[],custom:[]};all.forEach(b=>g[bankGroup(b,blk)].push(b));
+  const when=d=>{const n=diffDays(t,d);return n<0?"done":`<span style="white-space:nowrap"><span class="hg" aria-hidden="true">⏳</span> ${n===0?"today":n===1?"tomorrow":"in "+n+" days"}</span>`};
+  let body="";
+  if(tab==="lec"){
+    const its=blk?studyItems(blk):[];
+    const subs=[...new Set(its.map(i=>i.subject))].sort();
+    if(UI.lqSubj&&UI.lqSubj!=="all"&&!subs.includes(UI.lqSubj))UI.lqSubj="all";
+    const sel=UI.lqSubj||"all";const list=its.filter(i=>sel==="all"||i.subject===sel);
+    const have=its.filter(i=>lecBanks(i.id).length).length;
+    body=`${subs.length>1?`<div class="chips">${["all",...subs].map(x=>`<button class="chip ${sel===x?"on":""}" data-act="lqsubj" data-v="${esc(x)}">${x==="all"?"All":subjMeta(x).icon+" "+esc(x)}</button>`).join("")}</div>`:""}
+    <p class="note" style="margin:-4px 0 0">${have} of ${its.length} lectures have a quiz. Tap <b>+ Add quiz</b> and pick that lecture's questions file.</p>
+    <div class="list">${list.map(i=>{const qb=lecBanks(i.id);const c=subjMeta(i.subject).color;const n=qb.reduce((a,b)=>a+liveQ(b).length,0);const dn=qb.reduce((a,b)=>a+bankStats(b).seen,0);
+      return `<div class="lqrow2 ${i.date>t&&!qb.length?"later":""}"><span class="lcodebox ${String(i.code).length>3?"sm":""}" style="color:${c};background:${c}1c;border-color:${c}40">${esc(i.code)}</span>
+      <button class="tx" data-act="${qb.length?"bank":"item"}" data-id="${qb.length?qb[0].id:i.id}"><span class="tt">${esc(i.title)}</span><span class="tm">${qb.length?`${dn} / ${n} done`:i.date>t?`Class on ${shortDate(i.date)}`:"No quiz yet"}</span></button>
+      ${qb.length?`<button class="lqgo" data-act="startquiz" data-id="${qb[0].id}" data-m="go">Start</button>`:`<label class="lqadd">+ Add quiz<input type="file" class="lecq" data-id="${i.id}" accept="${QACC}" hidden></label>`}</div>`}).join("")}</div>`;
+  }else if(tab==="exam"){
+    const exs=blk?blk.exams.slice().sort((a,b)=>a.date.localeCompare(b.date)):[];
+    const cq=blk?blk.items.filter(i=>isQuiz(i)).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)):[];
+    body=exs.map(e=>{const bs=g.exam.filter(b=>b.exam===e.id);
+      return `<section class="exsec"><div class="exhead"><span class="en">${esc(e.name)}</span><span class="ed">${shortDate(e.date)} · ${when(e.date)}</span></div>
+      ${bs.length?`<div class="qzlist">${bs.map(quizCard).join("")}</div>`:""}
+      <label class="exadd">＋ Add ${esc(e.name)} questions<input type="file" class="examq" data-id="${e.id}" accept="${QACC}" hidden></label></section>`}).join("")
+    +(cq.length?`<section><div class="label">TBL and PI</div><div class="list">${cq.map(q=>{const qb=lecBanks(q.id);const n=diffDays(t,q.date);const nq=qb.reduce((a,b)=>a+liveQ(b).length,0);
+      return `<div class="cqrow ${n<0?"past":""}">${badge(q.subject,30)}<button class="tx" data-act="${qb.length?"bank":"item"}" data-id="${qb.length?qb[0].id:q.id}"><span class="tt">${esc(q.code)} · ${esc(q.title)}</span><span class="tm">${shortDate(q.date)}${q.time?" · "+fmtShort(q.time):""} · ${when(q.date)}${qb.length?` · ${nq} questions`:""}</span></button>
+      ${qb.length?`<button class="lqgo" data-act="startquiz" data-id="${qb[0].id}" data-m="go">Start</button>`:`<label class="lqadd">+ Add quiz<input type="file" class="lecq" data-id="${q.id}" accept="${QACC}" hidden></label>`}</div>`}).join("")}</div></section>`:"")
+    ||`<p class="empty">No exams in this block yet.</p>`;
+  }else{
+    const list=g.custom;const subs=[...new Set(list.flatMap(bankSubjects))].sort();
+    if(UI.qSubj!=="all"&&!subs.includes(UI.qSubj))UI.qSubj="all";
+    const shown=list.filter(b=>UI.qSubj==="all"||bankSubjects(b).includes(UI.qSubj)).sort((a,b)=>String(b.last||b.created||"").localeCompare(String(a.last||a.created||"")));
+    body=`${subs.length>1?`<div class="chips">${["all",...subs].map(x=>`<button class="chip ${UI.qSubj===x?"on":""}" data-act="qsubj" data-v="${esc(x)}">${x==="all"?"All":subjMeta(x).icon+" "+esc(x)}</button>`).join("")}</div>`:""}
+    ${shown.length?`<div class="qzlist">${shown.map(quizCard).join("")}</div>`:`<label class="choice" style="cursor:pointer"><span class="ce">📚</span><span class="rowtext"><span class="tt">Add a quiz file</span><span class="tm">A quiz file from Claude, or a PDF, Word or text file with numbered questions.</span></span><span class="chev">${I.chev}</span><input type="file" id="bank-file2" accept="${QACC}" hidden></label>`}
+    <button class="link" data-act="pasteq">Paste questions ${I.chev}</button>`;
+  }
+  const tabBtn=(k,n,c)=>`<button class="${tab===k?"on":""}" data-act="qtab" data-v="${k}">${n}${c?` · ${c}`:""}</button>`;
   return `
   <header class="head"><div><h1>Quizzes</h1></div><label class="iconbtn" style="cursor:pointer" aria-label="Add a quiz file">${I.plus}<input type="file" id="bank-file" accept="${QACC}" hidden></label></header>
   ${UI.msg?`<div class="msg">${esc(UI.msg)}</div>`:""}
+  ${old.length?(UI.confirm&&UI.confirm.t==="delold"?`<div class="confirm">Delete ${old.length} quiz file${old.length===1?"":"s"} from blocks you deleted? Your other quizzes stay.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep them</button><button class="btn danger" data-act="deloldyes">Delete</button></div></div>`
+    :`<button class="cleanold" data-act="delold"><span class="ce" aria-hidden="true">🧹</span><span class="rowtext"><span class="tt">${old.length} quiz file${old.length===1?"":"s"} from old blocks</span><span class="tm">Tap to delete them. They're hidden from your list.</span></span></button>`):""}
   ${sessionCard()}
   ${mistakeCards(blk)}
-  ${all.length?`
-  ${subs.length>1?`<div class="chips">${["all",...subs].map(x=>`<button class="chip ${UI.qSubj===x?"on":""}" data-act="qsubj" data-v="${esc(x)}">${x==="all"?"All":subjMeta(x).icon+" "+esc(x)}</button>`).join("")}</div>`:""}
-  <div class="qzlist">${list.map(quizCard).join("")}</div>`
-  :`<label class="choice" style="cursor:pointer"><span class="ce">📚</span><span class="rowtext"><span class="tt">Add your first quiz file</span><span class="tm">A quiz file from Claude, or a PDF, Word or text file with numbered questions.</span></span><span class="chev">${I.chev}</span><input type="file" id="bank-file2" accept="${QACC}" hidden></label>`}
-  <button class="link" data-act="pasteq">Paste questions ${I.chev}</button>
-  ${upcoming.length?`<section><div class="label">Class quizzes</div><div class="list">${upcoming.map(q=>`<div class="cls">${badge(q.subject,30)}<span class="cb"><span class="ctt">${esc(q.title)}</span><span class="tm">${esc(q.code)} · ${shortDate(q.date)}${q.time?" · "+fmtShort(q.time):""} · ${diffDays(t,q.date)===0?"today":diffDays(t,q.date)===1?"tomorrow":"in "+diffDays(t,q.date)+" days"}</span></span></div>`).join("")}</div></section>`:""}`;
+  <div class="seg qtabs">${tabBtn("lec","Lectures",g.lec.length)}${tabBtn("exam","Exams",g.exam.length)}${tabBtn("custom","Custom",g.custom.length)}</div>
+  ${body}`;
 }
 function lecQuizList(blk){
   if(!blk)return `<p class="empty">Add a block first.</p>`;
@@ -1876,6 +1984,7 @@ function bankSheet(sh){
     ${kinds.length?chips("kind",kinds,"Exam"):""}
     <button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="shuffle">🔀 Shuffle all questions</button>
     <label class="field">Name<input id="b-name" data-b="name" value="${esc(b.name)}"></label>
+    ${(()=>{const blk=B();if(!blk||b.lec||!blk.exams.length)return"";return `<label class="field">Shows under<select data-b="exam"><option value="">Custom quizzes</option>${blk.exams.map(e=>`<option value="${e.id}" ${b.exam===e.id?"selected":""}>Exam · ${esc(e.name)}</option>`).join("")}</select></label>`})()}
     ${!subs.length||(b.subject&&b.subject!=="Mixed"&&!b.questions.some(q=>q.subj))?`<div class="field">Subject${subjChoices(b.subject,"bsubj")}</div>`:""}
     ${UI.confirm&&UI.confirm.t==="resetbank"?`<div class="confirm">Start ${esc(bankTitle(b))} from zero? Your done count, mistakes and best score for it are cleared.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep</button><button class="btn danger" data-act="resetbankyes">Start from zero</button></div></div>`:`<button class="btn soft" data-act="resetbank">Start this file from zero</button>`}
     ${UI.confirm&&UI.confirm.t==="delbank"?`<div class="confirm">Delete this quiz file?<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep</button><button class="btn danger" data-act="delbankyes">Delete</button></div></div>`:`<button class="btn danger" data-act="delbank">Delete this quiz file</button>`}
@@ -1893,16 +2002,18 @@ function bankImportSheet(sh){
     <p class="note">${p.questions.length-cards} multiple choice${cards?` · ${cards} show-answer`:""}${rep?` · 🔁 ${rep} repeated`:""}${imgs?` · 🖼 ${imgs} with a picture`:""}${chk?` · ⚠️ ${chk} to check with your doctor`:""}</p>
     ${subs.length?`<div class="qsubs">${subs.map(([k,n])=>`<span class="spill" style="color:${subjMeta(k).color};background:${subjMeta(k).color}24">${esc(k)} ${subjMeta(k).icon} · ${n}</span>`).join("")}</div>`:""}
     <label class="field">Name<input id="bi-name" data-bi="name" value="${esc(sh.name)}"></label>
+    ${(()=>{const blk=B();if(!blk||sh.lec||!blk.exams.length)return"";return `<label class="field">Shows under<select data-bi="exam"><option value="">Custom quizzes</option>${blk.exams.map(e=>`<option value="${e.id}" ${sh.exam===e.id?"selected":""}>Exam · ${esc(e.name)}</option>`).join("")}</select></label>`})()}
     ${preview}
     <button class="btn primary" data-act="savebank">Save</button>`;
   }
   const withKey=p.questions.filter(q=>q.a!=null||q.card).length;
   return `<div class="sheet-h"><h2>${p.questions.length} questions found</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
   <p class="note">${cards?`${p.questions.length-cards} multiple choice and ${cards} show-answer questions. `:""}${withKey===p.questions.length?"All have an answer.":withKey?`${withKey} have an answer. The rest show without marking.`:"No answer key found, so answers won't be marked."}${rep?` ${rep} are marked as repeated.`:""}${imgs?` ${imgs} have a picture.`:""}${p.questions.filter(q=>q.tag).length?` ${p.questions.filter(q=>q.tag).length} have exam tags.`:""}</p>
-  ${(()=>{const blk=B();if(!blk)return"";const its=studyItems(blk);return `<label class="field">Lecture<select id="bi-lec" data-bi="lec"><option value="">None · a subject quiz</option>${its.map(i=>`<option value="${i.id}" ${sh.lec===i.id?"selected":""}>${esc(i.code)} · ${esc(i.title)}</option>`).join("")}</select></label>`})()}
+  ${(()=>{const blk=B();if(!blk)return"";const its=[...studyItems(blk),...blk.items.filter(i=>isQuiz(i))];return `<label class="field">Lecture or class quiz<select id="bi-lec" data-bi="lec"><option value="">None · a subject quiz</option>${its.map(i=>`<option value="${i.id}" ${sh.lec===i.id?"selected":""}>${esc(i.code)} · ${esc(i.title)}</option>`).join("")}</select></label>`})()}
   ${sh.lec?"":`<div class="field">Subject${subjChoices(sh.subject,"bisubj")}</div>
   <div class="field">Batch${batchChoices(sh.batch,"bibatch")}</div>`}
   <label class="field">Name<input id="bi-name" data-bi="name" value="${esc(sh.name)}"></label>
+  ${(()=>{const blk=B();if(!blk||sh.lec||!blk.exams.length)return"";return `<label class="field">Shows under<select data-bi="exam"><option value="">Custom quizzes</option>${blk.exams.map(e=>`<option value="${e.id}" ${sh.exam===e.id?"selected":""}>Exam · ${esc(e.name)}</option>`).join("")}</select></label>`})()}
   ${preview}
   <button class="btn primary" data-act="savebank" ${sh.subject?"":"disabled"}>${sh.subject?"Save":"Pick a subject to save"}</button>`;
 }
@@ -1934,10 +2045,11 @@ function settingsView(blk){
   ${confirmTop}
   <section class="setgroup"><div class="label">Me</div><div class="setrows">
     <button class="setrow steprow" data-act="stepssheet"><span class="si" aria-hidden="true">📚</span><span class="st">My study steps<span class="stepchips">${S.settings.steps.map(x=>`<i>${esc(x.name)}</i>`).join("<b>›</b>")}</span></span><span class="editpill">✏️ Edit</span></button>
+    ${sRow({i:"🤲",t:"Line under the date",v:duaText()?`<span dir="rtl" lang="ar">${esc(duaText())}</span>`:"hidden",act:"duasheet"})}
     <div class="swatches" role="group" aria-label="App colour">${ACCENTS.map(([k,n,c])=>{const on=(S.settings.accent||"blue")===k;return `<button class="swatch ${on?"on":""}" data-act="accent" data-v="${k}" aria-pressed="${on}" aria-label="${n}"><i style="background:linear-gradient(135deg,${c},color-mix(in srgb,${c} 55%,#fff))">${on?I.check:""}</i>${n}</button>`}).join("")}</div>
   </div></section>
   ${blk?`<section class="setgroup"><div class="label">${esc(blk.name)}</div><div class="setrows">
-    ${sRow({i:"🔗",t:"Links",v:`${[blk.driveUrl,blk.ytUrl,blk.tbUrl].filter(Boolean).length} of 3 added`,act:"blinks"})}
+    ${sRow({i:"🔗",t:"Links",v:`${LINK_KEYS.filter(k=>blk[k]).length} of ${LINK_KEYS.length} added`,act:"blinks"})}
     ${sRow({i:"📅",t:"Exams",v:nextEx?`${esc(nextEx.name)} in ${diffDays(t,nextEx.date)} days`:`${blk.exams.length} exams`,act:"examslist"})}
     ${a&&a.total?sRow({i:"🕒",t:"Absence",v:`${hrs(a.used)} of ${hrs(a.allowed)}`,act:"abssheet"}):""}
     ${sRow({i:"📝",t:"Timetable changes",act:"ttchange"})}
@@ -1953,11 +2065,17 @@ function settingsView(blk){
   </div></section>
   ${blk?`<section class="setgroup"><div class="label" style="color:#ff6b7a">Careful</div><div class="setrows dangerrows">
     ${UI.confirm&&UI.confirm.t==="resetprog"?`<div class="confirm" style="margin:10px">Clear all your ticks, stars, absences and quiz scores in ${esc(blk.name)}? Lectures, exams and quiz files stay. This can't be undone.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn danger" data-act="resetprogyes">Clear</button></div></div>`:sRow({i:"🧹",t:"Clear my progress",act:"resetprog",cls:"danger",chev:false})}
-    ${UI.confirm&&UI.confirm.t==="delblock"?`<div class="confirm" style="margin:10px">Delete ${esc(blk.name)} and all its ticks? This can't be undone. Take a backup first if you might need it.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn redbig" data-act="delblockyes">Delete</button></div></div>`:sRow({i:"🗑",t:`Delete ${esc(blk.name)}`,act:"delblock",cls:"danger",chev:false})}
+    ${UI.confirm&&UI.confirm.t==="delblock"?`<div class="confirm" style="margin:10px">Delete ${esc(blk.name)} with all its ticks and quiz files? This can't be undone. Take a backup first if you might need it.<div class="btns"><button class="btn soft" data-act="cancelconfirm">Keep it</button><button class="btn redbig" data-act="delblockyes">Delete</button></div></div>`:sRow({i:"🗑",t:`Delete ${esc(blk.name)}`,act:"delblock",cls:"danger",chev:false})}
   </div></section>`:""}
   ${credit}`;
 }
 const autoShort=n=>{n=String(n||"").trim();if(n.length<=7)return n;const w=n.split(/\s+/)[0];return w.length<=7?w:w.slice(0,6)};
+function duaSheet(){
+  return `<div class="sheet-h"><h2>Line under the date</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
+  <label class="field">Shows under the date on Today<textarea id="s-dua" dir="auto" style="min-height:70px;font-size:18px">${esc(duaText())}</textarea></label>
+  <p class="note">Leave it empty to hide it.</p>
+  <div class="btns"><button class="btn soft" data-act="duareset">Use بسم الله، توكلت على الله</button><button class="btn primary" data-act="duasave">Save</button></div>`;
+}
 function stepsSheet(){
   return `<div class="sheet-h"><h2>My study steps</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
   <p class="note">Tap a step to rename it, add a step, or remove one with ×. Only on your phone, so each friend sets her own.</p>
@@ -1974,6 +2092,12 @@ function blockLinksSheet(blk){
     <div class="pasterow"><input class="inp" id="s-yt" data-s="ytUrl" value="${esc(blk.ytUrl||"")}" placeholder="https://youtube.com/…" inputmode="url" autocomplete="off"><button class="btn soft" data-act="pasteyt">Paste</button></div></div>
   <div class="field">🗂️ Test bank folder
     <div class="pasterow"><input class="inp" id="s-tb" data-s="tbUrl" value="${esc(blk.tbUrl||"")}" placeholder="https://drive.google.com/drive/folders/…" inputmode="url" autocomplete="off"><button class="btn soft" data-act="pastetb">Paste</button></div></div>
+  <div class="field">📑 سلايداتنا
+    <div class="pasterow"><input class="inp" id="s-ours" data-s="ourUrl" value="${esc(blk.ourUrl||"")}" placeholder="https://…" inputmode="url" autocomplete="off"><button class="btn soft" data-act="pastelink2" data-v="s-ours">Paste</button></div></div>
+  <div class="field">📲 اسئلة التطبيق
+    <div class="pasterow"><input class="inp" id="s-appq" data-s="appqUrl" value="${esc(blk.appqUrl||"")}" placeholder="https://…" inputmode="url" autocomplete="off"><button class="btn soft" data-act="pastelink2" data-v="s-appq">Paste</button></div></div>
+  <div class="field">🎨 Canva
+    <div class="pasterow"><input class="inp" id="s-canva" data-s="canvaUrl" value="${esc(blk.canvaUrl||"")}" placeholder="https://www.canva.com/…" inputmode="url" autocomplete="off"><button class="btn soft" data-act="pastelink2" data-v="s-canva">Paste</button></div></div>
   <p class="note">They show as buttons on Today, and go to your friends when you share the block.</p>
   <button class="btn primary" data-act="close">Done</button>`;
 }
@@ -2080,6 +2204,7 @@ function renderSheet(){
   else if(sh.type==="qmenu")h=qMenuSheet();
   else if(sh.type==="qedit")h=qEditSheet(sh);
   else if(sh.type==="steps")h=stepsSheet();
+  else if(sh.type==="dua")h=duaSheet();
   else if(sh.type==="blinks")h=blockLinksSheet(blk);
   else if(sh.type==="exams")h=examsListSheet(blk);
   else if(sh.type==="ttchange")h=ttChangeSheet();
@@ -2496,7 +2621,7 @@ function fromQuizJson(x){
   else{q.o=[];q.a=null;q.card=String(x.answer||x.card||o[0]||"").trim()||"—"}
   return q;
 }
-async function readBankFile(file,lecId,fromSheet){
+async function readBankFile(file,lecId,fromSheet,examId){
   UI.sheet={type:"loading",name:file.name};renderSheet();
   try{
     let lines;const name=file.name.toLowerCase();
@@ -2506,7 +2631,9 @@ async function readBankFile(file,lecId,fromSheet){
       if(!j||j.app!=="study-quiz"||!Array.isArray(j.questions))throw 0;
       const parsed={questions:j.questions.map(fromQuizJson).filter(Boolean),skipped:0};
       const m={};parsed.questions.forEach(q=>{if(q.subj)m[q.subj]=(m[q.subj]||0)+1});const ks=Object.keys(m);
-      UI.sheet={type:"bankimport",parsed,ready:true,name:String(j.name||file.name.replace(/\.json$/i,"")),subject:ks.length===1?ks[0]:(j.subject||"Mixed"),batch:"",lec:"",from:""};
+      const LQ=lecId&&B()?B().items.find(i=>i.id===lecId):null;
+      let exq=examId||"";if(!LQ&&!exq&&B()){const km={};parsed.questions.forEach(q=>{const k=q.tag&&q.tag.k;if(k)km[k]=(km[k]||0)+1});const top=Object.entries(km).sort((a,b)=>b[1]-a[1])[0];const kind=top?{final:"final",mid:"midterm",midterm:"midterm",ospe:"practical",osce:"practical"}[top[0].toLowerCase()]:null;const ex=kind&&B().exams.find(e=>e.kind===kind);if(ex)exq=ex.id}
+      UI.sheet={type:"bankimport",exam:exq,parsed,ready:true,name:LQ?`${LQ.code} ${LQ.title}`:String(j.name||file.name.replace(/\.json$/i,"")),subject:ks.length===1?ks[0]:(LQ?LQ.subject:(j.subject||"Mixed")),batch:"",lec:LQ?lecId:"",from:fromSheet?lecId:""};
       render();return;
     }
     if(name.endsWith(".pdf")||file.type==="application/pdf")lines=pdfLinesFromPages(await pdfPagesQ(file));
@@ -2515,13 +2642,13 @@ async function readBankFile(file,lecId,fromSheet){
     const parsed=parseQuestions(lines);
     const base=file.name.replace(/\.[^.]+$/,"").replace(/^[0-9a-f]{8}-/i,"").replace(/[_]+/g," ").trim();
     const lec=lecId||guessLecture(base);const L=lec&&B()?B().items.find(i=>i.id===lec):null;
-    UI.sheet={type:"bankimport",parsed,name:L?`${L.code} ${L.title}`:(base||"Test bank"),subject:L?L.subject:guessSubject(base),batch:L?"":guessBatch(base),lec:L?lec:"",from:fromSheet?lecId:""};
+    UI.sheet={type:"bankimport",exam:examId||"",parsed,name:L?`${L.code} ${L.title}`:(base||"Test bank"),subject:L?L.subject:guessSubject(base),batch:L?"":guessBatch(base),lec:L?lec:"",from:fromSheet?lecId:""};
   }catch(e){UI.sheet=null;UI.msg="Couldn't read that file. Check your internet, or tap “File won't read?” and ask Claude to tidy it.";}
   render();
 }
 async function saveBank(sh){
   const blk=B();await internImgs([sh.parsed]);
-  const b={id:uid("q"),shareId:uid("bs"),name:(sh.name||"Test bank").trim()||"Test bank",subject:sh.subject||"",batch:sh.lec?"":(sh.batch||""),lec:sh.lec||"",created:new Date().toISOString(),blockId:blk?blk.id:null,questions:sh.parsed.questions,best:null,last:null,tries:0,wrong:[],done:{},flags:[]};
+  const b={id:uid("q"),shareId:uid("bs"),name:(sh.name||"Test bank").trim()||"Test bank",subject:sh.subject||"",batch:sh.lec?"":(sh.batch||""),lec:sh.lec||"",exam:sh.lec?"":(sh.exam||""),created:new Date().toISOString(),blockId:blk?blk.id:null,questions:sh.parsed.questions,best:null,last:null,tries:0,wrong:[],done:{},flags:[]};
   S.banks.push(b);changed(["bank_"+b.id]);return b;
 }
 const qKey=q=>String(q.q||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim().slice(0,160);
@@ -2683,8 +2810,8 @@ async function exportData(){
 async function shareBlock(){
   const blk=B();if(!blk)return;
   if(!blk.shareId){blk.shareId=uid("s");changed()}
-  const banks=S.banks.filter(b=>!b.blockId||b.blockId===blk.id).map(b=>{if(!b.shareId){b.shareId=uid("bs");changed(["bank_"+b.id])}return {shareId:b.shareId,name:b.name,subject:b.subject,batch:b.batch,lec:b.lec||"",questions:b.questions}});
-  const data={app:"study-block",v:1,shared:new Date().toISOString(),block:{shareId:blk.shareId,name:blk.name,items:blk.items,events:blk.events,free:blk.free,exams:blk.exams,driveUrl:blk.driveUrl||"",ytUrl:blk.ytUrl||"",tbUrl:blk.tbUrl||"",links:blk.links||{}},banks:await inlineImgs(banks)};
+  const banks=S.banks.filter(b=>!b.blockId||b.blockId===blk.id).map(b=>{if(!b.shareId){b.shareId=uid("bs");changed(["bank_"+b.id])}return {shareId:b.shareId,name:b.name,subject:b.subject,batch:b.batch,lec:b.lec||"",exam:b.exam||"",questions:b.questions}});
+  const data={app:"study-block",v:1,shared:new Date().toISOString(),block:{shareId:blk.shareId,name:blk.name,items:blk.items,events:blk.events,free:blk.free,exams:blk.exams,driveUrl:blk.driveUrl||"",ytUrl:blk.ytUrl||"",tbUrl:blk.tbUrl||"",ourUrl:blk.ourUrl||"",appqUrl:blk.appqUrl||"",canvaUrl:blk.canvaUrl||"",links:blk.links||{}},banks:await inlineImgs(banks)};
   UI.msg="";
   try{const r=await saveFile(`${blk.name.replace(/[^\w\- ]+/g,"").trim()||"Block"} block.json`,JSON.stringify(data),`${blk.name} block`);UI.msg=r==="shared"?"Send it to your friends. They open it from Settings → Open a block from a friend.":"Block file saved. Send it to your friends."}
   catch(e){UI.msg=e&&(e.code==="declined"||e.name==="AbortError")?"":e&&e.code==="unavailable"?"Saving files isn't available here.":"Couldn't make the block file. Try again."}
@@ -2696,18 +2823,18 @@ function findSameBlock(inc){
 function applyBlockFile(data){
   const inc=data.block;let blk=findSameBlock(inc);
   if(blk){
-    Object.assign(blk,{shareId:inc.shareId,name:inc.name,items:inc.items,events:inc.events||[],free:inc.free||[],exams:inc.exams||[],driveUrl:inc.driveUrl||blk.driveUrl||"",ytUrl:inc.ytUrl||blk.ytUrl||"",tbUrl:inc.tbUrl||blk.tbUrl||"",links:Object.assign({},blk.links||{},inc.links||{})});
+    Object.assign(blk,{shareId:inc.shareId,name:inc.name,items:inc.items,events:inc.events||[],free:inc.free||[],exams:inc.exams||[],driveUrl:inc.driveUrl||blk.driveUrl||"",ytUrl:inc.ytUrl||blk.ytUrl||"",tbUrl:inc.tbUrl||blk.tbUrl||"",ourUrl:inc.ourUrl||blk.ourUrl||"",appqUrl:inc.appqUrl||blk.appqUrl||"",canvaUrl:inc.canvaUrl||blk.canvaUrl||"",links:Object.assign({},blk.links||{},inc.links||{})});
     const ids=new Set(blk.items.map(i=>i.id));for(const k in blk.progress)if(!ids.has(k))delete blk.progress[k];
   }else{
-    blk={id:uid("b"),shareId:inc.shareId,name:inc.name,created:today(),items:inc.items||[],events:inc.events||[],free:inc.free||[],exams:inc.exams||[],progress:{},driveUrl:inc.driveUrl||"",ytUrl:inc.ytUrl||"",tbUrl:inc.tbUrl||"",links:inc.links||{}};
+    blk={id:uid("b"),shareId:inc.shareId,name:inc.name,created:today(),items:inc.items||[],events:inc.events||[],free:inc.free||[],exams:inc.exams||[],progress:{},driveUrl:inc.driveUrl||"",ytUrl:inc.ytUrl||"",tbUrl:inc.tbUrl||"",ourUrl:inc.ourUrl||"",appqUrl:inc.appqUrl||"",canvaUrl:inc.canvaUrl||"",links:inc.links||{}};
     S.blocks.push(blk);
   }
   S.activeId=blk.id;
   const ids=["state"];
   for(const nb of data.banks||[]){
     const ex=S.banks.find(x=>x.shareId&&x.shareId===nb.shareId);
-    if(ex){Object.assign(ex,{name:nb.name,subject:nb.subject,batch:nb.batch,lec:nb.lec||"",questions:nb.questions,blockId:blk.id});if(ex.wrong)ex.wrong=ex.wrong.filter(i=>i<nb.questions.length);ids.push("bank_"+ex.id)}
-    else{const b={id:uid("q"),shareId:nb.shareId,name:nb.name,subject:nb.subject||"",batch:nb.batch||"",lec:nb.lec||"",created:today(),blockId:blk.id,questions:nb.questions||[],best:null,last:null,tries:0,wrong:[]};S.banks.push(b);ids.push("bank_"+b.id)}
+    if(ex){Object.assign(ex,{name:nb.name,subject:nb.subject,batch:nb.batch,lec:nb.lec||"",exam:nb.exam||"",questions:nb.questions,blockId:blk.id});if(ex.wrong)ex.wrong=ex.wrong.filter(i=>i<nb.questions.length);ids.push("bank_"+ex.id)}
+    else{const b={id:uid("q"),shareId:nb.shareId,name:nb.name,subject:nb.subject||"",batch:nb.batch||"",lec:nb.lec||"",exam:nb.exam||"",created:today(),blockId:blk.id,questions:nb.questions||[],best:null,last:null,tries:0,wrong:[]};S.banks.push(b);ids.push("bank_"+b.id)}
   }
   memoKey="";planMemo={k:"",v:null};
   changed(ids);
@@ -2859,7 +2986,7 @@ function onClick(e){
     case"delexamyes":{const id=UI.sheet.id;blk.exams=blk.exams.filter(e=>e.id!==id);blk.exams.forEach(e=>{if(e.after===id){e.mode="before";e.after=null}});UI.confirm=null;UI.sheet=null;changed();render();break}
     case"switch":S.activeId=b.dataset.id;UI.lecExam="all";changed();render();break;
     case"delblock":UI.confirm={t:"delblock"};render();break;
-    case"delblockyes":{S.blocks=S.blocks.filter(x=>x.id!==S.activeId);S.activeId=S.blocks.length?S.blocks[S.blocks.length-1].id:null;UI.confirm=null;UI.lecExam="all";changed();render();break}
+    case"delblockyes":{const gid=S.activeId;const gone=S.banks.filter(x=>x.blockId===gid);S.banks=S.banks.filter(x=>x.blockId!==gid);if(gone.length)changed(gone.map(x=>"bank_"+x.id));S.blocks=S.blocks.filter(x=>x.id!==S.activeId);S.activeId=S.blocks.length?S.blocks[S.blocks.length-1].id:null;UI.confirm=null;UI.lecExam="all";changed();render();break}
     case"copyprompt":{try{navigator.clipboard.writeText(CLAUDE_PROMPT).then(()=>{showToast("Request copied. Paste it to Claude with your timetable.",null,null);renderToast()},()=>{showToast("Couldn't copy here",null,null);renderToast()})}catch(err){}break}
     case"doimport":{const v=b.dataset.v;const p=UI.sheet.parsed;const nb=applyImport(p,v==="new"?"new":v==="update"?"update":"replace");UI.sheet=null;UI.lecExam="all";UI.msg=v==="update"?`${nb.name} updated.`:`${nb.name} is ready.`;memoKey="";changed();render();break}
     case"export":exportData();break;
@@ -2868,6 +2995,9 @@ function onClick(e){
     case"calmonth":{const d=parse((UI.calMonth||today().slice(0,7))+"-01");d.setMonth(d.getMonth()+(+b.dataset.d));UI.calMonth=keyOf(d).slice(0,7);UI.anim="anim";render();break}
     /* quizzes */
     case"qsubj":UI.qSubj=b.dataset.v;render();break;
+    case"qtab":UI.qTab=b.dataset.v;UI.msg="";render();break;
+    case"delold":UI.confirm={t:"delold"};render();break;
+    case"deloldyes":{const ids=new Set(S.blocks.map(x=>x.id));const gone=S.banks.filter(x=>x.blockId&&!ids.has(x.blockId));S.banks=S.banks.filter(x=>!gone.includes(x));if(S.sess&&S.sess.qs&&S.sess.qs.some(r=>gone.some(g=>g.id===r.b)))S.sess=null;UI.confirm=null;changed([...gone.map(x=>"bank_"+x.id),"state"]);render();showToast(`${gone.length} old quiz file${gone.length===1?"":"s"} deleted`,null,null);renderToast();break}
     case"qbatch":UI.qBatch=b.dataset.v;render();break;
     case"mix":{const s=b.dataset.v;startPlay(shuffle(mixQuestions(S.banks.filter(x=>(x.subject||"Other")===s))),`${s} · all batches`,null);break}
     case"bank":UI.confirm=null;UI.kindSel="all";UI.qf={};UI.sheet={type:"bank",id:b.dataset.id};renderSheet();break;
@@ -2904,8 +3034,8 @@ function onClick(e){
     case"bisubj":UI.sheet.subject=b.dataset.v;renderSheet();break;
     case"bibatch":UI.sheet.batch=UI.sheet.batch===b.dataset.v?"":b.dataset.v;renderSheet();break;
     case"savebank":{if(!UI.sheet.subject||UI.sheet.saving)break;UI.sheet.saving=true;const from=UI.sheet.from;const shv=UI.sheet;saveBank(shv).then(nb=>{
-      if(nb.lec){UI.sheet=from?{type:"item",id:from}:null;UI.qMode="lec";UI.msg="";if(!from)UI.view="quiz";render();const L=B()&&B().items.find(i=>i.id===nb.lec);showToast(`Quiz added to ${L?L.code:"the lecture"} · ${nb.questions.length} questions`,null,null);renderToast();return}
-      UI.sheet=null;UI.msg="";UI.qSubj="all";UI.qBatch="all";UI.view="quiz";render();showToast(`${bankTitle(nb)} · ${nb.questions.length} questions added`,null,null);renderToast()});break}
+      if(nb.lec){UI.sheet=from?{type:"item",id:from}:null;{const LI=B()&&B().items.find(i=>i.id===nb.lec);UI.qTab=LI&&isQuiz(LI)?"exam":"lec"}UI.msg="";if(!from)UI.view="quiz";render();const L=B()&&B().items.find(i=>i.id===nb.lec);showToast(`Quiz added to ${L?L.code:"the lecture"} · ${nb.questions.length} questions`,null,null);renderToast();return}
+      UI.qTab=nb.exam?"exam":"custom";UI.sheet=null;UI.msg="";UI.qSubj="all";UI.qBatch="all";UI.view="quiz";render();showToast(`${bankTitle(nb)} · ${nb.questions.length} questions added`,null,null);renderToast()});break}
     case"bsubj":case"bbatch":{const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){if(a==="bsubj")bk.subject=b.dataset.v;else bk.batch=bk.batch===b.dataset.v?"":b.dataset.v;changed(["bank_"+bk.id]);render()}break}
     case"copyqprompt":{const done=()=>{UI.msg="Copied. Open a new chat with Claude, attach your test bank, paste this, then copy Claude's reply into Paste questions.";UI.qCopyFallback=false;render()};
       try{navigator.clipboard.writeText(QUIZ_PROMPT).then(done,()=>{UI.qCopyFallback=true;UI.msg="Copy the request from the box below.";render();const t=document.getElementById("qprompt-text");if(t){t.focus();t.select()}})}catch(err){UI.qCopyFallback=true;render()}
@@ -2923,8 +3053,12 @@ function onClick(e){
     case"pastedrive":pasteFromClipboard("s-drive");break;
     case"pasteyt":pasteFromClipboard("s-yt");break;
     case"pastetb":pasteFromClipboard("s-tb");break;
+    case"pastelink2":pasteFromClipboard(b.dataset.v);break;
     case"blinks":UI.confirm=null;UI.sheet={type:"blinks"};renderSheet();break;
     case"stepssheet":UI.sheet={type:"steps"};renderSheet();break;
+    case"duasheet":UI.sheet={type:"dua"};renderSheet();break;
+    case"duasave":{const el=document.getElementById("s-dua");S.settings.dua=el?el.value.trim():duaText();changed();UI.sheet=null;render();break}
+    case"duareset":S.settings.dua=DEF_DUA;changed();UI.sheet=null;render();break;
     case"examslist":UI.sheet={type:"exams"};renderSheet();break;
     case"ttchange":UI.sheet={type:"ttchange"};renderSheet();break;
     case"backupsheet":UI.sheet={type:"backup"};renderSheet();break;
@@ -2985,7 +3119,7 @@ document.addEventListener("change",async e=>{
   if(el.dataset.qe==="o"&&UI.sheet&&UI.sheet.type==="qedit"){UI.sheet.draft.o=el.value;renderSheet()}
   if(el.dataset.e==="after"&&UI.sheet&&UI.sheet.draft){UI.sheet.draft.after=el.value}
   if(el.dataset.w&&UI.sheet&&UI.sheet.type==="wizard")UI.sheet[el.dataset.w]=el.value;
-  if(el.dataset.s&&blk){const v=el.value.trim();if(el.dataset.s==="name"){if(v)blk.name=v}else if(el.dataset.s==="driveUrl"||el.dataset.s==="ytUrl"||el.dataset.s==="tbUrl"){blk[el.dataset.s]=isUrl(v)?v:"";if(v&&!isUrl(v)){showToast("That doesn't look like a link. Copy it and paste again.",null,null);renderToast()}}changed();render()}
+  if(el.dataset.s&&blk){const v=el.value.trim();if(el.dataset.s==="name"){if(v)blk.name=v}else if(LINK_KEYS.includes(el.dataset.s)){blk[el.dataset.s]=isUrl(v)?v:"";if(v&&!isUrl(v)){showToast("That doesn't look like a link. Copy it and paste again.",null,null);renderToast()}}changed();render()}
   if(el.dataset.link&&blk){const v=el.value.trim();blk.links=blk.links||{};if(!v)delete blk.links[el.dataset.link];else if(isUrl(v))blk.links[el.dataset.link]=v;else{showToast("That doesn't look like a link",null,null);renderToast();return}changed();render()}
   if(el.dataset.b==="name"&&UI.sheet&&UI.sheet.type==="bank"){const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){bk.name=el.value.trim()||bk.name;changed(["bank_"+bk.id]);render()}}
   if(el.id==="pdf-file"&&el.files&&el.files[0]){readPdf(el.files[0]);el.value=""}
@@ -2997,6 +3131,8 @@ document.addEventListener("change",async e=>{
     S.myPlan[t]=L;for(const k in S.myPlan)if(k<addDays(t,-60))delete S.myPlan[k];changed();render()}
   if((el.id==="bank-file"||el.id==="bank-file2")&&el.files&&el.files[0]){readBankFile(el.files[0]);el.value=""}
   if(el.classList&&el.classList.contains("lecq")&&el.files&&el.files[0]){const f=el.files[0];el.value="";readBankFile(f,el.dataset.id,!!el.closest("#sheet"))}
+  if(el.classList&&el.classList.contains("examq")&&el.files&&el.files[0]){const f=el.files[0];el.value="";readBankFile(f,null,false,el.dataset.id)}
+  if(el.dataset.b==="exam"&&UI.sheet&&UI.sheet.type==="bank"){const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){bk.exam=el.value;if(el.value)bk.lec="";changed(["bank_"+bk.id]);render()}}
   if(el.id==="bi-lec"&&UI.sheet&&UI.sheet.type==="bankimport"){const sh=UI.sheet;sh.lec=el.value;const L=sh.lec&&B()?B().items.find(i=>i.id===sh.lec):null;if(L){sh.subject=L.subject;sh.name=`${L.code} ${L.title}`;sh.batch=""}renderSheet()}
   if((el.id==="wiz-pdf"||el.id==="wiz-pdf2")&&el.files&&el.files[0]){
     const sh=UI.sheet;const f=el.files[0];el.value="";
