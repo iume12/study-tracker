@@ -701,6 +701,7 @@ a.btn{text-decoration:none}
 .qt.k-mid{background:#3a2c12;color:#ffc970}
 .qt.k-saq{background:#123332;color:#7fe0d6}
 .qt.qs{background:#3a3212;color:#ffd166}
+.qt.qs small{font-size:.85em;font-weight:800;opacity:.9}
 .qt.rp{background:var(--accent-soft);color:#b6cdff}
 mark.kw{background:none;color:#ffd166;font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .qimg{display:block;width:100%;border-radius:12px;overflow:hidden;background:#fff;padding:0;border:0}
@@ -910,6 +911,12 @@ mark.kw{background:none;color:#ffd166;font-weight:800;text-decoration:underline;
 .lqrow2 .tt{font-weight:600;font-size:14.5px;line-height:1.3}
 .lqrow2 .tm{font-size:12px;color:var(--muted)}
 .lqrow2.later{opacity:.6}
+
+.lmate{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.lchip{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:14px;margin-bottom:8px}
+.lchip span{flex:1;min-width:0}
+.lchip button{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;color:var(--muted);flex:none}
+.lchip button svg{width:16px;height:16px}
 </style>
 
 <style>
@@ -1355,6 +1362,11 @@ function members(blk){
   const m={};blk.exams.forEach(e=>m[e.id]=examMembers(blk,e));memoKey=k;memoVal=m;return m;
 }
 const prog=(blk,id)=>blk.progress[id]||{};
+function mates(blk,id){const g=(blk&&blk.lgroups||[]).find(g=>g.includes(id));return g?g.filter(x=>x===id||blk.items.some(i=>i.id===x)):[id]}
+function linkOf(blk,id){const L=blk.links||{};for(const x of [id,...mates(blk,id)])if(L[x])return L[x];return ""}
+function syncMates(blk,id){const m=mates(blk,id);if(m.length<2)return;const u={};m.forEach(x=>{const p=blk.progress[x]||{};for(const k in p)if(!u[k]||p[k]<u[k])u[k]=p[k]});m.forEach(x=>{if(Object.keys(u).length)blk.progress[x]={...u};else delete blk.progress[x]})}
+function linkLec(blk,a,b){blk.lgroups=blk.lgroups||[];const ga=blk.lgroups.find(g=>g.includes(a)),gb=blk.lgroups.find(g=>g.includes(b));if(ga&&ga===gb)return;const g=[...new Set([...(ga||[a]),...(gb||[b])])];blk.lgroups=blk.lgroups.filter(x=>x!==ga&&x!==gb);blk.lgroups.push(g);syncMates(blk,a)}
+function unlinkLec(blk,id){blk.lgroups=(blk.lgroups||[]).map(g=>g.filter(x=>x!==id)).filter(g=>g.length>1)}
 const doneCount=(blk,id)=>STAGES.filter(s=>prog(blk,id)[s]).length;
 function weightOf(blk,ex,it,mem){
   if(ex.q&&ex.q[it.id])return +ex.q[it.id];
@@ -1663,7 +1675,7 @@ function stepRing(n){
   let arcs="";for(let k=0;k<4;k++)arcs+=`<circle cx="20" cy="20" r="${r}" style="fill:none;stroke:${k<n?"var(--accent)":"var(--line)"}" stroke-width="4" stroke-linecap="round" stroke-dasharray="${(seg-gap).toFixed(2)} ${(c-seg+gap).toFixed(2)}" stroke-dashoffset="${(-k*seg).toFixed(2)}" transform="rotate(-90 20 20)"/>`;
   return `<svg viewBox="0 0 40 40" width="42" height="42" aria-hidden="true">${arcs}<text x="20" y="24.5" text-anchor="middle" style="fill:var(--muted);font:700 11px var(--body)">${n}/4</text></svg>`;
 }
-function lecBanks(id){return S.banks.filter(b=>b.lec===id)}
+function lecBanks(id){const blk=B();const ids=blk?mates(blk,id):[id];return S.banks.filter(b=>ids.includes(b.lec))}
 const spillE=s=>{const m=subjMeta(s);return `<span class="spill" style="color:${m.color};background:${m.color}24">${esc(s)} ${m.icon}</span>`};
 function stepBar(blk,it){
   const p=prog(blk,it.id);const n=doneCount(blk,it.id);const full=n===NS();
@@ -1672,12 +1684,12 @@ function stepBar(blk,it){
     <span class="sbn">${full?"⭐":`${n}/${NS()}`}</span></div>`;
 }
 function lecRow(blk,it){
-  const t=today();const link=(blk.links||{})[it.id];const qb=lecBanks(it.id);const c=subjMeta(it.subject).color;
+  const t=today();const link=linkOf(blk,it.id);const qb=lecBanks(it.id);const lm=mates(blk,it.id).filter(x=>x!==it.id).map(x=>(blk.items.find(i=>i.id===x)||{}).code).filter(Boolean);const c=subjMeta(it.subject).color;
   return `<div class="lrow3 ${it.date>t?"later":""} ${doneCount(blk,it.id)===NS()?"done":""}">
     <button class="lcodebox ${String(it.code).length>3?"sm":""}" data-act="item" data-id="${it.id}" style="color:${c};background:${c}1c;border-color:${c}40" aria-label="Open ${esc(it.code)}">${esc(it.code)}</button>
     <div class="lbody">
       <button class="lhead" data-act="item" data-id="${it.id}"><span class="tt">${esc(it.title)}</span></button>
-      <div class="lmeta2">${spillE(it.subject)}${qb.length?`<button class="lkq on" data-act="bank" data-id="${qb[0].id}">📝 Quiz · ${qb.reduce((a,b)=>a+liveQ(b).length,0)}</button>`:`<label class="lkq add">＋ Quiz<input type="file" class="lecq" data-id="${it.id}" accept="${QACC}" hidden></label>`}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}</div>
+      <div class="lmeta2">${spillE(it.subject)}${lm.length?`<span class="lmate">🔗 ${esc(lm.join(", "))}</span>`:""}${qb.length?`<button class="lkq on" data-act="bank" data-id="${qb[0].id}">📝 Quiz · ${qb.reduce((a,b)=>a+liveQ(b).length,0)}</button>`:`<label class="lkq add">＋ Quiz<input type="file" class="lecq" data-id="${it.id}" accept="${QACC}" hidden></label>`}${it.date>t?`<span class="tm">Class on ${shortDate(it.date)}</span>`:""}</div>
       ${stepBar(blk,it)}
     </div>
   </div>`;
@@ -1761,7 +1773,7 @@ function quizCard(b){
   const st=bankStats(b);const subs=bankSubjects(b);const pct=st.n?st.seen/st.n:0;
   return `<button class="qzcard" data-act="bank" data-id="${b.id}"><span class="qzemo" aria-hidden="true">${bankIcon(b)}${subs.length>1?`<small>+${subs.length-1}</small>`:""}</span>
    <span class="qzbody"><span class="tt">${esc(bankTitle(b))}</span>
-   <span class="tm">${st.n} questions${subs.length>1?` · ${subs.length} subjects`:!b.lec&&subs[0]&&b.name!==subs[0]?` · ${esc(subs[0])}`:""}${b.batch&&b.batch!=="Mixed"?` · ${esc(batchLabel(b.batch))}`:""}${st.rep?` · 🔁 ${st.rep} repeated`:""}</span>
+   <span class="tm">${st.n} questions${subs.length>1?` · ${subs.length} subjects`:!b.lec&&subs[0]&&b.name!==subs[0]?` · ${esc(subs[0])}`:""}${b.batch&&b.batch!=="Mixed"?` · ${esc(batchLabel(b.batch))}`:""}${st.rep?` · ⭐ ${st.rep} repeated`:""}</span>
    <span class="qzbar ${st.n&&st.seen===st.n?"full":""}"><b style="width:${(pct*100).toFixed(1)}%"></b></span>
    <span class="tm">${st.seen} / ${st.n} done${b.best!=null?` · best ${Math.round(b.best*100)}%`:""}${st.mine?` · 🎯 ${st.mine} to redo`:""}</span></span></button>`;
 }
@@ -1846,8 +1858,9 @@ function lecQuizList(blk){
 }
 function qScored(q){return !!q.card||q.a!=null}
 const KW=/\b(not|except|least|most|best|first|initial|incorrect|false|true|correct|unsuitable|contraindicated|never|always|wrong)\b/gi;
+const repStars=n=>"⭐".repeat(n>=4?3:n===3?2:n===2?1:0);
 const hl=t=>esc(t).replace(KW,'<mark class="kw">$1</mark>');
-function qTags(q){let h="";if(q.tag){if(q.tag.k)h+=`<span class="qt k-${esc(q.tag.k.toLowerCase())}">${esc(q.tag.k)}</span>`;if(q.tag.b&&q.tag.b.length)h+=`<span class="qt">Batch ${q.tag.b.map(esc).join(", ")}</span>`}if(q.stars)h+=`<span class="qt qs">${"⭐".repeat(q.stars)}</span>`;if(q.rep>1)h+=`<span class="qt rp">Repeated ×${q.rep}</span>`;return h?`<div class="qtags">${h}</div>`:""}
+function qTags(q){let h="";if(q.tag){if(q.tag.k)h+=`<span class="qt k-${esc(q.tag.k.toLowerCase())}">${esc(q.tag.k)}</span>`;if(q.tag.b&&q.tag.b.length)h+=`<span class="qt">Batch ${q.tag.b.map(esc).join(", ")}</span>`}if(q.stars&&!(q.rep>1))h+=`<span class="qt qs">${"⭐".repeat(q.stars)}</span>`;if(q.rep>1)h+=`<span class="qt qs">${repStars(q.rep)} ×${q.rep}</span>`;return h?`<div class="qtags">${h}</div>`:""}
 function qImg(q){if(!q.img)return"";const src=imgSrc(q.img);return src?`<button class="qimg" data-act="zoomimg" aria-label="Open the picture bigger"><img src="${src}" alt="Picture for this question"></button>`:src===""?`<div class="qimg loading"></div>`:""}
 const isFlag=r=>{const b=S.banks.find(x=>x.id===r.b);return !!(b&&(b.flags||[]).includes(r.i))};
 function kindCounts(b){const m={};b.questions.forEach(q=>{const k=q.tag&&q.tag.k;if(k)m[k]=(m[k]||0)+1});return Object.entries(m)}
@@ -1872,8 +1885,8 @@ function qTags2(b,q){
   if(q.tag&&q.tag.k)h+=`<span class="qt k-${esc(q.tag.k.toLowerCase())}">${esc(q.tag.k)}</span>`;
   if(q.tag&&q.tag.b&&q.tag.b.length)h+=`<span class="qt bt">Batch ${q.tag.b.map(esc).join(", ")}</span>`;
   else if(b.batch&&b.batch!=="Mixed")h+=`<span class="qt bt">${esc(batchLabel(b.batch))}</span>`;
-  if(q.rep>1)h+=`<span class="qt rp">🔁 ×${q.rep}</span>`;
-  if(q.stars)h+=`<span class="qt qs">${"⭐".repeat(q.stars)}</span>`;
+  if(q.rep>1)h+=`<span class="qt qs" title="Repeated ${q.rep} times">${repStars(q.rep)} <small>×${q.rep}</small></span>`;
+  else if(q.stars)h+=`<span class="qt qs">${"⭐".repeat(q.stars)}</span>`;
   if(q.src)h+=`<span class="qt src">📄 ${esc(q.src)}</span>`;
   if(q.check)h+=`<span class="qt chk">⚠️ Check with your doctor</span>`;
   return `<div class="qtags">${h}</div>`;
@@ -1915,6 +1928,11 @@ function playView(){
   const skipB=!answered&&P.i<P.qs.length-1?`<button class="link skipq" data-act="skipq">Skip for now ${I.chev}</button>`:"";
   const next=`<button class="btn primary nextq" data-act="nextq">${P.i+1<P.qs.length?"Next":"See my score"}</button>`;
   const chk=q.check?`<div class="chknote">⚠️ ${esc(typeof q.check==="string"?q.check:"Check with your doctor")}</div>`:"";
+  if(q.card&&!(q.tag&&/^saq$/i.test(q.tag.k||""))){
+    const c=answered&&picked===1?"good":"";
+    return top+`<div class="opts"><button class="opt ${c}" data-act="cardgrade" data-v="1" ${answered?"disabled":""}><span class="ol">A</span><span class="ot">${esc(q.card)}</span>${c?`<span class="ostars" aria-hidden="true"><i>⭐</i><i>⭐</i></span><span class="oi">${I.check}</span>`:""}</button></div>
+    ${answered?`<div class="feedback ${c}">${c?"Correct!":"Answer: A."}${q.e?`<div class="exp">${esc(q.e)}</div>`:""}${chk}</div>${next}`:skipB}`;
+  }
   if(q.card){
     const shown=P.revealed===P.i||answered;
     return top+(shown?`<div class="feedback ${answered?(picked===1?"good":"bad"):""}"><div class="eyebrow" style="margin-bottom:4px">Answer</div>${esc(q.card)}${q.e?`<div class="exp">${esc(q.e)}</div>`:""}${chk}</div>
@@ -1975,7 +1993,7 @@ function bankSheet(sh){
   <div class="startbig">
     ${mySess&&!filt?`<button class="btn primary" data-act="resume">▶️ Continue where you stopped<small>Q${Math.min(mySess.i+1,mySess.qs.length)} of ${mySess.qs.length}</small></button>`:""}
     <button class="btn ${mySess&&!filt?"soft":"primary"}" data-act="startquiz" data-id="${b.id}" data-m="go">${filt?"▶️ Start":left&&st.seen?"▶️ Carry on with new questions":left?"▶️ Start":"🔄 Go through them all again"}<small>${filt?"":left&&st.seen?left+" left":st.n+" questions"}</small></button>
-    ${st.rep?`<button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="rep">🔁 Most repeated first<small>${st.rep}</small></button>`:""}
+    ${st.rep?`<button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="rep">⭐ Most repeated first<small>${st.rep}</small></button>`:""}
     ${st.mine?`<button class="btn soft" data-act="startquiz" data-id="${b.id}" data-m="mine">🎯 My mistakes and 🚩<small>${st.mine}</small></button>`:""}
   </div>
   <details class="fold" ${filt?"open":""}><summary>More options</summary><div class="panel">
@@ -1999,7 +2017,7 @@ function bankImportSheet(sh){
   if(sh.ready){
     const m={};p.questions.forEach(q=>{if(q.subj)m[q.subj]=(m[q.subj]||0)+1});const subs=Object.entries(m).sort((x,y)=>y[1]-x[1]);
     return `<div class="sheet-h"><h2>${p.questions.length} questions ready</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
-    <p class="note">${p.questions.length-cards} multiple choice${cards?` · ${cards} show-answer`:""}${rep?` · 🔁 ${rep} repeated`:""}${imgs?` · 🖼 ${imgs} with a picture`:""}${chk?` · ⚠️ ${chk} to check with your doctor`:""}</p>
+    <p class="note">${p.questions.length-cards} multiple choice${cards?` · ${cards} one-option`:""}${rep?` · ⭐ ${rep} repeated`:""}${imgs?` · 🖼 ${imgs} with a picture`:""}${chk?` · ⚠️ ${chk} to check with your doctor`:""}</p>
     ${subs.length?`<div class="qsubs">${subs.map(([k,n])=>`<span class="spill" style="color:${subjMeta(k).color};background:${subjMeta(k).color}24">${esc(k)} ${subjMeta(k).icon} · ${n}</span>`).join("")}</div>`:""}
     <label class="field">Name<input id="bi-name" data-bi="name" value="${esc(sh.name)}"></label>
     ${(()=>{const blk=B();if(!blk||sh.lec||!blk.exams.length)return"";return `<label class="field">Shows under<select data-bi="exam"><option value="">Custom quizzes</option>${blk.exams.map(e=>`<option value="${e.id}" ${sh.exam===e.id?"selected":""}>Exam · ${esc(e.name)}</option>`).join("")}</select></label>`})()}
@@ -2008,7 +2026,7 @@ function bankImportSheet(sh){
   }
   const withKey=p.questions.filter(q=>q.a!=null||q.card).length;
   return `<div class="sheet-h"><h2>${p.questions.length} questions found</h2><button class="x" data-act="close" aria-label="Close">${I.x}</button></div>
-  <p class="note">${cards?`${p.questions.length-cards} multiple choice and ${cards} show-answer questions. `:""}${withKey===p.questions.length?"All have an answer.":withKey?`${withKey} have an answer. The rest show without marking.`:"No answer key found, so answers won't be marked."}${rep?` ${rep} are marked as repeated.`:""}${imgs?` ${imgs} have a picture.`:""}${p.questions.filter(q=>q.tag).length?` ${p.questions.filter(q=>q.tag).length} have exam tags.`:""}</p>
+  <p class="note">${cards?`${p.questions.length-cards} multiple choice and ${cards} one-option questions. `:""}${withKey===p.questions.length?"All have an answer.":withKey?`${withKey} have an answer. The rest show without marking.`:"No answer key found, so answers won't be marked."}${rep?` ${rep} are marked as repeated.`:""}${imgs?` ${imgs} have a picture.`:""}${p.questions.filter(q=>q.tag).length?` ${p.questions.filter(q=>q.tag).length} have exam tags.`:""}</p>
   ${(()=>{const blk=B();if(!blk)return"";const its=[...studyItems(blk),...blk.items.filter(i=>isQuiz(i))];return `<label class="field">Lecture or class quiz<select id="bi-lec" data-bi="lec"><option value="">None · a subject quiz</option>${its.map(i=>`<option value="${i.id}" ${sh.lec===i.id?"selected":""}>${esc(i.code)} · ${esc(i.title)}</option>`).join("")}</select></label>`})()}
   ${sh.lec?"":`<div class="field">Subject${subjChoices(sh.subject,"bisubj")}</div>
   <div class="field">Batch${batchChoices(sh.batch,"bibatch")}</div>`}
@@ -2223,7 +2241,7 @@ function itemSheet(blk,sh){
   const f=sh.draft||(sh.draft=it?{...it}:{code:"",type:"L",title:"",subject:"",date:today(),time:"",online:false});
   const subs=[...new Set(blk.items.map(i=>i.subject))].sort();
   const p=it?prog(blk,it.id):{};const mem=members(blk);const quizItem=it&&isQuiz(it);
-  const link=it?(blk.links||{})[it.id]||"":"";
+  const link=it?linkOf(blk,it.id):"";
   const banks=it?S.banks.filter(b=>b.subject===it.subject&&!b.lec):[];const lqb=it?lecBanks(it.id):[];
   const editForm=`<div class="panel">
     <div class="grid2"><label class="field">Code<input id="f-code" data-f="code" value="${esc(f.code)}" placeholder="L12"></label>
@@ -2241,6 +2259,9 @@ function itemSheet(blk,sh){
   ${quizItem?`<div class="quizsoon">${I.quiz}<span>This is a class quiz. It shows in your calendar, and on Today when it's close.</span></div>`:`
   ${blk.driveUrl?`<a class="btn soft" href="${esc(blk.driveUrl)}" target="_blank" rel="noopener">📂 Open the slides folder</a>`:""}
   <section><div class="label">Study steps</div><div class="list">${STAGES.map(s=>`<div class="row ${p[s]?"done":""}"><button class="tick" data-act="stage" data-id="${it.id}" data-s="${s}" aria-label="${STAGE_NAME[s]}">${I.check}</button><div class="rowtext"><span class="tt" style="text-decoration:none">${STAGE_NAME[s]}</span><span class="tm">${p[s]?"Done "+shortDate(p[s]):"Not yet"}</span></div></div>`).join("")}</div></section>
+  <section><div class="label">Same slides file as</div>${(()=>{const m=mates(blk,it.id).filter(x=>x!==it.id);const others=studyItems(blk).filter(i=>i.id!==it.id&&!m.includes(i.id));
+    return `${m.length?m.map(x=>{const o=blk.items.find(i=>i.id===x)||{};return `<div class="lchip"><span>🔗 <b>${esc(o.code)}</b> · ${esc(o.title)}</span><button data-act="unlinklec" data-id="${x}" aria-label="Unlink ${esc(o.code)}">${I.x}</button></div>`}).join(""):`<p class="empty" style="margin:0 0 8px">One slides file for more than one lecture? Link them so the ticks, slides link and quiz are shared.</p>`}
+    <label class="field" style="margin:0"><select data-linkwith="${it.id}"><option value="">🔗 Link with another lecture…</option>${others.map(i=>`<option value="${i.id}">${esc(i.code)} · ${esc(i.title)}</option>`).join("")}</select></label>`})()}</section>
   <section><div class="label">Lecture quiz</div>${lqb.length?`<div class="list">${lqb.map(bankRow).join("")}</div>`:""}
     <label class="btn soft" style="cursor:pointer;margin-top:${lqb.length?10:0}px">${I.file}${lqb.length?"Add another questions file":"Add this lecture's questions file"}<input type="file" class="lecq" data-id="${it.id}" accept="${QACC}" hidden></label></section>
   <section><div class="label">${esc(it.subject)} test banks</div>${banks.length?`<div class="list">${banks.map(bankRow).join("")}</div>`:`<p class="empty">No ${esc(it.subject)} test banks yet. Add them in Quizzes.</p>`}</section>
@@ -2811,7 +2832,7 @@ async function shareBlock(){
   const blk=B();if(!blk)return;
   if(!blk.shareId){blk.shareId=uid("s");changed()}
   const banks=S.banks.filter(b=>!b.blockId||b.blockId===blk.id).map(b=>{if(!b.shareId){b.shareId=uid("bs");changed(["bank_"+b.id])}return {shareId:b.shareId,name:b.name,subject:b.subject,batch:b.batch,lec:b.lec||"",exam:b.exam||"",questions:b.questions}});
-  const data={app:"study-block",v:1,shared:new Date().toISOString(),block:{shareId:blk.shareId,name:blk.name,items:blk.items,events:blk.events,free:blk.free,exams:blk.exams,driveUrl:blk.driveUrl||"",ytUrl:blk.ytUrl||"",tbUrl:blk.tbUrl||"",ourUrl:blk.ourUrl||"",appqUrl:blk.appqUrl||"",canvaUrl:blk.canvaUrl||"",links:blk.links||{}},banks:await inlineImgs(banks)};
+  const data={app:"study-block",v:1,shared:new Date().toISOString(),block:{shareId:blk.shareId,name:blk.name,items:blk.items,events:blk.events,free:blk.free,exams:blk.exams,driveUrl:blk.driveUrl||"",ytUrl:blk.ytUrl||"",tbUrl:blk.tbUrl||"",ourUrl:blk.ourUrl||"",appqUrl:blk.appqUrl||"",canvaUrl:blk.canvaUrl||"",links:blk.links||{},lgroups:blk.lgroups||[]},banks:await inlineImgs(banks)};
   UI.msg="";
   try{const r=await saveFile(`${blk.name.replace(/[^\w\- ]+/g,"").trim()||"Block"} block.json`,JSON.stringify(data),`${blk.name} block`);UI.msg=r==="shared"?"Send it to your friends. They open it from Settings → Open a block from a friend.":"Block file saved. Send it to your friends."}
   catch(e){UI.msg=e&&(e.code==="declined"||e.name==="AbortError")?"":e&&e.code==="unavailable"?"Saving files isn't available here.":"Couldn't make the block file. Try again."}
@@ -2823,10 +2844,10 @@ function findSameBlock(inc){
 function applyBlockFile(data){
   const inc=data.block;let blk=findSameBlock(inc);
   if(blk){
-    Object.assign(blk,{shareId:inc.shareId,name:inc.name,items:inc.items,events:inc.events||[],free:inc.free||[],exams:inc.exams||[],driveUrl:inc.driveUrl||blk.driveUrl||"",ytUrl:inc.ytUrl||blk.ytUrl||"",tbUrl:inc.tbUrl||blk.tbUrl||"",ourUrl:inc.ourUrl||blk.ourUrl||"",appqUrl:inc.appqUrl||blk.appqUrl||"",canvaUrl:inc.canvaUrl||blk.canvaUrl||"",links:Object.assign({},blk.links||{},inc.links||{})});
+    Object.assign(blk,{shareId:inc.shareId,name:inc.name,items:inc.items,events:inc.events||[],free:inc.free||[],exams:inc.exams||[],driveUrl:inc.driveUrl||blk.driveUrl||"",ytUrl:inc.ytUrl||blk.ytUrl||"",tbUrl:inc.tbUrl||blk.tbUrl||"",ourUrl:inc.ourUrl||blk.ourUrl||"",appqUrl:inc.appqUrl||blk.appqUrl||"",canvaUrl:inc.canvaUrl||blk.canvaUrl||"",links:Object.assign({},blk.links||{},inc.links||{}),lgroups:inc.lgroups&&inc.lgroups.length?inc.lgroups:(blk.lgroups||[])});
     const ids=new Set(blk.items.map(i=>i.id));for(const k in blk.progress)if(!ids.has(k))delete blk.progress[k];
   }else{
-    blk={id:uid("b"),shareId:inc.shareId,name:inc.name,created:today(),items:inc.items||[],events:inc.events||[],free:inc.free||[],exams:inc.exams||[],progress:{},driveUrl:inc.driveUrl||"",ytUrl:inc.ytUrl||"",tbUrl:inc.tbUrl||"",ourUrl:inc.ourUrl||"",appqUrl:inc.appqUrl||"",canvaUrl:inc.canvaUrl||"",links:inc.links||{}};
+    blk={id:uid("b"),shareId:inc.shareId,name:inc.name,created:today(),items:inc.items||[],events:inc.events||[],free:inc.free||[],exams:inc.exams||[],progress:{},driveUrl:inc.driveUrl||"",ytUrl:inc.ytUrl||"",tbUrl:inc.tbUrl||"",ourUrl:inc.ourUrl||"",appqUrl:inc.appqUrl||"",canvaUrl:inc.canvaUrl||"",links:inc.links||{},lgroups:inc.lgroups||[]};
     S.blocks.push(blk);
   }
   S.activeId=blk.id;
@@ -2888,9 +2909,8 @@ function showToast(text,id,s){clearTimeout(toastTimer);UI.toast={text,id,s};toas
 function renderToast(){const el=document.getElementById("toast");if(!el)return;const t=UI.toast;el.innerHTML=t?`<div class="toast" role="status"><span>${esc(t.text)}</span>${t.id?'<button data-act="undo">Undo</button>':""}</div>`:""}
 function go(v){UI.view=v;UI.anim="anim";UI.msg="";UI.confirm=null;UI.bulk=null;UI.copyFallback=false;UI.qCopyFallback=false;render();window.scrollTo({top:0})}
 function toggleStage(id,s){
-  const blk=B();const p=blk.progress[id]||(blk.progress[id]={});
-  if(p[s])delete p[s];else p[s]=today();
-  if(!Object.keys(p).length)delete blk.progress[id];
+  const blk=B();const on=!prog(blk,id)[s];
+  for(const x of mates(blk,id)){const q=blk.progress[x]||(blk.progress[x]={});if(on)q[s]=today();else delete q[s];if(!Object.keys(q).length)delete blk.progress[x]}
   buzz();changed();
 }
 function todayLeft(blk){const pl=buildPlan(blk);const d=pl.days.find(x=>x.date===today());return d?d.tasks.filter(tk=>!prog(blk,tk.id)[tk.s]).length:0}
@@ -2934,7 +2954,7 @@ function onClick(e){
       if(doneCount(blk,it.id)===NS()){showToast(`Lecture finished · ${it.code} earned a star`,it.id,s);const r=b.getBoundingClientRect();render();confetti(r.left+r.width/2,r.top+r.height/2,false)}
       else{showToast(`${STAGE_NAME[s]} done · ${it.code}`,it.id,s);render()}
       break}
-    case"undo":{const tt=UI.toast;if(tt&&tt.id){const p=blk.progress[tt.id];if(p){delete p[tt.s];if(!Object.keys(p).length)delete blk.progress[tt.id]}changed()}UI.toast=null;render();break}
+    case"undo":{const tt=UI.toast;if(tt&&tt.id){for(const x of mates(blk,tt.id)){const p=blk.progress[x];if(p){delete p[tt.s];if(!Object.keys(p).length)delete blk.progress[x]}}changed()}UI.toast=null;render();break}
     case"item":UI.confirm=null;UI.sheet={type:"item",id:b.dataset.id};renderSheet();break;
     case"additem":UI.confirm=null;UI.sheet={type:"item",id:null};renderSheet();break;
     case"stars":{const l=studyItems(blk).filter(i=>doneCount(blk,i.id)===NS()).length;const q=S.banks.reduce((x,y)=>x+quizStars(y.best),0);showToast(`⭐ ${l+q} stars: ${l} from finished lectures${q?`, ${q} from quiz scores`:""}`,null,null);renderToast();break}
@@ -2972,10 +2992,11 @@ function onClick(e){
       const base=examMembersBase(blk,ex).has(id);
       if(on&&base)ex.remove.push(id);else if(!on&&!base)ex.add.push(id);
       changed();render();break}
+    case"unlinklec":unlinkLec(blk,b.dataset.id);changed();render();break;
     case"draftonline":UI.sheet.draft.online=!UI.sheet.draft.online;renderSheet();break;
     case"saveitem":saveItem();break;
     case"delitem":UI.confirm={t:"delitem"};renderSheet();break;
-    case"delitemyes":{const id=UI.sheet.id;blk.items=blk.items.filter(i=>i.id!==id);delete blk.progress[id];if(blk.links)delete blk.links[id];blk.exams.forEach(e=>{e.add=e.add.filter(x=>x!==id);e.remove=e.remove.filter(x=>x!==id);if(e.q)delete e.q[id]});UI.confirm=null;UI.sheet=null;changed();render();break}
+    case"delitemyes":{const id=UI.sheet.id;blk.items=blk.items.filter(i=>i.id!==id);delete blk.progress[id];if(blk.links)delete blk.links[id];unlinkLec(blk,id);blk.exams.forEach(e=>{e.add=e.add.filter(x=>x!==id);e.remove=e.remove.filter(x=>x!==id);if(e.q)delete e.q[id]});UI.confirm=null;UI.sheet=null;changed();render();break}
     case"cancelconfirm":UI.confirm=null;render();break;
     case"exam":UI.confirm=null;UI.sheet={type:"exam",id:b.dataset.id};renderSheet();break;
     case"addexam":UI.confirm=null;UI.sheet={type:"exam",id:null};renderSheet();break;
@@ -3120,6 +3141,7 @@ document.addEventListener("change",async e=>{
   if(el.dataset.e==="after"&&UI.sheet&&UI.sheet.draft){UI.sheet.draft.after=el.value}
   if(el.dataset.w&&UI.sheet&&UI.sheet.type==="wizard")UI.sheet[el.dataset.w]=el.value;
   if(el.dataset.s&&blk){const v=el.value.trim();if(el.dataset.s==="name"){if(v)blk.name=v}else if(LINK_KEYS.includes(el.dataset.s)){blk[el.dataset.s]=isUrl(v)?v:"";if(v&&!isUrl(v)){showToast("That doesn't look like a link. Copy it and paste again.",null,null);renderToast()}}changed();render()}
+  if(el.dataset.linkwith&&blk&&el.value){linkLec(blk,el.dataset.linkwith,el.value);changed();render();showToast("Linked. Ticks, link and quiz are shared now.",null,null);renderToast();return}
   if(el.dataset.link&&blk){const v=el.value.trim();blk.links=blk.links||{};if(!v)delete blk.links[el.dataset.link];else if(isUrl(v))blk.links[el.dataset.link]=v;else{showToast("That doesn't look like a link",null,null);renderToast();return}changed();render()}
   if(el.dataset.b==="name"&&UI.sheet&&UI.sheet.type==="bank"){const bk=S.banks.find(x=>x.id===UI.sheet.id);if(bk){bk.name=el.value.trim()||bk.name;changed(["bank_"+bk.id]);render()}}
   if(el.id==="pdf-file"&&el.files&&el.files[0]){readPdf(el.files[0]);el.value=""}
